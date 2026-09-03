@@ -1,0 +1,264 @@
+{
+  "subcultura": "gyaru",
+  "briefing": "Gyaru é a subcultura japonesa nascida no coração de Shibuya nos anos 90, como rebeldia contra o padrão da Yamato Nadeshiko (a mulher submissa, pálida, discreta e do lar). Marcas visuais: pele bronzeada e radiante, contorno firme e afunilado no nariz, sombra branca luminosa no canto interno e na linha inferior, delineado preto grosso puxado levemente para baixo no canto externo (efeito tareme, olhar de boneca), cílios postiços fartos em cima e embaixo, blush alto nas maçãs e boca nude com gloss espelhado. Não é 'maquiagem japonesa colorida' genérica. Subgêneros: Kogal, Hime Gyaru, Agejo, Ganguro.",
+  "personagem": {
+    "nome": "Sana",
+    "aparencia": "Jovem, cabelo loiro ondulado, longo e volumoso, bochechas grandes. Exibe o visual Gyaru completo e impecável — cabelo loiro volumoso, olhos marcantes e gloss espelhado.",
+    "personalidade": "Bem extrovertida, falante e politizada. Apresenta ideias muito feministas e progressistas, e conecta cada passo da maquiagem a uma leitura histórica ou política. Fala com entusiasmo, usa diminutivos carinhosos e trata quem está aprendendo como uma amiga.",
+    "produtos": [
+      "base",
+      "contorno",
+      "iluminador",
+      "sombra-branca",
+      "caneta-delineadora",
+      "cilios-posticos",
+      "blush",
+      "batom",
+      "gloss"
+    ]
+  },
+  "etapas": [
+    {
+      "id": "gyaru-ola",
+      "titulo": "Olá, Sana",
+      "tipo": "abertura",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-sana-ola-1",
+        "personagem-sana-ola-2",
+        "personagem-sana-ola-3"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Olá, que alegria ter você aqui para aprender mais sobre a maquiagem Gyaru! Vai se acomodando, organizando suas makes na bancada e ficando bem pertinho do seu espelho."
+        },
+        {
+          "tipo": "introducao",
+          "texto": "Para quem não conhece, o Gyaru é uma subcultura que nasceu no coração de Shibuya, lá nos anos 90. Eu sou completamente apaixonada por essa estética porque ela nasceu da pura rebeldia!"
+        },
+        {
+          "tipo": "introducao",
+          "texto": " As garotas daquela época simplesmente não aguentavam mais o padrão sufocante da Yamato Nadeshiko — aquele ideal da mulher submissa, \"pura\", do lar, discreta e calada."
+        },
+        {
+          "tipo": "fechamentoIntro",
+          "texto": "A gente recusa o silêncio! Gostamos de ser expressivas, de ser vistas e de ocupar o nosso lugar no mundo exatamente como queremos: através da nossa própria imagem. Pega a sua base e o seu contorno, e vamos juntas!"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-pele",
+      "titulo": "Pele",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "base"
+      ],
+      "ilustracoes": [
+        "personagem-sana-pele-1",
+        "personagem-sana-pele-2",
+        "personagem-sana-pele-3"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Com o rostinho limpinho, vamos começar com a pele, aplicando nossa base uniformemente no rostinho. Bem, não é obrigatório, mas eu gosto de usar uma base levemente bronzeada, eu amo essa pegada radiante."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "Enquanto a gente aplica… você sabe de onde vem essa estética do bronzeado? No Japão, o padrão tradicional sempre valorizou a pele extremamente pálida, o famoso Bihaku."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "Só que esse ideal tem raízes profundamente classistas: historicamente, a pele clara indicava nobreza e lazer dentro de casa, enquanto a pele bronzeada era associada ao trabalho braçal no campo e à pobreza."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "Quando as Gyarus decidiram bronzear a pele, elas fizeram uma subversão direta contra esse elitismo."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": " Elas pegaram o que a sociedade usava para discriminar as classes trabalhadoras e transformaram em um símbolo de orgulho, liberdade e autonomia corporal. Incrível, né?"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-contorno",
+      "titulo": "Contorno",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "contorno",
+        "iluminador"
+      ],
+      "ilustracoes": [
+        "personagem-sana-contorno-1",
+        "personagem-sana-contorno-2",
+        "personagem-sana-contorno-3"
+      ],
+      "nota": "O roteiro aceita iluminador OU sombra branca na faixa central do nariz.",
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Agora vamos para outro passo que eu adoro, o contorno. Gosto de um contorno quente, tipo um bronzer."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "O foco absoluto aqui é o nariz. Vamos traçar linhas firmes nas laterais, afunilando o osso, e depois esfumar bem com a esponjinha úmida."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Para destacar ainda mais, vale passar uma faixa de iluminador ou sombra branca bem no centro!"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-sombra",
+      "titulo": "Sombra",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-branca"
+      ],
+      "ilustracoes": [
+        "personagem-sana-sombra-1",
+        "personagem-sana-sombra-2"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Chegamos na parte mais icônica: os olhos! Vamos começar com o passo da sombra branca, aplicando uma camada bem pigmentada e luminosa por toda a pálpebra móvel."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "O grande segredo aqui é trazer esse branco radiante para o canto interno e toda a linha inferior. É essa luz que cria a base para o nosso efeito de olhos gigantes e expressivos!"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-delineado",
+      "titulo": "Delineado",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "caneta-delineadora"
+      ],
+      "ilustracoes": [
+        "personagem-sana-delineado-1",
+        "personagem-sana-delineado-2",
+        "personagem-sana-delineado-3"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Agora vamos para o rei da maquiagem Gyaru: o delineado preto! Peguem uma caneta bem pigmentada, porque aqui não tem moderação, a linha é bem marcante."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Fazemos um traço bem espesso na pálpebra e puxamos a pontinha ligeiramente para baixo no canto externo. Esse é o efeito tareme, que deixa os olhos grandes, arredondados e expressivos!"
+        },
+        {
+          "tipo": "introducao",
+          "texto": "Aqui o delineado contorna nosso olho aumentado pela sombra, dando esse visual de olhar de boneca."
+        }
+      ]
+    },
+    {
+      "id": "gyaru-cilios",
+      "titulo": "Cílios",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "cilios-posticos"
+      ],
+      "ilustracoes": [
+        "personagem-sana-cilios-1",
+        "personagem-sana-cilios-2",
+        "personagem-sana-cilios-3"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Se tem uma coisa que a estética Gyaru não economiza, é nos cílios! Aqui a regra é o volume dramático, e nós vamos usar modelos tanto em cima quanto embaixo."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Cole os cílios superiores bem rente ao delineado e, o grande truque, encaixe os inferiores um pouquinho abaixo da linha d'água para abrir o olhar ao máximo!"
+        },
+        {
+          "tipo": "introducao",
+          "texto": "A sociedade patriarcal tenta o tempo todo convencer as mulheres a ocuparem pouco espaço. Usar um olhar tão marcante e sem medo de ser \"demais\" é uma afirmação da nossa presença no mundo!"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-blush",
+      "titulo": "Blush",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "blush"
+      ],
+      "ilustracoes": [
+        "personagem-sana-blush"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Agora nosso blush. Aplique o produto bem no topo das maçãs do rosto, subindo um pouquinho em direção aos olhos. Isso dá um ar super jovial e valoriza os traços!"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-batom",
+      "titulo": "Batom",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "batom",
+        "gloss"
+      ],
+      "ilustracoes": [
+        "personagem-sana-batom-1",
+        "personagem-sana-batom-2"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Para finalizar com chave de ouro, vamos para a boca! A maquiagem Gyaru pede lábios desenhados e com aquele brilho espelhado incrível."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Passe um batom nude ou rosado bem natural por todo o lábio e, em seguida, capriche numa camada generosa de gloss transparente para dar bastante volume!"
+        }
+      ]
+    },
+    {
+      "id": "gyaru-fechamento",
+      "titulo": "Fechamento",
+      "tipo": "fechamento",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-sana-fechamento-1",
+        "personagem-sana-fechamento-2",
+        "personagem-sana-fechamento-3"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "fechamento",
+          "texto": "E o nosso visual Gyaru está oficialmente pronto! Essa técnica que mostrei para vocês hoje é só uma das formas incríveis de reproduzir e vivenciar o nosso estilo."
+        },
+        {
+          "tipo": "fechamento",
+          "texto": "A nossa subcultura é um universo dinâmico! Há vários subgêneros dentro do movimento como o Kogal, a Hime Gyaru, a Agejo e a Ganguro, e cada um traz variações bem marcantes na maquiagem e na vestimenta."
+        },
+        {
+          "tipo": "fechamento",
+          "texto": "O mais bonito da estética Gyaru é que não existe uma regra única. Você tem total autonomia para explorar a vertente que mais combina com a sua personalidade e com a forma como você quer se expressar no mundo!"
+        }
+      ]
+    }
+  ]
+}

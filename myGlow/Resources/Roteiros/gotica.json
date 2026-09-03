@@ -1,0 +1,225 @@
+{
+  "subcultura": "gotica",
+  "briefing": "A subcultura gótica nasceu no fim dos anos 70 no Reino Unido, em clubes da juventude alternativa, como resposta política ao consumismo e à superficialidade da época — contra o tatcherismo e o desemprego juvenil, os góticos trocaram a ideia de sucesso pelo consumo de arte e poesia. Marcas visuais: pele branca teatral de clown selada com pancake, alto contraste, contorno cinza esfumado sob a maçã do rosto, sombras frias e profundas (roxo, vinho, cinza), delineado gráfico e contínuo com pontas afiadas em cima e embaixo, boca escura perfeitamente desenhada com lápis, gloss vinílico. É estética de performance e manifesto, não 'embranquecimento'. O movimento Afro-Goth resgata a maquiagem clown do pós-punk sem apagar a ancestralidade negra. Vertentes: Romantic Goth, Cybergoth, Trad Goth.",
+  "personagem": {
+    "nome": "Lucy",
+    "aparencia": "Garota esguia e alta, com um colo elegante, cabelos vermelhos presos em coques laterais, franja, pele preta.",
+    "personalidade": "Elegante, serena e fofa. Fala em um tom poético e muito intelectual, rica de capital cultural, demonstra bastante repertório histórico e político. É ativista do movimento Afro-Goth e trata a maquiagem como manifesto de autonomia e arte.",
+    "produtos": [
+      "clown",
+      "pancake",
+      "sombra-preta",
+      "sombra-roxa",
+      "caneta-delineadora",
+      "mascara-cilios",
+      "batom",
+      "lapis-preto",
+      "gloss"
+    ]
+  },
+  "etapas": [
+    {
+      "id": "gotica-ola",
+      "titulo": "Olá, Lucy",
+      "tipo": "abertura",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-lucy",
+        "personagem-lucy-indicador-falando",
+        "personagem-lucy-indicador-falando"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Olá, hoje vou te guiar nesse universo de maquiagem repleta de drama, melancolia e romantismo. Você já ouviu muito de gótico por aí, não é?"
+        },
+        {
+          "tipo": "contexto",
+          "texto": "A subcultura gótica nasceu no final dos anos 70, no Reino Unido, dentro de clubes da juventude alternativa, desde o início, como uma resposta política contra o consumismo exacerbado e a superficialidade da época."
+        },
+        {
+          "tipo": "fechamentoIntro",
+          "texto": "Contra essa corrente neoliberal do tatcherismo britânico e desemprego de jovens pelo fechamento das fábricas, os góticos surgem mudando a visão de sucesso, considerando o consumo de arte e poesia como virtudes maiores que o dinheiro."
+        }
+      ]
+    },
+    {
+      "id": "gotica-base",
+      "titulo": "Base (Clown + Pancake)",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "clown",
+        "pancake"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-sem-make",
+        "personagem-lucy-clown",
+        "personagem-lucy-clown",
+        "personagem-lucy-pancake"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Vou começar com a preparação de pele. Na subcultura gótica a base branca com cobertura densa e teatral nunca foi sobre \"embranquecimento\", mas sobre transformar o rosto em uma tela de performance e alto contraste."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Aplico a tinta clown com uma esponja úmida em batidinhas firmes por todo o rosto, até atingir uma cobertura uniforme."
+        },
+        {
+          "tipo": "discussao",
+          "texto": "No movimento Afro-Goth resgatamos a maquiagem clown do pós-punk sem apagar a nossa ancestralidade. Usar essa estética sendo uma mulher negra é uma declaração de autonomia e protesto."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Agora, com uma esponja, aplicamos o pancake em batidinhas, para selar nossa pele e impedir que o clown transfira, semelhante com o que fazemos com o pó da maquiagem."
+        }
+      ]
+    },
+    {
+      "id": "gotica-contorno",
+      "titulo": "Contorno",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-preta"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-contorno"
+      ],
+      "nota": "O roteiro pede sombra CINZA. O catálogo não tem cinza, então a etapa aponta para a sombra preta (esfumada com mão leve). Confirmar com o time de roteiro se cinza entra no catálogo.",
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Para criar profundidade ao nosso rosto dramático, usarei uma sombra cinza logo abaixo da maçã do rosto, esfumando em direção à orelha."
+        }
+      ]
+    },
+    {
+      "id": "gotica-sombra",
+      "titulo": "Sombra",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-roxa"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-contorno",
+        "personagem-lucy-sombra"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Os olhos são o portal da alma gótica. Com frequência usamos tons frios e profundos neles. Vamos construir um olhar profundo usando uma sombra roxa."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Com um pincel, começamos esfumando o côncavo para dar profundidade, em seguida aplicamos sobre a pálpebra móvel e puxamos a sombra para o canto externo do olho."
+        }
+      ]
+    },
+    {
+      "id": "gotica-delineado",
+      "titulo": "Delineado",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "caneta-delineadora",
+        "mascara-cilios"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-sombra",
+        "personagem-lucy-delineado-interno-esquerdo",
+        "personagem-lucy-delineado-externo",
+        "personagem-lucy-delineado-grafia-inferior",
+        "personagem-lucy-cilios"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Um traço de maquiagem bem marcante é o delineado. É a mesma estética sombria que você vê nos cenários do Tim Burton, só que adaptada para a vida real e para o nosso próprio rosto."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Começamos com a caneta puxando uma linha na parte do canto interno do olho..."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Posteriormente puxamos uma linha no canto externo dos olhos. Preenchemos até alcançar novamente o limite dos cílios."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Nosso olhar já está bem dramático. Para finalizar esse visual cheio de detalhes, tal qual uma catedral gótica, puxamos algumas linhas no canto inferior externo do olho."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Para completar nosso olhar, adicionamos máscara de cílios."
+        }
+      ]
+    },
+    {
+      "id": "gotica-batom",
+      "titulo": "Batom",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "lapis-preto",
+        "batom"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-cilios",
+        "personagem-lucy-boca"
+      ],
+      "nota": "O \"lápis preto\" do roteiro é o lápis de olho, usado aqui para contornar o arco do cupido.",
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Para os lábios, trazemos a intensidade definitiva da cena: tons escuros, fechados e perfeitamente desenhados."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Contorno o arco do cupido bem afiado com o lápis preto e preencho o centro com o batom preto, trazendo uma profundidade hipnotizante."
+        }
+      ]
+    },
+    {
+      "id": "gotica-gloss",
+      "titulo": "Gloss",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "gloss"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-finalizada"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Para finalizar os lábios, trazemos um gloss para um efeito vinílico, aplicando ele uniformemente nos lábios."
+        }
+      ]
+    },
+    {
+      "id": "gotica-fechamento",
+      "titulo": "Fechamento",
+      "tipo": "fechamento",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-lucy",
+        "personagem-lucy-segurando-camera"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Nosso visual está pronto. De Wandinha Addams a Lydia Deetz, a cultura pop sempre tentou traduzir a cultura gótica. Mas para além do clichê do cinema, a nossa maquiagem é um manifesto de autonomia, arte e alto contraste."
+        },
+        {
+          "tipo": "fechamento",
+          "texto": "O universo gótico é vasto e acolhedor: vai do Romantic Goth, cheio de rendas e poesia, ao Cybergoth industrial e ao Trad Goth oitentista. Cada vertente carrega sua própria voz."
+        }
+      ]
+    }
+  ]
+}

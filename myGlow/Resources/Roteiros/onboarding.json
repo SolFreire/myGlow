@@ -1,0 +1,32 @@
+{
+  "personagem": {
+    "nome": "Edna",
+    "papel": "Recepcionista",
+    "aparencia": "Recepcionista do salão myGlow.",
+    "personalidade": "Calorosa, animada e acolhedora. Chama quem chega de \"diva\", usa linguagem inclusiva e conduz a pessoa pelo salão sem pressa."
+  },
+  "passos": [
+    {
+      "tipo": "fala",
+      "tela": null,
+      "falas": [
+        "Olá, diva! Seja bem-vinda ao salão myGlow! Meu nome é Edna e sou recepcionista daqui. Está preparade para o nosso curso?",
+        "Mas antes de começar, por favor, me informe quais maquiagens você tem disponível para realizar o curso?"
+      ]
+    },
+    { "tipo": "tela", "tela": "cadastro", "falas": null },
+    {
+      "tipo": "fala",
+      "tela": null,
+      "falas": [
+        "Oba! Agora sim sabemos como adaptar algumas maquiagens. Aqui no curso você terá várias especialistas diferentes, você já sabe qual estilo tentar?"
+      ]
+    },
+    { "tipo": "tela", "tela": "salao", "falas": null },
+    {
+      "tipo": "fala",
+      "tela": null,
+      "falas": ["Ótimo! Vou chamar nossa especialista."]
+    }
+  ]
+}

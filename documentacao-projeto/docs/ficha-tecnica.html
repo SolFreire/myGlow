@@ -1,0 +1,825 @@
+<title>Ficha Técnica do Salão</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #fbf6f4;
+    --surface: #ffffff;
+    --surface-2: #f6eeec;
+    --ink: #2b2129;
+    --ink-soft: #6b5a63;
+    --ink-faint: #9c8890;
+    --accent: #a0203f;
+    --accent-strong: #7e1832;
+    --accent-soft: #f2dbe0;
+    --line: #e8dcda;
+    --code-bg: #211a1e;
+    --code-ink: #f3e9ec;
+    --shadow: 0 1px 2px rgba(43,33,41,0.06), 0 8px 24px -12px rgba(43,33,41,0.18);
+
+    --font-display: 'Fraunces', ui-serif, Georgia, serif;
+    --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #1a1216;
+      --surface: #231a1e;
+      --surface-2: #2c2126;
+      --ink: #f3e9ec;
+      --ink-soft: #c9b6bd;
+      --ink-faint: #8d7a82;
+      --accent: #e88ba0;
+      --accent-strong: #f3aebd;
+      --accent-soft: #3a222a;
+      --line: #3a2c31;
+      --code-bg: #120d0f;
+      --code-ink: #f3e9ec;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #1a1216;
+    --surface: #231a1e;
+    --surface-2: #2c2126;
+    --ink: #f3e9ec;
+    --ink-soft: #c9b6bd;
+    --ink-faint: #8d7a82;
+    --accent: #e88ba0;
+    --accent-strong: #f3aebd;
+    --accent-soft: #3a222a;
+    --line: #3a2c31;
+    --code-bg: #120d0f;
+    --code-ink: #f3e9ec;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ -webkit-text-size-adjust: 100%; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  a{ color: var(--accent-strong); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  code, .tag, .chip{ font-family: var(--font-mono); }
+
+  /* ---------- shell layout ---------- */
+  .shell{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 56px) 96px;
+  }
+
+  header.masthead{
+    padding: clamp(40px, 7vw, 76px) 0 40px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin: 0 0 14px;
+  }
+  h1.title{
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
+  .dek{
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 6px;
+  }
+  .meta-line{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 18px;
+  }
+
+  .layout{
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: start;
+  }
+  @media (max-width: 880px){
+    .layout{ grid-template-columns: 1fr; }
+  }
+
+  nav.toc{
+    position: sticky;
+    top: 24px;
+    font-family: var(--font-mono);
+    font-size: 12.8px;
+  }
+  @media (max-width: 880px){
+    nav.toc{ position: static; margin-bottom: 8px; }
+  }
+  nav.toc .toc-label{
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin: 0 0 12px;
+  }
+  nav.toc ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    border-left: 1px solid var(--line);
+  }
+  nav.toc a{
+    display: block;
+    padding: 2px 0 2px 14px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  nav.toc a:hover{ color: var(--accent-strong); }
+
+  main{ min-width: 0; }
+
+  section.block{
+    padding-top: 52px;
+    scroll-margin-top: 20px;
+  }
+  section.block + section.block{
+    border-top: 1px solid var(--line);
+  }
+
+  h2{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+    margin: 0 0 4px;
+    letter-spacing: -0.005em;
+  }
+  .section-num{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 6px;
+  }
+  h3{
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.02rem;
+    margin: 28px 0 10px;
+  }
+  p{ margin: 0 0 16px; max-width: 72ch; }
+  ul, ol.plain{ margin: 0 0 16px; padding-left: 1.2em; max-width: 68ch; }
+  li{ margin-bottom: 6px; }
+  strong{ font-weight: 700; }
+
+  code{
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 0.1em 0.42em;
+    border-radius: 3px;
+    font-size: 0.87em;
+    color: var(--accent-strong);
+    white-space: nowrap;
+  }
+
+  /* ---------- summary table (top) ---------- */
+  .summary-wrap{ overflow-x: auto; }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.94rem;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  caption{
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  th, td{
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  thead th{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td{ border-bottom: none; }
+  td.rec{ color: var(--accent-strong); font-weight: 600; }
+
+  /* ---------- callouts ---------- */
+  .callout{
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 18px 20px;
+    margin: 20px 0;
+    max-width: 72ch;
+  }
+  .callout .callout-label{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent-strong);
+    margin: 0 0 8px;
+  }
+  .callout p:last-child{ margin-bottom: 0; }
+
+  /* ---------- journey flow ---------- */
+  .flow{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 24px 0 28px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    padding: 22px clamp(12px, 3vw, 22px);
+    overflow-x: auto;
+  }
+  .flow-step{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+  }
+  .flow-step .num{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-strong);
+    background: var(--accent-soft);
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .flow-step .label{
+    font-size: 0.86rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .flow-arrow{
+    color: var(--ink-faint);
+    padding: 0 14px;
+    font-size: 1rem;
+    flex: none;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  pre{
+    background: var(--code-bg);
+    color: var(--code-ink);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    padding: 20px 22px;
+    overflow-x: auto;
+    margin: 18px 0 22px;
+    box-shadow: var(--shadow);
+  }
+  pre code{
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    white-space: pre;
+    font-size: 1em;
+  }
+
+  footer .sources-label{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-faint);
+    margin: 0 0 10px;
+  }
+  footer ul{ padding-left: 1.1em; margin: 0; }
+  footer li{ margin-bottom: 5px; }
+</style>
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="eyebrow">Levantamento técnico · iOS · agosto de 2026</p>
+    <h1 class="title">Ficha Técnica do Salão</h1>
+    <p class="dek">Stack recomendada para o app gameficado de maquiagem — subculturas gótica, gyaru e new romantic, conduzidas por personagens em um salão virtual, com sugestão de técnicas por IA on-device a partir do que a usuária já tem cadastrado.</p>
+    <p class="meta-line">Referência viva · atualize conforme decisões do projeto mudarem</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Sumário">
+      <p class="toc-label">Neste documento</p>
+      <ol>
+        <li><a href="#resumo">Resumo das escolhas</a></li>
+        <li><a href="#plataforma">1 · Plataforma</a></li>
+        <li><a href="#ia">2 · IA on-device</a></li>
+        <li><a href="#dados">3 · Persistência</a></li>
+        <li><a href="#midia">4 · Câmera e edição</a></li>
+        <li><a href="#compartilhar">5 · Compartilhar</a></li>
+        <li><a href="#ui">6 · Interface, narrativa e drag-and-drop</a></li>
+        <li><a href="#gamificacao">7 · Gamificação</a></li>
+        <li><a href="#nuvem">8 · Nuvem e backend</a></li>
+        <li><a href="#testes">9 · Testes</a></li>
+        <li><a href="#distribuicao">10 · Distribuição</a></li>
+        <li><a href="#compat">11 · Compatibilidade</a></li>
+        <li><a href="#futuro">12 · Roadmap v2 e além</a></li>
+        <li><a href="#arquitetura">13 · Arquitetura de código</a></li>
+        <li><a href="#poc">14 · PoC — Foundation Models</a></li>
+        <li><a href="#swift-testing">15 · Testes com Swift Testing</a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <section class="block" id="resumo">
+        <span class="section-num">Panorama</span>
+        <h2>Resumo das escolhas recomendadas</h2>
+        <p>Para quem só precisa da resposta rápida: a coluna da direita é o motivo de cada escolha entrar aqui.</p>
+
+        <div class="summary-wrap">
+        <table>
+          <thead>
+            <tr><th>Necessidade</th><th>Tecnologia</th><th>Por quê</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Linguagem e UI</td><td class="rec">Swift + SwiftUI</td><td>Padrão atual da Apple; integra nativamente com todo o resto da lista</td></tr>
+            <tr><td>Sugestão de técnicas via IA</td><td class="rec">Foundation Models framework</td><td>Roda on-device, grátis e privado; usa o inventário cadastrado como contexto</td></tr>
+            <tr><td>Cadastro de maquiagens / progresso</td><td class="rec">SwiftData</td><td>Sucessor moderno do Core Data, feito para SwiftUI</td></tr>
+            <tr><td>Captura de foto</td><td class="rec">AVFoundation ou PhotosPicker</td><td>Escolha depende de quanto a tela de câmera precisa ser customizada</td></tr>
+            <tr><td>Edição da foto final</td><td class="rec">SwiftUI + ImageRenderer</td><td>Stickers são composição de views; Core Image só se entrar filtro/blend mode</td></tr>
+            <tr><td>Compartilhar / salvar</td><td class="rec">ShareLink + PhotosUI</td><td>APIs nativas, sem dependência externa</td></tr>
+            <tr><td>Sincronizar entre dispositivos</td><td class="rec">CloudKit (opcional)</td><td>Usa a conta iCloud da usuária, sem servidor próprio</td></tr>
+            <tr><td>Gamificação</td><td class="rec">GameKit / Game Center (opcional)</td><td>Conquistas e progresso prontos, sem infraestrutura própria</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section class="block" id="plataforma">
+        <span class="section-num">01</span>
+        <h2>Plataforma e linguagem</h2>
+        <p><strong>Swift</strong> como linguagem e <strong>SwiftUI</strong> como framework de UI — caminho nativo recomendado pela Apple para apps novos, com integração direta com SwiftData, Foundation Models e PhotosUI. <strong>Xcode</strong> cobre build, teste e distribuição.</p>
+
+        <p>A decisão mais importante do projeto é a versão mínima de iOS, porque ela trava o que fica disponível para a IA (próxima seção). Duas rotas:</p>
+
+        <div class="callout">
+          <p class="callout-label">Rota A — iOS 26 como mínimo</p>
+          <p>Acesso direto ao Foundation Models framework, sem lógica condicional. Em troca, exclui usuárias em versões ou dispositivos mais antigos.</p>
+        </div>
+        <div class="callout">
+          <p class="callout-label">Rota B — iOS 18 (ou anterior) como mínimo, com detecção de recurso</p>
+          <p>Cadastro, trilha guiada, câmera, edição e compartilhamento funcionam em versões mais antigas. A sugestão por IA verifica <code>SystemLanguageModel.availability</code> em tempo de execução e cai para conteúdo estático/regras pré-definidas quando o recurso não está disponível.</p>
+        </div>
+      </section>
+
+      <section class="block" id="ia">
+        <span class="section-num">02</span>
+        <h2>IA generativa on-device — Foundation Models</h2>
+        <p>É o componente mais específico do produto: usar o inventário de maquiagens cadastrado para que o personagem sugira técnicas alternativas — por exemplo, na ausência de delineador líquido, orientar como fazer o mesmo efeito com lápis.</p>
+
+        <h3>O que é</h3>
+        <p>Framework nativo da Apple, introduzido no iOS 26, que expõe a apps de terceiros o mesmo modelo de linguagem on-device usado pela Apple Intelligence.</p>
+
+        <h3>Peças principais da API</h3>
+        <ul>
+          <li><code>SystemLanguageModel</code> — ponto de acesso ao modelo; é preciso checar <code>availability</code> (<code>.available</code> / <code>.unavailable(reason)</code>) antes de usar.</li>
+          <li><code>LanguageModelSession</code> — mantém contexto e histórico da conversa; inicializada com instruções, guardrails e ferramentas.</li>
+          <li><code>@Generable</code> / <code>@Guide</code> — pedem saída estruturada (JSON tipado) em vez de texto livre, útil para retornar algo como <code>{ tecnica, substituicoes, passoAPasso }</code>.</li>
+          <li><strong>Tool calling</strong> — o modelo chama funções Swift customizadas (ex.: consultar os itens cadastrados) via o protocolo <code>Tool</code>, sem precisar reinjetar o inventário inteiro a cada prompt.</li>
+          <li><code>streamResponse()</code> — resposta em streaming, útil para a sensação de personagem falando em tempo real durante o tutorial.</li>
+        </ul>
+
+        <h3>Requisitos e limitações</h3>
+        <ul>
+          <li>Exige <strong>iOS 26+</strong> e hardware compatível com Apple Intelligence — na prática, <strong>iPhone 15 Pro/Pro Max ou mais recente</strong> (A17 Pro ou superior), com Apple Intelligence habilitada nas configurações.</li>
+          <li>Um guardrail de conteúdo da Apple é sempre aplicado e não pode ser desativado.</li>
+          <li>Roda majoritariamente on-device; prompts mais complexos podem usar Private Cloud Compute (infraestrutura própria da Apple).</li>
+          <li>Ainda pode carregar rótulo de API em evolução — vale conferir a documentação da versão de Xcode usada pelo time.</li>
+        </ul>
+
+        <div class="callout">
+          <p class="callout-label">Novidade WWDC26</p>
+          <p>A Apple abriu o Foundation Models framework para <strong>provedores de LLM de terceiros</strong> (Gemini, Claude/Anthropic incluídos) via um protocolo público (<code>LanguageModel</code> / <code>LanguageModelExecutor</code>). O mesmo código de <code>LanguageModelSession</code> passa a funcionar com outro provedor por trás — o que abre a estratégia de usar on-device como padrão e um provedor de nuvem como fallback em dispositivos sem Apple Intelligence, mantendo a mesma interface de código. Isso exige guardar a chave de API fora do app, ou seja, um pequeno backend/proxy (seção 8).</p>
+        </div>
+      </section>
+
+      <section class="block" id="dados">
+        <span class="section-num">03</span>
+        <h2>Cadastro e persistência local</h2>
+        <p>Para o inventário de maquiagens, progresso na trilha e preferências da usuária.</p>
+
+        <div class="summary-wrap">
+        <table>
+          <caption>SwiftData vs. Core Data para este projeto</caption>
+          <thead>
+            <tr><th></th><th>SwiftData</th><th>Core Data</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Integração com SwiftUI</td><td>Nativa (<code>@Model</code>, <code>@Query</code>)</td><td>Mais boilerplate</td></tr>
+            <tr><td>Curva de aprendizado</td><td>Sintaxe Swift moderna e simples</td><td>Mais verboso</td></tr>
+            <tr><td>Controle fino</td><td>Menos controle de baixo nível</td><td>Mais maduro, mais controle</td></tr>
+            <tr><td>Indicação</td><td class="rec">Recomendado — modelo de dados é simples</td><td>Só se já houver base de código em Core Data</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>SwiftData também integra de forma mais direta com CloudKit, o que facilita a sincronização opcional entre dispositivos (seção 8).</p>
+
+        <h3>Cadastro por seleção, não por digitação</h3>
+        <p>Decisão do time: o cadastro não é um campo de texto livre — o usuário <strong>seleciona</strong> o item numa lista ilustrada de opções pré-definidas (catálogo com ícone/ilustração por item, curado pelo time de design; hoje desenhado como arrastar o item até a cesta da categoria correspondente, seção 6). Isso muda o que a camada de dados precisa tratar:</p>
+        <ul>
+          <li><strong>Não existe validação de texto livre</strong> (campo vazio, caracteres inválidos, nome mal formatado) — essa classe inteira de erro não ocorre, porque a entrada já vem de uma seleção fechada e válida.</li>
+          <li>O catálogo ilustrado (nomes, ícones, associação com subcultura/categoria) é conteúdo estático — vive como asset/JSON no bundle do app, não como dado gerado pelo usuário, e é responsabilidade do design, não da camada de persistência.</li>
+          <li>A única validação que ainda faz sentido no cadastro é de <strong>duplicidade</strong> (o mesmo item sendo arrastado/selecionado duas vezes) — e mesmo essa pode ser resolvida na própria UI (item já cadastrado fica "desabilitado" no catálogo) em vez de uma checagem no código de persistência.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="midia">
+        <span class="section-num">04</span>
+        <h2>Câmera, mídia e edição de imagem</h2>
+
+        <h3>Captura da foto final</h3>
+        <ul>
+          <li><code>PhotosPicker</code> (PhotosUI) se bastar usar o app de Câmera do sistema ou escolher uma foto já existente.</li>
+          <li><code>AVFoundation</code> / <code>AVCaptureSession</code> se for necessária uma tela de câmera customizada — por exemplo, com o espelho do salão já visível durante a captura.</li>
+        </ul>
+
+        <h3>Edição pós-captura</h3>
+        <ul>
+          <li><strong>Posicionamento dos stickers, em tela:</strong> SwiftUI puro resolve — um <code>ZStack</code> com a foto base e cada sticker como uma <code>Image</code>, posicionado por gestos (<code>DragGesture</code> + <code>MagnificationGesture</code> + <code>RotationGesture</code> combinados). Não precisa de Core Image pra isso; é composição de views, não processamento de pixel.</li>
+          <li><strong>Achatar a composição final</strong> (pra salvar/compartilhar): <code>ImageRenderer</code> (SwiftUI, iOS 16+) renderiza a própria hierarquia de views direto para um <code>UIImage</code>, sem duplicar a lógica de posição numa segunda camada. Alternativa mais manual: <code>UIGraphicsImageRenderer</code> (Core Graphics), desenhando cada camada com as transformações de posição/rotação/escala.</li>
+          <li><strong>Core Image / <code>CIFilter</code></strong> só entra se, além dos stickers, algum filtro de cor/tom ou blend mode for adicionado depois (brilho tipo "screen", granulado, saturação). Para colagem pura de elementos estáticos, sem processamento de pixel, é mais maquinário do que o necessário.</li>
+          <li><strong>Metal</strong> fica para depois — só necessário se entrarem efeitos mais elaborados (partículas, distorção); overlays estáticos não precisam disso na primeira versão.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="compartilhar">
+        <span class="section-num">05</span>
+        <h2>Compartilhamento e salvamento local</h2>
+        <ul>
+          <li><code>ShareLink</code> (SwiftUI, encapsula o <code>UIActivityViewController</code>) para compartilhar a foto editada em outros apps.</li>
+          <li><code>PhotosUI</code> / <code>PHPhotoLibrary</code> para salvar no rolo da câmera, com o pedido de permissão correspondente.</li>
+        </ul>
+        <p>No <code>Info.plist</code>: <code>NSCameraUsageDescription</code>, <code>NSPhotoLibraryAddUsageDescription</code> (e <code>NSPhotoLibraryUsageDescription</code> se também for necessário ler fotos existentes).</p>
+      </section>
+
+      <section class="block" id="ui">
+        <span class="section-num">06</span>
+        <h2>Interface, navegação e narrativa dos personagens</h2>
+
+        <h3>Interação de cadastro — arrastar maquiagem para a cesta</h3>
+        <p>O design pediu, na tela de cadastro, uma interação de arrastar cada item até uma cesta correspondente ao tipo dela (batom, delineador, etc.). É um drag-and-drop de UI — sem física, colisão ou câmera de jogo — então <strong>não precisa de SpriteKit</strong>: as APIs nativas do SwiftUI já cobrem isso.</p>
+        <ul>
+          <li><code>.draggable(_:)</code> + <code>.dropDestination(for:action:)</code> (SwiftUI, iOS 16+) — caminho mais rápido, baseado no protocolo <code>Transferable</code>; menos controle sobre a prévia do arraste e o feedback visual durante o gesto.</li>
+          <li><code>DragGesture</code> manual + checagem de sobreposição de <code>frame</code>/<code>GeometryReader</code> — mais código, mas controle total: cesta destacando ao passar o item por cima, animação de mola (<code>.spring()</code>) se soltar fora do alvo, e <code>.sensoryFeedback</code> (iOS 17+) para o "click" tátil no momento em que o item entra na cesta.</li>
+        </ul>
+        <p>Para o nível de capricho que o time de design está pedindo (feedback visual/tátil no drop), a rota de <code>DragGesture</code> manual tende a entregar o resultado esperado; <code>.draggable</code>/<code>.dropDestination</code> é a opção mais rápida se o visual padrão do sistema já bastar.</p>
+
+        <p>A jornada segue um fluxo linear guiado — vale desenhar a navegação em torno dele:</p>
+
+        <div class="flow" role="img" aria-label="Fluxo: salão, escolha do personagem, tutorial guiado, sugestão de IA, captura de foto, edição, compartilhamento">
+          <div class="flow-step"><span class="num">1</span><span class="label">Salão</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="num">2</span><span class="label">Escolha do personagem</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="num">3</span><span class="label">Tutorial guiado</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="num">4</span><span class="label">Sugestão de IA</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="num">5</span><span class="label">Captura de foto</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="num">6</span><span class="label">Edição</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step"><span class="num">7</span><span class="label">Compartilhar</span></div>
+        </div>
+
+        <ul>
+          <li><strong>SwiftUI</strong> com <code>NavigationStack</code> / <code>NavigationSplitView</code> para essa jornada.</li>
+          <li><strong>Animações:</strong> <code>Animation</code> / <code>PhaseAnimator</code> nativos do SwiftUI para transições; <strong>Lottie</strong> (<code>lottie-ios</code>) se os personagens forem ilustrados em animação vetorial.</li>
+          <li><strong>Narração (opcional):</strong> <code>AVAudioPlayer</code> para áudio pré-gravado (melhor interpretação de voz) ou <code>AVSpeechSynthesizer</code> para narrar texto gerado dinamicamente (mais barato, voz sintética).</li>
+        </ul>
+      </section>
+
+      <section class="block" id="gamificacao">
+        <span class="section-num">07</span>
+        <h2>Gamificação e progresso</h2>
+        <p>O progresso e as conquistas podem ser modelados diretamente em <strong>SwiftData</strong> (entidades de conquistas, maquiagens completadas, subculturas exploradas). <strong>GameKit / Game Center</strong> é opcional e vale a pena se quiser conquistas e ranking padronizados pela Apple sem construir essa infraestrutura do zero.</p>
+      </section>
+
+      <section class="block" id="nuvem">
+        <span class="section-num">08</span>
+        <h2>Sincronização entre dispositivos e backend</h2>
+        <p><strong>CloudKit</strong> é a forma mais simples de sincronizar o cadastro e o progresso entre os dispositivos da mesma usuária via iCloud, sem manter servidor próprio — e integra bem com SwiftData (<code>.modelContainer(for:cloudKitDatabase:)</code>).</p>
+        <p>Um <strong>backend próprio</strong> só entra em cena se a IA em nuvem (seção 2) for usada como fallback: nesse caso, um proxy simples (Cloudflare Workers, Vercel Functions ou AWS Lambda) guarda a chave do provedor de LLM e repassa a chamada — a chave nunca deve ficar embutida no app.</p>
+        <p>Para o escopo descrito hoje (cadastro, tutorial, IA on-device, foto, compartilhar), nenhum backend próprio é necessário.</p>
+      </section>
+
+      <section class="block" id="testes">
+        <span class="section-num">09</span>
+        <h2>Testes e qualidade</h2>
+        <ul>
+          <li><strong>Swift Testing</strong> e/ou <strong>XCTest</strong> para testes unitários (regras de sugestão de técnica, modelos de dados).</li>
+          <li><strong>XCUITest</strong> para o fluxo completo de UI (cadastro → tutorial → foto → compartilhar).</li>
+          <li>Testes de snapshot (ex.: <code>swift-snapshot-testing</code>) para consistência visual das telas de cada subcultura.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="distribuicao">
+        <span class="section-num">10</span>
+        <h2>Distribuição e CI/CD</h2>
+        <p><strong>Xcode Cloud</strong> ou <strong>GitHub Actions + fastlane</strong> para build, testes automatizados e envio ao TestFlight; <strong>TestFlight</strong> para beta com usuárias reais; <strong>App Store Connect</strong> para publicação final.</p>
+      </section>
+
+      <section class="block" id="compat">
+        <span class="section-num">11</span>
+        <h2>Compatibilidade — resumo por dispositivo</h2>
+        <div class="summary-wrap">
+        <table>
+          <thead>
+            <tr><th>Funcionalidade</th><th>iOS mínimo</th><th>Hardware mínimo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cadastro, tutorial, câmera, edição, compartilhar</td><td>iOS 17–18</td><td>Qualquer iPhone suportado por essa versão</td></tr>
+            <tr><td>Sugestão de técnica — Foundation Models (on-device)</td><td>iOS 26+</td><td>iPhone 15 Pro/Pro Max ou mais recente (A17 Pro+), Apple Intelligence habilitada</td></tr>
+            <tr><td>Sugestão de técnica — provedor de nuvem (fallback)</td><td>Qualquer versão suportada pelo app</td><td>Qualquer dispositivo com internet + backend proxy próprio</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section class="block" id="futuro">
+        <span class="section-num">12</span>
+        <h2>Roadmap — v2 e além</h2>
+
+        <div class="callout">
+          <p class="callout-label">Prioridade para a v2 — Create ML no cadastro</p>
+          <p>Decisão do time: se der tempo, a segunda versão estável explora <strong>Create ML</strong> para acelerar o cadastro — a usuária fotografa o item de maquiagem e o app sugere automaticamente o tipo/categoria (batom, delineador, sombra etc.), em vez de preencher tudo manualmente.</p>
+        </div>
+
+        <p>O que isso envolve, para dimensionar o esforço quando chegar a hora:</p>
+        <ul>
+          <li><strong>Dado de treino</strong> — um conjunto de fotos rotuladas por categoria de item (quanto mais variado em ângulo, marca e embalagem, melhor a generalização). Tipicamente é o maior custo do recurso, não o código.</li>
+          <li><strong>Treinamento</strong> — <code>Create ML</code> oferece o app visual (sem código, arrasta o dataset e treina um classificador de imagem) ou o framework em Swift/Playground (mesmo processo, programático e versionável). Para categorias de maquiagem, o app costuma bastar.</li>
+          <li><strong>Integração</strong> — o modelo exporta como <code>.mlmodel</code>/<code>.mlpackage</code> e entra via <strong>Core ML</strong> + <strong>Vision</strong> (<code>VNCoreMLRequest</code>): a foto do cadastro passa pelo modelo, que devolve a categoria sugerida, com a usuária podendo corrigir.</li>
+          <li><strong>Convive com o Foundation Models</strong> — são complementares: Create ML classifica <em>o que é</em> o item a partir da imagem; Foundation Models sugere <em>a técnica</em> a partir do inventário já cadastrado.</li>
+        </ul>
+        <p>Vale já reservar, na v1, um ponto de extensão simples no fluxo de cadastro (ex.: um passo opcional de "fotografar o item") para a v2 plugar o classificador sem redesenhar a tela.</p>
+
+        <h3>Mais além (sem prazo definido)</h3>
+        <ul>
+          <li><strong>ARKit + RealityKit</strong> — provador de maquiagem em tempo real sobre o rosto ao vivo, caso o produto evolua da edição pós-foto para um filtro ao vivo.</li>
+          <li><strong>Vision framework</strong> — detecção de pontos do rosto (olhos, lábios) para alinhar automaticamente os overlays da subcultura, em vez de posicionamento manual.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="arquitetura">
+        <span class="section-num">13</span>
+        <h2>Arquitetura de código sugerida</h2>
+        <p><strong>Padrão:</strong> MVVM com o framework <strong>Observation</strong> (<code>@Observable</code>, iOS 17+) em vez do antigo <code>ObservableObject</code>. Organização por <strong>feature</strong> (pasta por tela/fluxo), não por tipo de arquivo — o app tem um fluxo bem definido e cada etapa evolui de forma independente.</p>
+
+        <pre><code>MaquiagemApp/
+├── App/
+│   ├── MaquiagemApp.swift            // @main — monta o ModelContainer e injeta os serviços
+│   └── AppEnvironment.swift          // container leve de dependências compartilhadas
+│
+├── Core/                             // código sem UI, reaproveitado pelas features
+│   ├── Persistence/
+│   │   ├── Models/                   // @Model (SwiftData): MakeupItem, Character, UserProgress, Achievement
+│   │   └── Repositories/             // MakeupInventoryRepository, ProgressRepository
+│   ├── AI/
+│   │   ├── TechniqueSuggesting.swift         // protocolo
+│   │   ├── FoundationModelsSuggester.swift   // implementação on-device
+│   │   ├── CloudFallbackSuggester.swift      // implementação via provedor externo (opcional, WWDC26)
+│   │   └── MakeupItemClassifying.swift       // protocolo p/ Create ML — stub na v1, implementado na v2
+│   ├── Media/
+│   │   ├── CameraService.swift        // AVFoundation
+│   │   ├── PhotoEditor.swift          // ImageRenderer + overlays da subcultura
+│   │   └── PhotoLibraryService.swift  // salvar / compartilhar
+│   └── DesignSystem/                  // cores, tipografia, componentes (cesta de drop, item arrastável)
+│
+├── Features/
+│   ├── Salao/            // tela inicial — escolha de subcultura/personagem
+│   ├── Cadastro/         // inventário + arrastar item para a cesta
+│   ├── Tutorial/         // trilha guiada pelo personagem + chamada à IA
+│   ├── Camera/           // captura da foto final
+│   ├── Edicao/           // aplicar elementos da subcultura
+│   ├── Compartilhamento/ // ShareLink / salvar no rolo
+│   └── Gamificacao/      // progresso e conquistas
+│   (cada uma com View + ViewModel; Route quando precisar de sub-navegação)
+│
+└── Navigation/
+    └── AppRoute.swift    // enum de rotas + NavigationStack raiz</code></pre>
+
+        <p><strong>Por que isolar a IA e o Create ML atrás de protocolo:</strong> a ViewModel do Tutorial não deveria saber se a sugestão veio do modelo on-device, de um provedor de nuvem (fallback do WWDC26) ou se o item veio de cadastro manual ou classificado pelo Create ML. Isso permite trocar a implementação sem tocar em UI, e testar a ViewModel com um mock em vez de precisar de um iPhone 15 Pro rodando os testes.</p>
+
+        <pre><code>protocol TechniqueSuggesting {
+    func suggestTechnique(
+        for step: TutorialStep,
+        inventory: [MakeupItem]
+    ) async throws -> TechniqueSuggestion
+}
+
+enum TechniqueSuggesterFactory {
+    static func make() -> TechniqueSuggesting {
+        switch SystemLanguageModel.default.availability {
+        case .available:
+            return FoundationModelsSuggester()
+        case .unavailable:
+            // troque por StaticRulesSuggester() se não quiser depender de um backend próprio
+            return CloudFallbackSuggester()
+        }
+    }
+}</code></pre>
+
+        <p><code>MakeupItemClassifying</code> segue o mesmo desenho: na v1, uma implementação <code>ManualEntryClassifier</code> (preenchimento manual mesmo); na v2, troca por <code>CreateMLClassifier</code> sem mexer na tela de cadastro.</p>
+
+        <p><strong>Persistência:</strong> os <code>@Model</code> do SwiftData ficam em <code>Core/Persistence/Models</code>; o acesso passa por um repositório fino (<code>MakeupInventoryRepository</code>, <code>ProgressRepository</code>) em vez de <code>@Query</code> espalhado pelas Views — facilita trocar a fonte de dados depois (ex.: CloudKit) e testar com <code>ModelConfiguration(isStoredInMemoryOnly: true)</code>.</p>
+
+        <p><strong>Injeção de dependência:</strong> um <code>AppEnvironment</code> simples injetado via <code>.environment()</code> no root da <code>App</code> é suficiente para este tamanho de app — evita a complexidade de um framework de DI.</p>
+
+        <p><strong>Testes:</strong> ViewModels testadas com mocks dos protocolos acima; Views cobertas por XCUITest no fluxo ponta a ponta (seção 9).</p>
+
+        <p><strong>Modularização (só se o time crescer):</strong> a estrutura de pastas acima em um único target já basta para a v1. Se a equipe crescer, cada pasta de <code>Core/</code> vira um Swift Package local — refactor mecânico, porque as dependências já estão isoladas por protocolo desde o início.</p>
+
+        <h3>Por que MVVM e não TCA (The Composable Architecture)</h3>
+        <p>MVVM não é "a melhor arquitetura" em termos absolutos — é a escolha certa para o formato atual deste projeto. O TCA (biblioteca de terceiros da Point-Free, baseada em State/Action/Reducer/Effect, estilo Redux/Elm) é tecnicamente mais rigoroso em alguns pontos: testa efeitos assíncronos de forma determinística — bom para o streaming do Foundation Models sem depender de tempo real —, força que toda mudança de estado passe por um único lugar, e escala bem quando várias features compõem estado entre si.</p>
+        <ul>
+          <li><strong>Ceremônia vs. tamanho do time/prazo</strong> — TCA pede modelar cada ação como caso de enum e cada tela como reducer; vale a pena com estado complexo e compartilhado entre muitas features, não para uma jornada majoritariamente linear com um time pequeno correndo pra validar a PoC e esperando as artes.</li>
+          <li><strong>Curva de aprendizado e contratação</strong> — MVVM + <code>@Observable</code> é o padrão que a própria Apple ensina; TCA exige onboarding específico (reducers, effects, macros).</li>
+          <li><strong>Dependência de terceiro</strong> — mantido pela Point-Free, não pela Apple; maduro e amplamente usado, mas é uma peça a mais fora do controle da equipe, com tempo de compilação adicional pelas macros.</li>
+          <li><strong>O ponto forte do TCA já está coberto</strong> — testar efeitos assíncronos e trocar implementações de forma controlada já foi resolvido isolando IA e Create ML atrás de protocolo, sem precisar da arquitetura inteira.</li>
+        </ul>
+        <p>Vale reconsiderar TCA se o app ganhar bastante estado cruzado entre features mais pra frente (gamificação afetando várias telas ao mesmo tempo, navegação profunda) — a migração não seria do zero, já que <code>Core/AI</code> isolado por protocolo entra num reducer do TCA sem precisar ser reescrito.</p>
+      </section>
+
+      <section class="block" id="poc">
+        <span class="section-num">14</span>
+        <h2>PoC do Foundation Models — para rodar em paralelo às artes</h2>
+        <p>Enquanto a equipe técnica/design fecha ilustrações e animações dos personagens, dá para validar isoladamente se o Foundation Models entrega o que o produto precisa — sem depender de nenhuma tela final. É o maior risco técnico do app e o mais barato de testar cedo.</p>
+
+        <h3>Objetivo</h3>
+        <p>Responder três perguntas antes de investir na experiência completa: <strong>(1)</strong> o modelo produz sugestões de técnica corretas e no tom de cada personagem/subcultura; <strong>(2)</strong> tool calling e saída estruturada (<code>@Generable</code>/<code>@Guide</code>) funcionam de forma confiável com um inventário de itens; <strong>(3)</strong> o guardrail de conteúdo da Apple — que não pode ser desativado — não atrapalha vocabulário legítimo da estética gótica (caveira, sangue estilizado, luto, ocultismo).</p>
+
+        <h3>Achados de um teste manual inicial (chamada crua, sem instructions/tool/saída estruturada)</h3>
+        <p>Antes de montar a PoC estruturada, valeu a pena rodar <code>LanguageModelSession().respond(to:)</code> diretamente, só com uma pergunta em texto livre. Três achados concretos que já mudam o desenho desta PoC:</p>
+        <ul>
+          <li><strong>Conhecimento de subcultura é real, mas desigual.</strong> "How can I do a simple goth makeup" cru voltou um passo a passo correto e específico. "Gyaru" cru voltou algo genérico; só ficou preciso (contorno, técnica de aumentar os olhos) com "gyaru clássica". "New Romantic" cru foi o pior caso: o modelo entendeu como "maquiagem romântica" genérica, sem relação com a subcultura/movimento musical britânico dos anos 80 — só acertou depois de reforçar "New Romantic <strong>80's</strong> pop". Conclusão: as <code>instructions</code> da sessão precisam incluir uma descrição curta de cada subcultura, para não depender de o usuário escrever a palavra-chave certa.</li>
+          <li><strong>O modelo não respeita "use apenas estes itens" de forma confiável.</strong> Com um inventário limitado, o modelo generalizou bem em alguns pontos (usou corretivo como base, sem base disponível) mas mencionou produtos fora da lista (primer, pó) e <strong>forçou o uso de todos os itens mesmo quando um deles não fazia sentido</strong> (bronzer sugerido tanto pra New Romantic quanto pra gótico). Isso não se resolve só com prompt mais educado — precisa de estrutura: um campo de saída dedicado a "itens não utilizados e por quê", mais uma checagem determinística no código como rede de segurança.</li>
+          <li><strong>Latência sem streaming: 4 a 5 segundos por resposta</strong>, mesmo pra um pedido simples. Confirma a necessidade de <code>streamResponse()</code> na tela de tutorial em vez de esperar a resposta inteira parada.</li>
+        </ul>
+        <p>Os três testes usaram só texto livre — nenhum usou <code>@Generable</code>/<code>@Guide</code> nem a <code>Tool</code> de inventário. A base de conhecimento é promissora; a parte de <strong>controle/restrição</strong> — o que a saída estruturada e regras explícitas devem resolver — ainda é o próximo passo real desta PoC, não um bônus.</p>
+
+        <h3>Critérios de sucesso</h3>
+        <ul>
+          <li>Sugestões plausíveis e no tom certo em pelo menos ~80% de uma bateria de ~15 prompts de teste (5 por subcultura).</li>
+          <li><strong>Nenhum produto fora do inventário aparece na sugestão sem estar no campo "itens não utilizados"</strong> — motivado pelo achado acima.</li>
+          <li><strong>Itens do inventário que não fazem sentido pro visual são sinalizados como não utilizados, em vez de forçados</strong> (ex.: bronzer num visual gótico).</li>
+          <li><strong>A subcultura certa é reconhecida mesmo com o nome curto/ambíguo</strong> (só "new romantic", sem reforçar "anos 80"), graças ao contexto embutido nas instructions.</li>
+          <li>Tool calling busca corretamente o item certo no inventário mock — comparar com a injeção direta da lista (mais simples, e foi o que funcionou no teste manual) e decidir qual usar na v1.</li>
+          <li><code>streamResponse()</code> começa a exibir texto em tempo aceitável — o teste manual sem streaming mediu 4-5s de espera "muda".</li>
+          <li>Nenhum prompt legítimo de maquiagem gótica é bloqueado pelo guardrail; se algum for, documentar o gatilho e ajustar o prompt/instructions.</li>
+          <li>O caminho de fallback (protocolo <code>TechniqueSuggesting</code>) troca de implementação sem mudar código de chamada.</li>
+        </ul>
+
+        <h3>Escopo técnico</h3>
+        <ul>
+          <li>Target/tela de debug isolada — sem arte, sem animação: texto do sistema, botões padrão, uma lista simples.</li>
+          <li>Tela de diagnóstico checando <code>SystemLanguageModel.availability</code> e exibindo o <code>reason</code> bruto quando <code>.unavailable</code> — já foi relatado o availability retornar <code>.available</code> mesmo com o download do modelo incompleto, por divergência entre idioma do Siri e do sistema.</li>
+          <li>Inventário mock (array Swift ou JSON, sem SwiftData/UI de cadastro ainda), com itens propositalmente ausentes em alguns casos.</li>
+          <li><code>LanguageModelSession</code> com instructions por personagem (gótico, gyaru, new romantic) — testar se o prompt sozinho sustenta a voz.</li>
+          <li>Uma <code>@Generable struct</code> de saída (passo a passo, substituições, curiosidade) via <code>@Guide</code>.</li>
+          <li>Uma <code>Tool</code> simples consultando o inventário mock, validando o tool calling ponta a ponta.</li>
+          <li>O protocolo <code>TechniqueSuggesting</code> da seção 13 já plugado aqui, com uma segunda implementação-esqueleto para validar a troca sem vazar para quem consome.</li>
+          <li>Registro simples dos resultados (log/arquivo) para comparar respostas entre iterações de prompt.</li>
+        </ul>
+
+        <div class="callout">
+          <p class="callout-label">Fora do escopo desta PoC</p>
+          <p>Arte e animação dos personagens, tela de câmera/edição final, interação de arrastar para a cesta, CloudKit, gamificação, Create ML (v2) — tudo isso segue nos trilhos já descritos nas seções anteriores.</p>
+        </div>
+
+        <h3>Matriz de teste sugerida</h3>
+        <div class="summary-wrap">
+        <table>
+          <thead><tr><th>Subcultura</th><th>Cenário</th></tr></thead>
+          <tbody>
+            <tr><td>Gótico</td><td>Item ausente (sem delineador líquido → orientar com lápis)</td></tr>
+            <tr><td>Gótico</td><td>Vocabulário sensível da estética (sangue estilizado, luto, ocultismo) — checar interferência do guardrail</td></tr>
+            <tr><td>Gótico</td><td>Inventário com item que não combina com o visual (ex.: bronzer) — checar se é sinalizado como não utilizado em vez de forçado</td></tr>
+            <tr><td>Gyaru</td><td>Item presente — pedir técnica de aplicação</td></tr>
+            <tr><td>Gyaru</td><td>Pergunta de curiosidade histórica/cultural no meio do tutorial</td></tr>
+            <tr><td>New romantic</td><td>Nome da subcultura sozinho, sem reforçar "anos 80" — checar se o contexto das instructions basta</td></tr>
+            <tr><td>New romantic</td><td>Item ambíguo/nome genérico no inventário</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h3>Onde isso mora no código</h3>
+        <p>Reaproveita diretamente a camada <code>Core/AI/</code> da arquitetura da seção 13 — não é uma PoC descartável, é o começo real de <code>FoundationModelsSuggester.swift</code>. Validar aqui já adianta trabalho de produção.</p>
+
+        <div class="callout">
+          <p class="callout-label">Confirmar antes de começar — acesso a dispositivo</p>
+          <p>Foundation Models exige iOS 26+ em hardware com Apple Intelligence (iPhone 15 Pro+). Há relatos de desenvolvedores para quem o Simulator não reporta o modelo como disponível de forma confiável — a PoC deve partir do princípio de que vai precisar de um <strong>iPhone físico compatível</strong>, e isso deve ser confirmado antes de alocar tempo de desenvolvimento.</p>
+        </div>
+
+        <p><strong>Esforço estimado:</strong> um dev, cerca de 3 a 5 dias — a maior parte tende a ir para iterar o texto das instructions/prompt até o tom ficar consistente, não para o código de integração em si.</p>
+      </section>
+
+      <section class="block" id="swift-testing">
+        <span class="section-num">15</span>
+        <h2>Testes unitários com Swift Testing — prospecção</h2>
+        <p>A seção 9 já apontava Swift Testing/XCTest + XCUITest; aqui está o detalhamento de onde aplicar Swift Testing especificamente, mapeado na arquitetura da seção 13.</p>
+
+        <h3>Por que Swift Testing (para a parte unitária)</h3>
+        <p>Sintaxe mais enxuta que o XCTest: <code>@Test</code> no lugar do prefixo <code>test</code>, <code>#expect</code> como asserção única (mostra a expressão real que falhou, sem escolher entre <code>XCTAssertEqual</code>/<code>XCTAssertTrue</code>/etc.) e <code>#require</code> para desembrulhar opcional interrompendo o teste se vier nil. Suporte nativo a <code>async</code>/<code>await</code> — importante porque quase toda a camada de IA e persistência é assíncrona. Testes <strong>parametrizados</strong> (<code>@Test(arguments:)</code>) evitam duplicar teste por variação de entrada. <strong>Tags</strong> filtram por categoria (ex.: separar o que roda em todo PR do que exige hardware real). E convive no mesmo target com o XCTest — o XCUITest continua necessário para UI e testes de performance (<code>XCTMetric</code>).</p>
+
+        <h3>Onde aplicar, por camada</h3>
+        <ul>
+          <li><strong><code>Core/AI</code></strong> — a resposta real do Foundation Models é não determinística, então não faz sentido testar unitariamente "o texto que o modelo gerou". Testável: a lógica de <code>TechniqueSuggesterFactory</code> (dado um <code>availability</code> mockado, escolhe a implementação certa), o mapeamento da saída <code>@Generable</code> para o modelo de domínio, o comportamento de erro/fallback, e a conformidade do <code>CloudFallbackSuggester</code>/<code>StaticRulesSuggester</code> ao protocolo. Testes que dependem do modelo real (útil pra acompanhar a PoC da seção 14) ficam com uma tag própria (ex.: <code>.tags(.requiresDevice)</code>) para não travar o CI.</li>
+          <li><strong><code>Core/Persistence</code></strong> — repositórios testados contra <code>ModelConfiguration(isStoredInMemoryOnly: true)</code> do SwiftData; cada <code>@Test</code> cria seu próprio container em memória, isolamento limpo sem o <code>setUp</code>/<code>tearDown</code> compartilhado do XCTest.</li>
+          <li><strong><code>Features/Cadastro</code></strong> — a lógica de "o item foi solto dentro da cesta?" só vale a pena testada como função pura, fora do gesture handler; extraída assim, é caso perfeito pra teste parametrizado com várias combinações de posição/offset.</li>
+          <li><strong><code>Features/Tutorial</code></strong> — ViewModel testada com um mock de <code>TechniqueSuggesting</code>: estado indo de carregando → sucesso/erro corretamente, inventário repassado do jeito certo.</li>
+          <li><strong><code>Features/Gamificacao</code></strong> — regras de desbloqueio de conquista são lógica pura, também ótimas para parametrização.</li>
+          <li><strong><code>Core/Media</code></strong> — <code>CameraService</code>/<code>PhotoLibraryService</code> são casca fina sobre AVFoundation/PhotosUI e não compensam teste unitário direto; vale testar a lógica em torno, não a captura em si.</li>
+        </ul>
+
+        <div class="callout">
+          <p class="callout-label">Fora do escopo do teste unitário</p>
+          <p>Qualidade da resposta do Foundation Models real (fica com a bateria de prompts da PoC), captura de câmera de verdade, fluxo ponta a ponta de UI (XCUITest) e testes de performance (<code>XCTMetric</code>, também XCTest).</p>
+        </div>
+
+        <h3>Recurso extra: exit tests</h3>
+        <p>Desde o Swift 6.2, Swift Testing suporta <strong>exit tests</strong> — validam código que encerra o processo (<code>fatalError</code>, <code>precondition</code>), rodando em um processo filho. Útil se algum ponto da camada de dados usar <code>precondition</code> para invariantes (ex.: garantir que um <code>MakeupItem</code> sempre tem uma subcultura associada).</p>
+
+        <h3>Plano faseado</h3>
+        <ul>
+          <li><strong>Durante a PoC (seção 14):</strong> lógica de <code>TechniqueSuggesterFactory</code> e validação da saída <code>@Generable</code> — reaproveita o trabalho da PoC diretamente.</li>
+          <li><strong>Construção da v1:</strong> testes de repositório (SwiftData em memória), função pura do drop na cesta, ViewModels com mocks.</li>
+          <li><strong>Hardening pré-lançamento:</strong> regras de gamificação, casos de borda, revisão de cobertura.</li>
+        </ul>
+
+        <p>Estrutura de testes espelha <code>Core/</code> e <code>Features/</code> (ex.: <code>MaquiagemAppTests/Core/AI/TechniqueSuggesterFactoryTests.swift</code>), rodando em todo PR — exceto os marcados com a tag de hardware real, que rodam manualmente antes de cada release.</p>
+      </section>
+
+      <footer>
+        <p class="sources-label">Fontes consultadas</p>
+        <ul>
+          <li><a href="https://www.createwithswift.com/exploring-the-foundation-models-framework/" target="_blank" rel="noopener">Exploring the Foundation Models framework — Create with Swift</a></li>
+          <li><a href="https://dev.to/arshtechpro/wwdc-2026-apple-just-opened-the-foundation-models-framework-to-any-llm-provider-5ejn" target="_blank" rel="noopener">WWDC 2026 — Apple abre o Foundation Models framework para outros provedores de LLM</a></li>
+          <li><a href="https://developer.apple.com/videos/play/wwdc2026/339/" target="_blank" rel="noopener">Bring an LLM provider to the Foundation Models framework — WWDC26, Apple Developer</a></li>
+          <li><a href="https://support.apple.com/en-us/121115" target="_blank" rel="noopener">How to get Apple Intelligence — Apple Support</a></li>
+          <li><a href="https://theswiftk.it.com/blog/swiftdata-vs-core-data-swiftui" target="_blank" rel="noopener">SwiftData vs Core Data — comparativo 2026</a></li>
+          <li><a href="https://joschua.io/posts/2025/08/23/guardrail-error-xcode-26/" target="_blank" rel="noopener">How to fix guardRailViolationError with Foundation Models on Xcode 26</a></li>
+          <li><a href="https://developer.apple.com/forums/thread/815397" target="_blank" rel="noopener">Foundation models not detectable in Xcode simulator — Apple Developer Forums</a></li>
+          <li><a href="https://www.avanderlee.com/swift-testing/modern-unit-test/" target="_blank" rel="noopener">Swift Testing explained with code examples — SwiftLee</a></li>
+        </ul>
+      </footer>
+
+    </main>
+  </div>
+</div>
