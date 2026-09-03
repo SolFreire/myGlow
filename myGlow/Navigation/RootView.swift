@@ -11,10 +11,7 @@ struct RootView: View {
     @AppStorage("primeiroUsoConcluido") private var primeiroUsoConcluido = false
 
     @State private var emOnboarding: Bool?
-    /// Dono único de quais lembranças já foram conquistadas. Fica aqui, e não
-    /// dentro do salão, porque o salão é a raiz da pilha e nunca desaparece —
-    /// um `.task` lá dentro rodaria uma vez só e o objeto recém-conquistado só
-    /// apareceria no próximo lançamento do app.
+
     @State private var lembrancas: LembrancaViewModel?
 
     @State private var jogou = {
@@ -79,18 +76,13 @@ struct RootView: View {
                 }
             }
         }
-        // Relê o progresso a cada mudança de rota — em particular ao voltar do
-        // tutorial, que é quando uma lembrança nova passa a existir. São três
-        // registros; reler de mais é barato, reler de menos deixa o salão
-        // desatualizado bem no momento da recompensa.
+
         .task(id: caminho) {
             if lembrancas == nil {
                 lembrancas = LembrancaViewModel(progresso: ambiente.progresso)
             }
             await lembrancas?.carregar()
         }
-        // Voltar ao salão é esvaziar a pilha — vale de qualquer profundidade, e
-        // interrompe a experiência em andamento se houver uma.
         .environment(\.voltarAoSalao) { caminho.removeAll() }
     }
 }

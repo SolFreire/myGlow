@@ -56,9 +56,11 @@ struct CadastroView: View {
         }
     }
 
-    // MARK: - Maleta
-
     private func maleta(_ vm: CadastroViewModel) -> some View {
+        // `ignoresSafeArea` aqui, e nao no `conteudo`: assim a maleta mede a
+        // altura fisica da tela e encosta na borda, do mesmo jeito que as
+        // personagens do Tutorial. O catalogo ao lado continua dentro da area
+        // segura, porque tem o botao Salvar no topo.
         GeometryReader { proxy in
             let largura = proxy.size.width
             let altura = largura / (Arte.proporcao("maleta-aberta") ?? 1)
@@ -83,6 +85,7 @@ struct CadastroView: View {
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottom)
             .clipped()
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 
 
@@ -121,8 +124,6 @@ struct CadastroView: View {
         }
     }
 
-    /// O fundo desta tela é um degradê entre duas cores do catálogo, e não uma
-    /// ilustração — como todo degradê do app, de cima para baixo.
     private enum Fundo {
         static let gradiente = LinearGradient(
             colors: [Color("fundo-cadastro"), Color("fundo-cadastro-escuro")],
@@ -131,8 +132,14 @@ struct CadastroView: View {
         )
     }
 
-    /// A área útil dentro da mala, em fração da arte: a metade de baixo, onde
-    /// os produtos se acomodam — a de cima é a tampa aberta.
+    private enum Medida {
+        /// Recuo interno do painel de itens.
+        static let recuoDoCatalogo: CGFloat = 14
+        /// Do lado da maleta o recuo e maior: sem ele o primeiro cartao encosta
+        /// na arte, e os dois blocos brigam por atencao.
+        static let respiroAteAMaleta: CGFloat = 32
+    }
+
     private enum Interior {
         static let esquerda: CGFloat = 0.06
         static let direita: CGFloat = 0.94
@@ -140,15 +147,6 @@ struct CadastroView: View {
         static let base: CGFloat = 0.94
     }
 
-    // MARK: - Catálogo
-
-    /// O catálogo.
-    ///
-    /// Sem conta de largura: a coluna recebe uma largura explícita de quem a
-    /// posiciona, as colunas do grid são flexíveis e o cartão fica quadrado pela
-    /// própria proporção. Calcular o lado à mão exigia descontar recuo externo,
-    /// interno e vão entre colunas — e errar qualquer um deles jogava o grid
-    /// para fora da tela.
     private func catalogo(_ vm: CadastroViewModel) -> some View {
         VStack(spacing: 12) {
             BotaoPrimario(titulo: "Salvar", simbolo: "checkmark", preencheLargura: false) {
@@ -181,7 +179,9 @@ struct CadastroView: View {
                         )
                     }
                 }
-                .padding(14)
+                .padding(.vertical, Medida.recuoDoCatalogo)
+                .padding(.trailing, Medida.recuoDoCatalogo)
+                .padding(.leading, Medida.respiroAteAMaleta)
             }
             .scrollIndicators(.hidden)
             .background(
@@ -211,9 +211,20 @@ private struct CartaoDeItem: View {
     @State private var arrastando = false
 
     var body: some View {
-        ArteView(nome: item.asset)
-            .padding(dentroDaMaleta ? 2 : 10)
+        // O quadrado vem de um `Color.clear`, e nao da propria arte.
+        //
+        // Antes o `aspectRatio` ficava depois da imagem: como `ArteView` usa
+        // `scaledToFit`, ela devolvia o tamanho **da arte encaixada**, com a
+        // proporcao de cada PNG. O cartao herdava isso, e cada item da linha
+        // saia de uma largura — batom estreito, paleta larga. Com o quadrado
+        // vindo de fora, todo cartao ocupa a coluna inteira e a arte se encaixa
+        // dentro dele.
+        Color.clear
             .aspectRatio(1, contentMode: .fit)
+            .overlay {
+                ArteView(nome: item.asset)
+                    .padding(dentroDaMaleta ? 2 : 10)
+            }
             .background {
                 if !dentroDaMaleta {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
@@ -256,3 +267,4 @@ private struct CartaoDeItem: View {
             }
     }
 }
+

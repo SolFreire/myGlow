@@ -24,9 +24,6 @@ final class SwiftDataInventoryRepository: MakeupInventoryRepository {
         Set(try await todos().map(\.catalogoID))
     }
 
-    /// Adicionar duas vezes o mesmo item é no-op: a tela de Cadastro mostra o
-    /// item já cadastrado no estado "na maleta", então duplicidade não deveria
-    /// nem chegar aqui — mas a garantia fica no repositório, não na UI.
     func adicionar(_ item: ItemCatalogo) async throws {
         let id = item.id
         let existentes = try contexto.fetch(
