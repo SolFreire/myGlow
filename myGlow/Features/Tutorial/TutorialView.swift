@@ -52,25 +52,13 @@ struct TutorialView: View {
     }
 
     private func conteudo(_ vm: TutorialViewModel) -> some View {
-        // A personagem entra como camada **do fundo**, e nao como irma dele num
-        // ZStack. O motivo e a safe area: `FundoDeCena` ignora a dela e chega a
-        // borda fisica da tela; um irmao no ZStack para no indicador de home e
-        // fica flutuando, com um naco de cenario aparecendo sob os pes.
-        // Sobreposta ao fundo, ela herda esse mesmo retangulo.
-        //
-        // O balao fica de fora dessa regra: como `overlay` comum, ele continua
-        // dentro da safe area — tem texto e botoes, que nao podem encostar na
-        // borda nem ficar sob o indicador de home.
         FundoDeCena(
             nome: "fundo-espelho-tutoriais",
             corDoPlaceholder: Provisorio.cor(de: subcultura),
             emFoco: vm.cenaEmFoco
         )
         .overlay {
-            // Mesma construcao do fundo — `GeometryReader` + `ignoresSafeArea`
-            // — para cair exatamente no mesmo retangulo. `overlay` sozinho nao
-            // basta: ele herda a moldura **segura**, e a personagem parava 18pt
-            // acima da borda, com um naco de cenario aparecendo sob os pes.
+
             GeometryReader { proxy in
                 personagem(vm, em: proxy.size)
             }
@@ -83,12 +71,6 @@ struct TutorialView: View {
     }
 
 
-    /// A personagem, ancorada na base da cena.
-    ///
-    /// A altura vem de `cena`, medida ja sem a safe area: a arte ocupa a cena
-    /// inteira de cima a baixo. Como toda personagem e bem mais alta que larga,
-    /// o `scaledToFit` sempre encaixa pela altura — nao sobra folga vertical
-    /// dentro do proprio quadro para ela boiar.
     @ViewBuilder
     private func personagem(_ vm: TutorialViewModel, em cena: CGSize) -> some View {
         let arte = ArteView(

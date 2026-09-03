@@ -88,13 +88,15 @@ struct SalaoView: View {
         static let proporcao: CGFloat = 852.0 / 393.0
 
         static let cadeira = UnitPoint(x: 0.350, y: 0.875)
-        static let maleta = UnitPoint(x: 0.48, y: 0.306)
+
+        static let maleta = UnitPoint(x: 0.48, y: 0.295)
+
         static let album = UnitPoint(x: 0.177, y: 0.341)
 
 
         static func lembranca(de subcultura: Subcultura) -> (posicao: UnitPoint, largura: CGFloat) {
             switch subcultura {
-            case .gotica: (UnitPoint(x: 0.518, y: 0.445), 0.075)
+            case .gotica: (UnitPoint(x: 0.518, y: 0.450), 0.075)
             case .gyaru: (UnitPoint(x: 0.826, y: 0.562), 0.088)
             case .newRomantic: (UnitPoint(x: 0.448, y: 0.518), 0.062)
             }
