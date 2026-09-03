@@ -38,28 +38,3 @@ struct SelecaoDeExperienciaView: View {
         ambiente.roteiro(de: subcultura)?.personagem.nome ?? subcultura.personagem
     }
 }
-
-/// A lembrança que cada trilha deixa no salão. Sem desenho ainda.
-///
-/// Chega-se aqui tocando o objeto no salão, e o objeto só está lá quando a
-/// trilha terminou — então na prática esta tela só abre desbloqueada. A outra
-/// mensagem fica como rede: se algum dia houver outra porta de entrada (um
-/// atalho de DEBUG, uma lista de conquistas), ela não abre mentindo.
-struct LembrancaView: View {
-    let subcultura: Subcultura
-    let desbloqueado: Bool
-
-    var body: some View {
-        TelaEmConstrucao(titulo: "Lembrança de \(subcultura.personagem)") {
-            Text(
-                desbloqueado
-                    ? "Você já concluiu a experiência com \(subcultura.personagem)."
-                    : "Conclua a experiência com \(subcultura.personagem) para desbloquear."
-            )
-            .font(Tipografia.corpo)
-            .foregroundStyle(Provisorio.textoSecundario)
-            .multilineTextAlignment(.center)
-        }
-        .toolbar(.hidden, for: .navigationBar)
-    }
-}

@@ -56,8 +56,7 @@ struct RootView: View {
             SalaoView(
                 desbloqueadas: lembrancas?.concluidas ?? [],
                 aoSentar: { caminho.append(.selecaoDeExperiencia) },
-                aoNavegar: { caminho.append($0) },
-                aoTocarLembranca: { caminho.append(.lembranca($0)) }
+                aoNavegar: { caminho.append($0) }
             )
             .navigationDestination(for: AppRoute.self) { rota in
                 switch rota {
@@ -67,11 +66,6 @@ struct RootView: View {
                     SelecaoDeExperienciaView { subcultura in
                         caminho.append(.tutorial(subcultura))
                     }
-                case let .lembranca(subcultura):
-                    LembrancaView(
-                        subcultura: subcultura,
-                        desbloqueado: lembrancas?.desbloqueado(subcultura) ?? false
-                    )
                 case let .tutorial(subcultura):
                     TutorialView(subcultura: subcultura) {
                         caminho.append(.camera(subcultura))

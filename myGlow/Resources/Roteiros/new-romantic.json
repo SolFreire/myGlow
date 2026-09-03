@@ -10,6 +10,8 @@
       "pancake",
       "blush",
       "sombra-azul",
+      "sombra-verde",
+      "sombra-amarela",
       "caneta-delineadora",
       "lapis-labial",
       "lapis-preto"
@@ -22,9 +24,9 @@
       "tipo": "abertura",
       "itensNecessarios": [],
       "ilustracoes": [
-        "personagem-cindy-oi-1",
-        "personagem-cindy-oi-2",
-        "personagem-cindy-oi-3"
+        "personagem-cindy",
+        "personagem-cindy",
+        "personagem-cindy-falando"
       ],
       "nota": null,
       "falas": [
@@ -51,15 +53,15 @@
         "pancake"
       ],
       "ilustracoes": [
-        "personagem-cindy-base-1",
-        "personagem-cindy-base-2",
-        "personagem-cindy-base-3",
-        "personagem-cindy-base-4"
+        "personagem-cindy-sem-make",
+        "personagem-cindy-clown",
+        "personagem-cindy-clown",
+        "personagem-cindy-pancake"
       ],
       "nota": null,
       "falas": [
         {
-          "tipo": "introducao",
+          "tipo": "instrucaoPraticaTecnica",
           "texto": "Vamos começar com a tinta clown branca! Na cena New Romantic, essa pele teatral inspirada no Pierrot e no David Bowie não busca cobrir quem você é, mas criar uma tela de alto contraste para as cores."
         },
         {
@@ -67,7 +69,7 @@
           "texto": "Aplico a tinta clown com a esponja por todo o rosto até obter uma cobertura total e aveludada."
         },
         {
-          "tipo": "contexto",
+          "tipo": "instrucaoPratica",
           "texto": "Com a pele completamente branca e selada, o meu visual andrógino ganha a estrutura perfeita."
         },
         {
@@ -81,22 +83,28 @@
       "titulo": "Blush",
       "tipo": "passo",
       "itensNecessarios": [
-        "blush"
+        "blush",
+        "sombra-amarela"
       ],
       "ilustracoes": [
-        "personagem-cindy-blush-1",
-        "personagem-cindy-blush-2",
-        "personagem-cindy-blush-3"
+        "personagem-cindy-pancake",
+        "personagem-cindy-blush-amarelo",
+        "personagem-cindy-blush-magenta",
+        "personagem-cindy-blush-magenta"
       ],
       "nota": "O roteiro pede um blush amarelo bem vibrante.",
       "falas": [
         {
-          "tipo": "introducao",
-          "texto": "Agora vem a mágica: o blush New Romantic! No fundo branco do clown, as cores acendem com o dobro de intensidade. Vamos esculpir o rosto com um magenta bem vibrante."
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Agora vem a mágica: o blush New Romantic! No fundo branco do clown, as cores acendem com o dobro de intensidade. Vamos esculpir o rosto com um misto de amarelo e magenta bem vibrante."
         },
         {
           "tipo": "instrucaoPraticaTecnica",
-          "texto": "Aplico o tom concentrado abaixo da maçã do rosto e puxo em um traço diagonal bem firme em direção às têmporas, criando um ângulo afiado que dialoga com as ombreiras do meu blazer."
+          "texto": "Aplico o tom amarelo vibrante concentrado no topo da bochecha, espalhando pela maça do rosto"
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Em seguida aplico um blush rosa em direção a têmpora, na parte superior dos olhos no terço externo da face."
         },
         {
           "tipo": "contextoHistorico",
@@ -112,14 +120,19 @@
         "sombra-azul"
       ],
       "ilustracoes": [
-        "personagem-cindy-sombra-1",
-        "personagem-cindy-sombra-2"
+        "personagem-cindy-blush-magenta",
+        "personagem-cindy-sombra-azul",
+        "personagem-cindy-sombra-verde"
       ],
       "nota": null,
       "falas": [
         {
           "tipo": "instrucaoPraticaTecnica",
           "texto": "Nos olhos, deposito uma sombra azul elétrica por toda a pálpebra e puxo o esfumado para fora em formato geométrico, conectando a cor diretamente com o blush na têmpora."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Na parte inferior dos olhos, aplicamos a sombra verde, próximo a linha d`água"
         },
         {
           "tipo": "contextoHistorico",
@@ -135,18 +148,18 @@
         "caneta-delineadora"
       ],
       "ilustracoes": [
-        "personagem-cindy-delineado-1",
-        "personagem-cindy-delineado-2"
+        "personagem-cindy-sombra-verde",
+        "personagem-cindy-delineado"
       ],
       "nota": null,
       "falas": [
         {
           "tipo": "instrucaoPraticaTecnica",
-          "texto": "Uso o delineador preto em caneta para criar um traço gráfico bem afiado e pontiagudo na linha dos cílios, emoldurando o olhar com precisão."
+          "texto": "Uso o delineador preto em caneta para criar um traço gráfico na linha dos cílios, emoldurando o olhar com precisão."
         },
         {
           "tipo": "contextoHistorico",
-          "texto": "David Bowie foi o verdadeiro padrinho da nossa cena. Quando ele vestiu a roupa de Pierrot e recrutou os Blitz Kids para o clipe de Ashes to Ashes, ele validou a nossa subcultura para o mundo. Essa maquiagem é a nossa reverência direta ao legado do Camaleão."
+          "texto": "David Bowie quando vestiu a roupa de Pierrot e recrutou os Blitz Kids para o clipe de Ashes to Ashes, validou a nossa subcultura para o mundo. Essa maquiagem é a nossa reverência direta ao legado do Camaleão."
         }
       ]
     },
@@ -155,16 +168,17 @@
       "titulo": "Boca",
       "tipo": "passo",
       "itensNecessarios": [
-        "lapis-labial"
+        "lapis-labial",
+        "batom"
       ],
       "ilustracoes": [
-        "personagem-cindy-boca"
+        "personagem-cindy-batom"
       ],
       "nota": "O roteiro não nomeava o produto desta etapa; o time definiu lápis labial.",
       "falas": [
         {
           "tipo": "instrucaoPraticaTecnica",
-          "texto": "Para a boca, acentuo o arco do cupido para dar um formato bem desenhado."
+          "texto": "Para a boca, acentuo o arco do cupido para dar um formato bem desenhado, e ponho um vermelho marcante."
         }
       ]
     },
@@ -176,8 +190,8 @@
         "lapis-preto"
       ],
       "ilustracoes": [
-        "personagem-cindy-detalhe-1",
-        "personagem-cindy-detalhe-2"
+        "personagem-cindy-pintas",
+        "personagem-cindy-finalizada"
       ],
       "nota": null,
       "falas": [
@@ -197,9 +211,9 @@
       "tipo": "fechamento",
       "itensNecessarios": [],
       "ilustracoes": [
-        "personagem-cindy-fechamento-1",
-        "personagem-cindy-fechamento-2",
-        "personagem-cindy-fechamento-3"
+        "personagem-cindy",
+        "personagem-cindy-falando",
+        "personagem-cindy-segurando-camera"
       ],
       "nota": "Etapa escrita pelo time de desenvolvimento: o roteiro original não tinha fechamento para a Cindy. Pendente de revisão do roteiro.",
       "falas": [
@@ -213,7 +227,7 @@
         },
         {
           "tipo": "fechamento",
-          "texto": "Não existe rosto certo para essa maquiagem. Existe o seu — e o que você decidir dizer com ele hoje."
+          "texto": "Não existe rosto certo para essa maquiagem. Existe o seu e o que você decidir dizer com ele hoje. Se você aceitar, é hora do registro"
         }
       ]
     }

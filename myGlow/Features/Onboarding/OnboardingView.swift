@@ -58,18 +58,24 @@ private struct FalaDaEdna: View {
     let aoContinuar: () -> Void
 
     var body: some View {
-        ZStack(alignment: .bottom) {
-            FundoDeCena(nome: "fundo-salao")
-
-            ArteView(nome: "personagem-edna", simbolo: "person.crop.square")
-                .containerRelativeFrame(.vertical)
-
-            BalaoDeFala(texto: texto, estilo: .padrao, rotulo: personagem, aoAvancar: aoContinuar)
-                .padding(.horizontal, 96)
-                .padding(.bottom, 12)
-        }
-        .overlay(alignment: .topLeading) {
-            BotaoDoCanto(papel: .ajustes).padding(20)
-        }
+        // Mesma montagem do Tutorial: a Edna e camada do fundo, para herdar o
+        // retangulo que vai ate a borda fisica da tela; o balao respeita a safe
+        // area.
+        FundoDeCena(nome: "fundo-salao")
+            .overlay {
+                GeometryReader { proxy in
+                    ArteView(nome: "personagem-edna", simbolo: "person.crop.square")
+                        .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottom)
+                }
+                .ignoresSafeArea()
+            }
+            .overlay(alignment: .bottom) {
+                BalaoDeFala(texto: texto, estilo: .padrao, rotulo: personagem, aoAvancar: aoContinuar)
+                    .padding(.horizontal, 96)
+                    .padding(.bottom, 12)
+            }
+            .overlay(alignment: .topLeading) {
+                BotaoDoCanto(papel: .ajustes).padding(20)
+            }
     }
 }

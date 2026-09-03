@@ -5,11 +5,7 @@
 
 import Foundation
 
-/// Categoria de um item de maquiagem.
-///
-/// Vem sempre do catálogo curado (`CatalogoMaquiagem`), nunca de texto digitado
-/// pela pessoa — por isso não existe validação de texto livre em lugar nenhum
-/// do fluxo de cadastro.
+
 nonisolated enum CategoriaItem: String, Codable, CaseIterable, Sendable {
     case base
     case corretivo
