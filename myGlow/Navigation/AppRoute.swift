@@ -8,7 +8,6 @@ import Foundation
 enum AppRoute: Hashable {
     case cadastro
     case selecaoDeExperiencia
-    case lembranca(Subcultura)
     case tutorial(Subcultura)
     case camera(Subcultura)
     case galeria

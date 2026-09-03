@@ -52,46 +52,61 @@ struct TutorialView: View {
     }
 
     private func conteudo(_ vm: TutorialViewModel) -> some View {
-        ZStack(alignment: .bottom) {
-            FundoDeCena(
-                nome: "fundo-espelho-tutoriais",
-                corDoPlaceholder: Provisorio.cor(de: subcultura),
-                emFoco: vm.cenaEmFoco
-            )
-
-            personagem(vm)
-
-            balao(vm)
-            //sugestao(vm)
+        // A personagem entra como camada **do fundo**, e nao como irma dele num
+        // ZStack. O motivo e a safe area: `FundoDeCena` ignora a dela e chega a
+        // borda fisica da tela; um irmao no ZStack para no indicador de home e
+        // fica flutuando, com um naco de cenario aparecendo sob os pes.
+        // Sobreposta ao fundo, ela herda esse mesmo retangulo.
+        //
+        // O balao fica de fora dessa regra: como `overlay` comum, ele continua
+        // dentro da safe area — tem texto e botoes, que nao podem encostar na
+        // borda nem ficar sob o indicador de home.
+        FundoDeCena(
+            nome: "fundo-espelho-tutoriais",
+            corDoPlaceholder: Provisorio.cor(de: subcultura),
+            emFoco: vm.cenaEmFoco
+        )
+        .overlay {
+            // Mesma construcao do fundo — `GeometryReader` + `ignoresSafeArea`
+            // — para cair exatamente no mesmo retangulo. `overlay` sozinho nao
+            // basta: ele herda a moldura **segura**, e a personagem parava 18pt
+            // acima da borda, com um naco de cenario aparecendo sob os pes.
+            GeometryReader { proxy in
+                personagem(vm, em: proxy.size)
+            }
+            .ignoresSafeArea()
         }
+        .overlay(alignment: .bottom) { balao(vm) }
         .overlay(alignment: .topLeading) {
             BotaoDoCanto(papel: .voltarAoSalao).padding(20)
         }
     }
 
-    /// A personagem, com o brilho de recorte que a separa do cenário desfocado.
+
+    /// A personagem, ancorada na base da cena.
     ///
-    /// Sempre ancorada na base, ocupando a altura toda. Na fala normal ela fica
-    /// centralizada, atrás do balão que atravessa a tela; no passo e no contexto
-    /// desloca para a esquerda, porque ali o balão ocupa a direita.
+    /// A altura vem de `cena`, medida ja sem a safe area: a arte ocupa a cena
+    /// inteira de cima a baixo. Como toda personagem e bem mais alta que larga,
+    /// o `scaledToFit` sempre encaixa pela altura — nao sobra folga vertical
+    /// dentro do proprio quadro para ela boiar.
     @ViewBuilder
-    private func personagem(_ vm: TutorialViewModel) -> some View {
+    private func personagem(_ vm: TutorialViewModel, em cena: CGSize) -> some View {
         let arte = ArteView(
             nome: vm.ilustracaoAtual,
             simbolo: "person.crop.square",
             cor: Provisorio.cor(de: subcultura)
         )
         .shadow(color: .white.opacity(vm.cenaEmFoco ? 0.9 : 0), radius: 12)
-        .containerRelativeFrame(.vertical)
+        .frame(height: cena.height, alignment: .bottom)
 
         switch vm.posicaoDaPersonagem {
         case .aoCentro:
-            arte
+            arte.frame(width: cena.width)
 
         case .aEsquerda:
             arte
-                .containerRelativeFrame(.horizontal) { largura, _ in largura * Cena.larguraDaPersonagemNoPasso }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(width: cena.width * Cena.larguraDaPersonagemNoPasso)
+                .frame(width: cena.width, alignment: .leading)
         }
     }
 

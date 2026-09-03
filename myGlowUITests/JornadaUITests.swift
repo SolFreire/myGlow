@@ -208,8 +208,23 @@ final class LembrancasNoSalaoUITests: XCTestCase {
         app.launch()
 
         XCTAssertTrue(
-            app.buttons["Lembrança de Lucy"].waitForExistence(timeout: 10),
+            aranha.waitForExistence(timeout: 10),
             "A lembrança deveria continuar no salão depois de reabrir o app"
         )
+
+        // Tocar abre a lembrança em destaque, sobre o salão — sem trocar de tela.
+        aranha.tap()
+        let titulo = app.staticTexts["Spider"]
+        XCTAssertTrue(titulo.waitForExistence(timeout: 5), "O toque deveria abrir a lembrança em destaque")
+
+        let destaque = XCTAttachment(screenshot: app.screenshot())
+        destaque.name = "lembranca-em-destaque"
+        destaque.lifetime = .keepAlways
+        add(destaque)
+
+        // E qualquer toque fecha, devolvendo o objeto à estante.
+        app.tap()
+        XCTAssertFalse(titulo.waitForExistence(timeout: 2), "Tocar em qualquer lugar deveria fechar")
+        XCTAssertTrue(aranha.waitForExistence(timeout: 5), "A lembrança volta para o lugar dela na cena")
     }
 }

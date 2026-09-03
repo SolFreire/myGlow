@@ -80,9 +80,7 @@ final class TutorialViewModel {
         estiloDaFala == .padrao ? .aoCentro : .aEsquerda
     }
 
-    /// A camada de foco entra quando a fala é de passo ou de contexto: o cenário
-    /// desfoca para a atenção ficar na personagem. Na fala normal, o salão
-    /// aparece nítido.
+
     var cenaEmFoco: Bool {
         estiloDaFala != .padrao
     }
@@ -91,8 +89,7 @@ final class TutorialViewModel {
         falaAtual?.tipo.estiloDoBalao ?? .padrao
     }
 
-    /// O que vai na aba do balão: o nome de quem fala, "Passo 3", ou o título da
-    /// curiosidade.
+
     var rotuloDaFala: String? {
         guard let fala = falaAtual else { return nil }
 
