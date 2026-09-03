@@ -88,7 +88,9 @@ struct SalaoView: View {
         static let proporcao: CGFloat = 852.0 / 393.0
 
         static let cadeira = UnitPoint(x: 0.350, y: 0.875)
+
         static let maleta = UnitPoint(x: 0.48, y: 0.295)
+
         static let album = UnitPoint(x: 0.177, y: 0.341)
 
 
