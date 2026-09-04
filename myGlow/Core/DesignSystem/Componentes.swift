@@ -98,3 +98,31 @@ struct FundoSalao: View {
         .ignoresSafeArea()
     }
 }
+
+struct PolaroidCard: View {
+    var image: Image?
+    
+    var body: some View {
+        VStack(spacing: 24) {
+            if let image = image {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200, height: 200)
+                    .clipped()
+                    .cornerRadius(4)
+            }
+            
+            
+            Image("logo-polaroid")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 30)
+        }
+        .padding()
+        .padding(.bottom, 16)
+        .background(Color.white)
+        .cornerRadius(4)
+        .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
+    }
+}

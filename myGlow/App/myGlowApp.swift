@@ -12,7 +12,7 @@ import SwiftUI
 struct myGlowApp: App {
     private let container: ModelContainer
     @State private var ambiente: AppEnvironment
-    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
         Fontes.registrar()
