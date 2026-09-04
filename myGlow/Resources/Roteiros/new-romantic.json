@@ -35,7 +35,7 @@
           "texto": "Oi… Eu sou a Cindy. Quando o som dos sintetizadores começa a tocar, sinto que posso ser qualquer coisa. Hoje vou te mostrar como transformo a minha música favorita em arte no meu rosto."
         },
         {
-          "tipo": "contextoHistorico",
+          "tipo": "introducao",
           "texto": "No início dos anos 80, no clube The Blitz em Londres, a gente transformava a falta de dinheiro em pura fantasia. O movimento New Romantic nasceu como um escapismo poético contra a austeridade da época."
         },
         {
@@ -222,7 +222,7 @@
           "texto": "Pronto… olha só para isso. O branco virou tela, o magenta virou ângulo, o azul virou som. Você não cobriu o seu rosto: você o transformou numa obra."
         },
         {
-          "tipo": "contextoHistorico",
+          "tipo": "fechamento",
           "texto": "Era exatamente isso que a gente fazia no Blitz. Ninguém tinha dinheiro para nada, mas todo mundo chegava como se fosse uma pintura andando. A fantasia era o nosso jeito de dizer que a austeridade não ia nos ter."
         },
         {
