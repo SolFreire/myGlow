@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "Personagem=Lucy, Variante=Default.png",
+      "filename" : "Pose=Normal.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Personagem=Lucy, Variante=Default-2.png",
+      "filename" : "Pose=Normal-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
