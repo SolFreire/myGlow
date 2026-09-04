@@ -7,11 +7,12 @@
 
 import UIKit
 
-final class AppDelegate: NSObject, UIApplicationDelegate {
-    static var orientationlock: UIInterfaceOrientationMask = .landscape
+final class AppDelegate : NSObject, UIApplicationDelegate {
+    static var orientationlock: UIInterfaceOrientationMask = .all
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationFor window: UIWindow?)
-        -> UIInterfaceOrientationMask{
-        OrientationManager.shared.currentOrientationMask
-    }
+    
+   func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+       OrientationManager.shared.currentOrientationMask
+   }
+    
 }
