@@ -23,7 +23,11 @@ struct SelecaoDeExperienciaView: View {
                 ZStack{
                     ForEach(Subcultura.allCases) { subcultura in
                         CardMaqueadora(
-                            imagem: "\(subcultura.card)"
+                            background: "\(subcultura.backgroundCard)",
+                            character: "\(subcultura.character)",
+                            nomeDaPersonagem: "\(subcultura.personagem)",
+                            descricao: "\(subcultura.descricao)",
+                            cor: "\(subcultura.corCard)"
                         ) {
                             aoEscolher(subcultura)
                         }

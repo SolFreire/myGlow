@@ -38,11 +38,27 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
         }
     }
     
-    var card: String {
+    var backgroundCard: String {
         switch self {
-        case .gotica: "card-lucy"
-        case .gyaru: "card-sana"
-        case .newRomantic: "card-cindy"
+        case .gotica: "background-lucy"
+        case .gyaru: "background-sana"
+        case .newRomantic: "background-cindy"
+        }
+    }
+    
+    var character: String {
+        switch self {
+        case .gotica: "frame-lucy"
+        case .gyaru: "frame-sana"
+        case .newRomantic: "frame-cindy"
+        }
+    }
+    
+    var descricao: String {
+        switch self {
+        case .gotica: "Intelectual e elegante, movida pela história, política e resistência Afro-Goth."
+        case .gyaru: "Uma gyaru vibrante e extrovertida, de atitude feminista e progressista."
+        case .newRomantic: "Introspectiva e sensível, encontra na música e na arte New Romantic sua forma de expressão."
         }
     }
     
@@ -57,7 +73,7 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
     var x: Int {
         switch self {
         case .gotica: -250
-        case .gyaru: 250
+        case .gyaru: 260
         case .newRomantic: -10
         }
     }
@@ -66,6 +82,14 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
         case .gotica: 10
         case .gyaru: 0
         case .newRomantic: 40
+        }
+    }
+    
+    var corCard: String {
+        switch self {
+        case .gyaru: "cor-card-sana"
+        case .gotica: "cor-card-lucy"
+        case .newRomantic: "cor-card-cindy"
         }
     }
 }

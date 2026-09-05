@@ -63,17 +63,39 @@ struct BotaoPrimario: View {
 }
 
 struct CardMaqueadora: View {
-    let imagem: String
-
+    let background: String
+    let character: String
+    let nomeDaPersonagem: String
+    let descricao: String
+    let cor: String
     let acao: () -> Void
     
     var body: some View {
         Button(action: acao) {
-                Image(imagem)
+            ZStack {
+                Image(background)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 160, height: 180)
-            
+                Image(character)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 265, height: 165, alignment: .bottomTrailing)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(nomeDaPersonagem)
+                        .font(Tipografia.titulo)
+                        .foregroundStyle(Color(cor))
+                        
+                    Text(descricao)
+                        .font(Tipografia.legenda)
+                        .foregroundStyle(Color(cor))
+                        .multilineTextAlignment(.leading)
+                        .frame(width: 125, height: 80, alignment: .topLeading)
+
+                }
+                .frame(width: 230, height: 130, alignment: .topLeading)
+                
+            }
             
         }
     }
