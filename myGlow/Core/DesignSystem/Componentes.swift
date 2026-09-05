@@ -1,3 +1,4 @@
+
 //
 //  Componentes.swift
 //  myGlow
@@ -61,6 +62,23 @@ struct BotaoPrimario: View {
     }
 }
 
+struct CardMaqueadora: View {
+    let imagem: String
+
+    let acao: () -> Void
+    
+    var body: some View {
+        Button(action: acao) {
+                Image(imagem)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 160, height: 180)
+            
+            
+        }
+    }
+}
+
 struct BotaoSecundario: View {
     let titulo: String
     var simbolo: String?
@@ -118,6 +136,7 @@ struct PolaroidCard: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: 50, height: 30)
+                .rotationEffect(.degrees(-4.08))
         }
         .padding()
         .padding(.bottom, 16)
@@ -126,3 +145,5 @@ struct PolaroidCard: View {
         .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
     }
 }
+
+

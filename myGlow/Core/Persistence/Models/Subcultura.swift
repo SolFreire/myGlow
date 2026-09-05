@@ -1,3 +1,4 @@
+
 //
 //  Subcultura.swift
 //  myGlow
@@ -34,6 +35,37 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
         case .gotica: "Contraste, drama e um preto que não pede licença."
         case .gyaru: "Olhos enormes, brilho e atitude vinda de Shibuya."
         case .newRomantic: "Cor teatral e excesso elegante dos anos 80."
+        }
+    }
+    
+    var card: String {
+        switch self {
+        case .gotica: "card-lucy"
+        case .gyaru: "card-sana"
+        case .newRomantic: "card-cindy"
+        }
+    }
+    
+    var rotation: Double {
+        switch self {
+        case .gotica: -4.08
+        case .gyaru: 5.03
+        case .newRomantic: 2.2
+        }
+    }
+    
+    var x: Int {
+        switch self {
+        case .gotica: -250
+        case .gyaru: 250
+        case .newRomantic: -10
+        }
+    }
+    var y: Int {
+        switch self {
+        case .gotica: 10
+        case .gyaru: 0
+        case .newRomantic: 40
         }
     }
 }

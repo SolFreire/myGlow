@@ -20,14 +20,22 @@ struct SelecaoDeExperienciaView: View {
 
     var body: some View {
         TelaEmConstrucao(titulo: "Escolha a experiência", papelDoCanto: papelDoCanto) {
-            VStack(spacing: 12) {
-                ForEach(Subcultura.allCases) { subcultura in
-                    BotaoPrimario(
-                        titulo: "\(nome(de: subcultura)), \(subcultura.nome)",
-                        preencheLargura: false
-                    ) {
-                        aoEscolher(subcultura)
-                    }
+                ZStack{
+                    ForEach(Subcultura.allCases) { subcultura in
+                        CardMaqueadora(
+                            imagem: "\(subcultura.card)"
+                        ) {
+                            aoEscolher(subcultura)
+                        }
+                        .rotationEffect(.degrees(subcultura.rotation))
+                        .offset(x: CGFloat(subcultura.x), y: CGFloat(subcultura.y))
+//                        BotaoPrimario(
+//                            titulo: "\(nome(de: subcultura)), \(subcultura.nome)",
+//                            preencheLargura: false
+//                        ) {
+//                            aoEscolher(subcultura)
+//                        }
+                    
                 }
             }
         }

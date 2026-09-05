@@ -20,9 +20,9 @@ struct TelaEmConstrucao<Acoes: View>: View {
                     .font(Tipografia.titulo)
                     .foregroundStyle(Provisorio.texto)
 
-                Text("Aguardando o desenho do design.")
-                    .font(Tipografia.corpo)
-                    .foregroundStyle(Provisorio.textoSecundario)
+//                Text("Aguardando o desenho do design.")
+//                    .font(Tipografia.corpo)
+//                    .foregroundStyle(Provisorio.textoSecundario)
 
                 acoes
             }
