@@ -6,21 +6,38 @@
 import SwiftUI
 import SwiftData
 
-/// O álbum das fotos salvas. Sem desenho do design ainda.
-///
-/// O `FotoRepository` por trás já guarda e lista as fotos, com testes.
+struct PinDaSubcultura: View {
+    let subcultura: Subcultura
+
+    private var nomeDoAsset: String {
+        switch subcultura {
+        case .gotica: "pino-polaroid-lucy"
+        case .gyaru: "pino-polaroid-sana"
+        case .newRomantic: "pino-polaroid-cindy"
+        }
+    }
+
+    var body: some View {
+        Image(nomeDoAsset)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 70, height: 70)
+    }
+}
 
 struct GaleriaView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \FotoSalva.criadaEm, order: .reverse)
     var photos: [FotoSalva]
-    
+
+    var aoAbrirFoto: (FotoSalva) -> Void
+
     private let columns = [
         GridItem(.flexible(), spacing: 4),
         GridItem(.flexible(), spacing: 4),
         GridItem(.flexible(), spacing: 4)
     ]
-    
+
     var body: some View {
         ZStack {
             Image("fundo-galeria")
@@ -28,41 +45,45 @@ struct GaleriaView: View {
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(edges: .all)
-            
+
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(photos) { photo in
                         if let uiImage = UIImage(data: photo.dados) {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 220)
-                                .contextMenu {
-                                    Button(role: .destructive) {
-                                        modelContext.delete(photo)
-                                    } label: {
-                                        Label("Excluir", systemImage: "trash")
+                            Button {
+                                aoAbrirFoto(photo)
+                            } label: {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 220)
+                                    .overlay(alignment: .top) {
+                                        PinDaSubcultura(subcultura: photo.subcultura)
+                                            .alignmentGuide(.top) { $0.height / 2 }
+                                            .padding(.top)
                                     }
-                                }
-                            
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }
-                .padding()
+                .padding(.top, 64)
             }
         }
+        .navigationBarBackButtonHidden(true)
+        
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                BotaoDoCanto(papel: .voltarAoSalao)
+            }
+            .sharedBackgroundVisibility(.hidden)
+
             ToolbarItem(placement: .title) {
                 Text("myPhotos")
                     .font(Tipografia.titulo)
                     .foregroundStyle(Color.black)
             }
         }
+        
     }
-}
-
-
-#Preview {
-    GaleriaView()
-        .modelContainer(for: FotoSalva.self)
 }

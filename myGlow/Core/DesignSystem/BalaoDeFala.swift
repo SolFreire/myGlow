@@ -104,6 +104,7 @@ struct BalaoDeFala: View {
                 .padding(.leading, Medida.recuoLateralDaAba)
                 .alignmentGuide(.top) { $0[VerticalAlignment.center] }
                 .accessibilityLabel(rotulo)
+                .offset(x: 0, y: -Medida.recuoVerticalDaAba - 5)
         }
     }
 

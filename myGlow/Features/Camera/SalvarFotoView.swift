@@ -19,73 +19,60 @@ struct SalvarFotoView: View {
     @State private var saved = false
     
     var body: some View {
-        ZStack {
-            Image("fundo-salvar-foto")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea(edges: .all)
-            
-            HStack  {
-                polaroid
-                    .rotationEffect(.degrees(-4.08))
-                buttonsView()
-            }
-        }
-        .toolbar {
-            ToolbarItem (placement: .navigationBarLeading) {
-                Button {
-                    savePhotoAndDismiss()
-                } label: {
-                    Image(systemName: "rectangle.portrait.and.arrow.right")
-                        .foregroundStyle(.white)
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let height = geometry.size.height
+            ZStack {
+                Image("fundo-salvar-foto")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea(edges: .all)
+
+                HStack {
+                    polaroid
+                        .rotationEffect(.degrees(-4.08))
+                        .padding(.top, 48)
+                    BalaoDeFala(
+                        texto: "Uau! Você arrasou! Deseja salvar a foto pra mostrar o quanto ficou incrível?",
+                        rotulo: subcultura.personagem
+                    )
+                    .frame(maxWidth: width * 0.45)
+                    .overlay(alignment: .bottomTrailing) {
+                        buttonsView()
+                            .alignmentGuide(.bottom) { $0.height / 2 }
+                    }
+                    .padding()
                 }
-                .foregroundStyle(.white)
-                .buttonStyle(.glassProminent)
-                .tint(.corBotaoCamera)
             }
+            .frame(maxWidth: width, maxHeight: height)
+        }
+        .ignoresSafeArea(edges: .all)
+
+        .overlay(alignment: .topLeading) {
+            BotaoCircular(simbolo: "door.right.hand.open", acao: savePhotoAndDismiss)
+                .padding(20)
         }
         .navigationBarBackButtonHidden(true)
     }
-    
     private func buttonsView() -> some View {
         HStack {
-            Button {
+            BotaoPrimario(titulo: "Refazer", simbolo: "arrow.trianglehead.counterclockwise", preencheLargura: false){
                 model.clearPhoto()
-            } label: {
-                HStack {
-                    Image(systemName: "arrow.trianglehead.counterclockwise")
-                    Text("Refazer")
-                }
-                .font(.system(size: 17, weight: .semibold, design: .rounded))
-                .padding(12)
             }
-            .padding()
-            .buttonStyle(.glass)
             ShareLink(item: renderedPolaroidPng, preview: SharePreview(Text("Polaroid"), image: renderedPolaroidPng)) {
                 HStack {
                     Image(systemName: "square.and.arrow.up")
                     Text("Exportar")
                 }
-                .font(.system(size: 17, weight: .semibold, design: .rounded))
-                .padding()
             }
-            .foregroundStyle(Color.white)
-            .buttonStyle(.glass)
-        }
-        .alert(
-            "Fotos salvas!",
-            isPresented: $saved
-        ) {
-            Button("OK", role: .cancel) {
-                model.clearPhoto()
-                aoConcluir()
-            }
-        } message: {
-            Text("A foto foi adicionada à sua galeria.")
+            .font(Tipografia.destaqueDoCorpo)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 24)
+            .padding(.vertical, 12)
+            .frame(maxWidth: nil)
+            .background(Paleta.botao.gradiente, in: Capsule())
         }
         .padding()
-        .font(.system(size: 24, weight: .bold))
     }
     
     var polaroid: some View {
@@ -118,6 +105,7 @@ struct SalvarFotoView: View {
         model.clearPhoto()
         aoConcluir()
     }
+    
 }
 
 #Preview {
