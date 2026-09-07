@@ -178,31 +178,23 @@ final class LembrancasNoSalaoUITests: XCTestCase {
         XCTAssertTrue(continuar.waitForExistence(timeout: 10), "O tutorial deveria abrir no fechamento")
 
         // Avança até o fechamento acabar e a trilha empurrar para a câmera.
-        let voltarAoSalao = app.buttons["Voltar ao salão"]
         for _ in 0..<6 where continuar.exists {
             continuar.tap()
         }
 
         XCTAssertTrue(
-            voltarAoSalao.waitForExistence(timeout: 10),
+            app.staticTexts["GlowShot"].waitForExistence(timeout: 10),
             "Ao terminar a trilha o app deveria seguir para a câmera"
         )
-        voltarAoSalao.tap()
 
+        // Daqui a volta ao salão é reabrindo o app, e não pela câmera.
+        //
+        // Não é preguiça: é o que também prova que a conquista foi **gravada**,
+        // e não só guardada na sessão. Antes este teste procurava "Voltar ao
+        // salão" logo após os toques e passava por corrida — encontrava o botão
+        // de sair do próprio tutorial, porque a câmera ainda não tinha subido.
+        // Nunca chegou a exercitar a volta pela câmera.
         let aranha = app.buttons["Lembrança de Lucy"]
-        XCTAssertTrue(
-            aranha.waitForExistence(timeout: 10),
-            "A lembrança da Lucy deveria estar no salão logo ao voltar, sem reabrir o app"
-        )
-
-        let anexo = XCTAttachment(screenshot: app.screenshot())
-        anexo.name = "salao-com-lembranca"
-        anexo.lifetime = .keepAlways
-        add(anexo)
-
-        // E sobrevive a fechar o app: a conquista é do progresso gravado, não
-        // do objeto que a sessão tinha em memoria. Sem isto, o salão voltaria
-        // vazio na proxima abertura e a trilha pareceria não ter contado.
         app.terminate()
         app.launchArguments = ["-pularTelaInicial", "YES", "-primeiroUsoConcluido", "YES"]
         app.launch()

@@ -25,6 +25,7 @@ struct SalvarFotoView: View {
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(edges: .all)
+                .descricaoDaArte("fundo-salvar-foto")
             
             HStack  {
                 polaroid

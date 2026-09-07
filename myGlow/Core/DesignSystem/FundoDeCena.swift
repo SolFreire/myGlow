@@ -34,7 +34,7 @@ struct FundoDeCena: View {
                     .clipped()
             }
             .ignoresSafeArea()
-            .accessibilityHidden(true)
+            .descricaoDaArte(nome)
         } else {
             FundoSalao(cor: corDoPlaceholder)
         }
