@@ -1,0 +1,240 @@
+{
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    "arte.fundo-espelho-tutoriais" : {
+      "comment" : "Fundo: a bancada com espelho, durante o tutorial. Descreva o ambiente.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A makeup vanity table filled with various product packaging and cosmetic brushes, set in front of a marquee vanity mirror framed with glowing light bulbs."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bancada de maquiagens, com diversas embalagens de produtos e pincéis, a frente de um espelho com sua moldura toda iluminada por lâmpadas."
+          }
+        }
+      }
+    },
+    "arte.fundo-galeria" : {
+      "comment" : "Fundo: a tela do álbum de fotos. Descreva o ambiente.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flannelgraph-textured surface"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Superfície com textura do flanelógrafo. "
+          }
+        }
+      }
+    },
+    "arte.fundo-salao" : {
+      "comment" : "Fundo: o salão por dentro, no fluxo da Edna. Descreva o ambiente.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beauty salon with a blue and white checkered floor, pink chairs in front of illuminated mirrors, tables full of makeup items, a wooden bookshelf, and a pink sofa in the background."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salão de beleza com piso quadriculado azul e branco, cadeiras rosas diante de espelhos iluminados e mesas repletas de itens de maquiagem, uma estante de madeira e um sofá rosa ao fundo."
+          }
+        }
+      }
+    },
+    "arte.fundo-salao-menu" : {
+      "comment" : "Fundo: o salão do menu, sem os objetos. Descreva o ambiente.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beauty salon with a blue and white checkered floor, pink chairs in front of illuminated mirrors, tables full of makeup items, a wooden bookshelf, and a pink sofa in the background."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salão de beleza com piso quadriculado azul e branco, cadeiras rosas diante de espelhos iluminados e mesas repletas de itens de maquiagem, uma estante de madeira e um sofá rosa ao fundo."
+          }
+        }
+      }
+    },
+    "arte.fundo-salvar-foto" : {
+      "comment" : "Fundo: a tela de salvar a foto. Descreva o ambiente.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Blurred background of the salon in front of the mirror."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fundo do salão em frente ao espelho, desfocado."
+          }
+        }
+      }
+    },
+    "arte.fundo-tela-inicial" : {
+      "comment" : "Fundo: a fachada do salão, na tela de abertura. Descreva o ambiente.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Salon facade with pink, purple, and green walls. The name above the door is in a frame illuminated by multiple light bulbs."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faixada do salão com paredes em rosa, roxo e verde. O nome acima da porta em uma moldura iluminada por várias lâmpadas. "
+          }
+        }
+      }
+    },
+    "arte.icone-album-fotos" : {
+      "comment" : "O quadro de fotos na parede do salão. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flannel board with Polaroid photos, hanging between the mirrors"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flanelógrafocom fotografias polaroide, pendurado entre os espelhos."
+          }
+        }
+      }
+    },
+    "arte.icone-aranha-lucy" : {
+      "comment" : "A aranha de pelúcia da Lucy, lembrança da trilha gótica. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A handmade purple plush spider, hand-sewn detail, hanging suspended from a wooden shelf"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aranha de pelúcia roxa, costurada a mão, pendurada suspensa na estante de madeira."
+          }
+        }
+      }
+    },
+    "arte.icone-cadeira-salao" : {
+      "comment" : "A cadeira de salão onde se escolhe a experiência. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot pink swivel beauty salon chair"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cadeira rotatória de salão de beleza rosa choque."
+          }
+        }
+      }
+    },
+    "arte.icone-disco-cindy" : {
+      "comment" : "O disco de vinil da Cindy, lembrança da trilha new romantic. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scratched vinyl record from use, with a blue and red lightning bolt on its cover."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disco musical arranhado pelo uso, em sua embalagem há um raio azul e vermelho"
+          }
+        }
+      }
+    },
+    "arte.icone-maleta" : {
+      "comment" : "A maleta de maquiagem, na estante do salão. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A spacious, rectangular light pink polka dot makeup case."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uma maleta rosa, com estampa de bolinhas, retangular espaçosa, para maquiagens."
+          }
+        }
+      }
+    },
+    "arte.icone-urso-sana" : {
+      "comment" : "O urso de pelúcia da Sana, lembrança da trilha gyaru. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light pink teddy bear with a red bow around its neck"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "urso de pelúcia rosa claro com laço vermelho no pescoço."
+          }
+        }
+      }
+    },
+    "arte.maleta-aberta" : {
+      "comment" : "A maleta aberta, onde os itens de maquiagem são guardados. Descreva o objeto.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A spacious open pink makeup case"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uma maleta rosa aberta espaçosa para maquiagens."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

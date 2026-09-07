@@ -103,6 +103,10 @@ struct BalaoDeFala: View {
                 .background(estilo.cor, in: Capsule())
                 .padding(.leading, Medida.recuoLateralDaAba)
                 .alignmentGuide(.top) { $0[VerticalAlignment.center] }
+                // A aba é uma parada própria do VoiceOver: "Passo 1", depois a
+                // instrução. Já tentei juntar as duas num rótulo só, e rotular o
+                // texto transforma o balão inteiro num elemento — os botões ←
+                // e → perdem os nomes deles junto.
                 .accessibilityLabel(rotulo)
         }
     }
