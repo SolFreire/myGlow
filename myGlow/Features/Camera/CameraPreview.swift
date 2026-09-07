@@ -159,6 +159,7 @@ struct CameraPreview: View {
                     BotaoPrimario(simbolo: model.flashModeIcon, tamanho: .camera, cores: Paleta.botaoDeCamera, preencheLargura: false, acao: model.toggleFlash)
                     //SWITCH
                     Button {
+                        SoundManager.shared.playSoundEffect( named: "botao-efeito")
                         model.switchCamera()
                     } label: {
                         Image(systemName: "arrow.triangle.2.circlepath")

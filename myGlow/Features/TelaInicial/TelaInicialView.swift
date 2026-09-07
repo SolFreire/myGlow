@@ -17,6 +17,7 @@ struct TelaInicialView: View {
                 .padding(.bottom, 28)
         }
         .ignoresSafeArea()
+        .overlay(alignment: .topLeading) { BotaoDoCanto(papel: .ajustes).padding(20) }
     }
 
     @ViewBuilder

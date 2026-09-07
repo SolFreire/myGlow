@@ -64,6 +64,9 @@ struct AjustesView: View {
             Form {
                 Section {
                     Toggle("Som", isOn: $somLigado)
+                        .onChange(of: somLigado) { oldValue, newValue in
+                            SoundManager.shared.playBackgroundMusic(isOn: newValue)
+                        }
                 } footer: {
                     Text("A narração das personagens entra numa próxima versão.")
                 }
