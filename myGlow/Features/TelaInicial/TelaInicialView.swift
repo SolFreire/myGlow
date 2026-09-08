@@ -12,11 +12,15 @@ struct TelaInicialView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             fundo
-            BotaoPrimario(titulo: "Jogar", tamanho: .grande, preencheLargura: false, acao: aoJogar)
+            BotaoPrimario(titulo: "Jogar", tamanho: .grande, preencheLargura: false){
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                aoJogar()
+            }
                 .accessibilityIdentifier("jogar")
                 .padding(.bottom, 28)
         }
         .ignoresSafeArea()
+        .overlay(alignment: .topLeading) { BotaoDoCanto(papel: .ajustes).padding(20) }
     }
 
     @ViewBuilder
@@ -29,7 +33,7 @@ struct TelaInicialView: View {
                 .frame(width: proxy.size.width, height: proxy.size.height)
                 .clipped()
         }
-        .accessibilityHidden(true)
+        .descricaoDaArte("fundo-tela-inicial")
     }
 }
 

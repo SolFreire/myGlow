@@ -11,6 +11,12 @@ struct TutorialView: View {
 
     @Environment(AppEnvironment.self) private var ambiente
     @State private var vm: TutorialViewModel?
+    /// A fala nova, anunciada ao VoiceOver.
+    ///
+    /// Sem isto a tela muda em silêncio: o texto do balão troca e o foco fica
+    /// parado no botão de avançar. Optei por anúncio em vez de mover o foco
+    /// porque `accessibilityFocused` no balão o transforma num elemento só, e
+    /// os botões ← e → perdem os próprios nomes.
 
     var body: some View {
         Group {
@@ -65,6 +71,10 @@ struct TutorialView: View {
             .ignoresSafeArea()
         }
         .overlay(alignment: .bottom) { balao(vm) }
+        .onChange(of: vm.falaAtual?.texto) { _, texto in
+            guard let texto else { return }
+            AccessibilityNotification.Announcement(Self.semMarcacao(texto)).post()
+        }
         .overlay(alignment: .topLeading) {
             BotaoDoCanto(papel: .voltarAoSalao).padding(20)
         }
@@ -92,6 +102,12 @@ struct TutorialView: View {
         }
     }
 
+
+    /// O texto do balão é markdown; anunciado cru, o VoiceOver leria os
+    /// asteriscos de **negrito** em voz alta.
+    private static func semMarcacao(_ texto: String) -> String {
+        (try? AttributedString(markdown: texto)).map { String($0.characters) } ?? texto
+    }
 
     private enum Cena {
         static let recuoLateralDoBalaoLargo: CGFloat = 60

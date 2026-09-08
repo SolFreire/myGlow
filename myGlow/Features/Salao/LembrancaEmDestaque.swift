@@ -57,6 +57,10 @@ struct LembrancaEmDestaque: View {
     let animacao: Namespace.ID
     let aoFechar: () -> Void
 
+    /// O overlay e modal: sem levar o foco para dentro, o VoiceOver continua
+    /// no objeto da estante e a pessoa nao ouve o que abriu.
+    @AccessibilityFocusState private var falaEmFoco: Bool
+
     var body: some View {
         GeometryReader { proxy in
             let cena = proxy.size
@@ -65,6 +69,8 @@ struct LembrancaEmDestaque: View {
                 Color.black.opacity(Medida.veu)
 
                 fala
+                    .accessibilityFocused($falaEmFoco)
+                    .onAppear { falaEmFoco = true }
                     .frame(width: cena.width * Medida.larguraDoBalao)
                     .position(
                         x: cena.width * Medida.centroDoBalao.x,

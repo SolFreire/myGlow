@@ -11,6 +11,7 @@ enum AppRoute: Hashable {
     case tutorial(Subcultura)
     case camera(Subcultura)
     case galeria
+    case detalheFoto(FotoSalva)
 }
 
 #if DEBUG

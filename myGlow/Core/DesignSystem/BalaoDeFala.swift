@@ -107,14 +107,23 @@ struct BalaoDeFala: View {
                 .background(estilo.cor, in: Capsule())
                 .padding(.leading, Medida.recuoLateralDaAba)
                 .alignmentGuide(.top) { $0[VerticalAlignment.center] }
+                // A aba é uma parada própria do VoiceOver: "Passo 1", depois a
+                // instrução. Já tentei juntar as duas num rótulo só, e rotular o
+                // texto transforma o balão inteiro num elemento — os botões ←
+                // e → perdem os nomes deles junto.
                 .accessibilityLabel(rotulo)
+                .offset(x: 0, y: -Medida.recuoVerticalDaAba - 5)
         }
     }
 
     @ViewBuilder
     private var avancar: some View {
         if let aoAvancar {
-            BotaoCircular(simbolo: "arrow.right", diametro: Medida.diametroDoBotao, cores: estilo.botoes, acao: aoAvancar)
+            BotaoCircular(simbolo: "arrow.right", diametro: Medida.diametroDoBotao, cores: estilo.botoes)
+            {
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                aoAvancar()
+            }
                 .offset(x: Medida.diametroDoBotao / 4, y: Medida.diametroDoBotao / 4)
                 .accessibilityLabel("Continuar")
         }
@@ -123,7 +132,10 @@ struct BalaoDeFala: View {
     @ViewBuilder
     private var voltar: some View {
         if let aoVoltar {
-            BotaoCircular(simbolo: "arrow.left", diametro: Medida.diametroDoBotao, cores: estilo.botoes, acao: aoVoltar)
+            BotaoCircular(simbolo: "arrow.left", diametro: Medida.diametroDoBotao, cores: estilo.botoes){
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                aoVoltar()
+            }
                 .offset(x: -Medida.diametroDoBotao / 4, y: Medida.diametroDoBotao / 4)
                 .accessibilityLabel("Voltar")
         }

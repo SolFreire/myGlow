@@ -22,7 +22,10 @@ struct BotaoDoCanto: View {
             BotaoAjustes()
 
         case .voltarAoSalao:
-            BotaoCircular(simbolo: "door.right.hand.open", acao: voltarAoSalao)
+            BotaoCircular(simbolo: "door.right.hand.open"){
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                voltarAoSalao()
+            }
                 .accessibilityLabel("Voltar ao salão")
         }
     }

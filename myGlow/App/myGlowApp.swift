@@ -15,6 +15,7 @@ struct myGlowApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
+        SoundManager.shared.playBackgroundMusic(isOn: true)
         Fontes.registrar()
         let container = Self.criarContainer()
         self.container = container

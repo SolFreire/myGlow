@@ -72,7 +72,13 @@ struct RootView: View {
                         caminho = [.galeria]
                     }
                 case .galeria:
-                    GaleriaView()
+                    GaleriaView(aoAbrirFoto: { foto in
+                        caminho.append(.detalheFoto(foto))
+                    })
+                case let .detalheFoto(foto):
+                    DetalheFotoView(foto: foto) {
+                        caminho.removeLast()
+                    }
                 }
             }
         }
