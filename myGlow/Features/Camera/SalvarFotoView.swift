@@ -57,6 +57,7 @@ struct SalvarFotoView: View {
     private func buttonsView() -> some View {
         HStack {
             BotaoPrimario(titulo: "Refazer", simbolo: "arrow.trianglehead.counterclockwise", preencheLargura: false){
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 model.clearPhoto()
             }
             ShareLink(item: renderedPolaroidPng, preview: SharePreview(Text("Polaroid"), image: renderedPolaroidPng)) {

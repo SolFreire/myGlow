@@ -44,6 +44,7 @@ struct CameraPreview: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading){
                 Button {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     voltarAoSalao()
                 } label: {
                     Image(systemName: "door.right.hand.open")
@@ -65,7 +66,10 @@ struct CameraPreview: View {
             }
             
             ToolbarItem (placement: .topBarTrailing) {
-                BotaoPrimario(titulo: model.timerLabel, simbolo: "timer", cores: Paleta.botaoDeCamera, preencheLargura: false, acao: model.changeCameraTimer)
+                BotaoPrimario(titulo: model.timerLabel, simbolo: "timer", cores: Paleta.botaoDeCamera, preencheLargura: false){
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    model.changeCameraTimer()
+                }
             }
             .sharedBackgroundVisibility(.hidden)
         }
@@ -78,6 +82,7 @@ struct CameraPreview: View {
             //BOTÕES DE ZOOM (0.5, 1 e 2)
             VStack(spacing: 50) {
                 Button("0.5x") {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     model.selectZoom(0.5)
                 }
                 .foregroundStyle(.corBotaoCamera)
@@ -91,7 +96,7 @@ struct CameraPreview: View {
                             .clipShape(Circle())
                     }
                 }
-                Button("1x") {
+                Button("1x") {                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     model.selectZoom(1)
                 }
                 .foregroundStyle(.corBotaoCamera)
@@ -108,6 +113,7 @@ struct CameraPreview: View {
                 }
                 
                 Button("2x") {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     model.selectZoom(2)
                 }
                 .foregroundStyle(.corBotaoCamera)
@@ -131,6 +137,7 @@ struct CameraPreview: View {
                 Spacer()
                 //TIRAR FOTO
                 Button {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     model.startCameraTimer()
                 } label: {
                     ZStack {
@@ -156,9 +163,13 @@ struct CameraPreview: View {
                 //FLASH e SWITCH
                 HStack (spacing: 30) {
                     //FLASH
-                    BotaoPrimario(simbolo: model.flashModeIcon, tamanho: .camera, cores: Paleta.botaoDeCamera, preencheLargura: false, acao: model.toggleFlash)
+                    BotaoPrimario(simbolo: model.flashModeIcon, tamanho: .camera, cores: Paleta.botaoDeCamera, preencheLargura: false){
+                        SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                        model.toggleFlash()
+                    }
                     //SWITCH
                     Button {
+                        SoundManager.shared.playSoundEffect( named: "botao-efeito")
                         model.switchCamera()
                     } label: {
                         Image(systemName: "arrow.triangle.2.circlepath")

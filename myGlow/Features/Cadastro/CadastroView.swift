@@ -150,6 +150,7 @@ struct CadastroView: View {
     private func catalogo(_ vm: CadastroViewModel) -> some View {
         VStack(spacing: 12) {
             BotaoPrimario(titulo: "Salvar", simbolo: "checkmark", preencheLargura: false) {
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 aoConcluir()
             }
             .disabled(vm.quantidadeNaMaleta == 0 && modo == .onboarding)
