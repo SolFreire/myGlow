@@ -108,7 +108,7 @@ nonisolated enum SubstituicoesCuradas {
             ),
             Regra(
                 substituto: "po",
-                comoFazer: "Use o pó mais claro que tiver, aplicado úmido com a esponja em batidinhas. A cobertura é mais leve — capriche na quantidade de camadas."
+                comoFazer: "Use o pó mais claro que tiver, com a esponja em batidinhas. A cobertura é mais leve — capriche na quantidade de camadas."
             )
         ],
         "pancake": [
@@ -131,6 +131,12 @@ nonisolated enum SubstituicoesCuradas {
             Regra(
                 substituto: "mascara-cilios",
                 comoFazer: "Faça três camadas de máscara, esperando secar entre elas, movendo o pincel em ziguezague na raiz. Não chega ao volume do postiço, mas abre bastante o olhar."
+            )
+        ],
+        "mascara-cilios": [
+            Regra(
+                substituto: "cilios-posticos",
+                comoFazer: "Se você não tem máscara de cílios mas tem cílios postiços, pode colar os cílios no lugar."
             )
         ],
         "sombra-roxa": [
@@ -176,6 +182,17 @@ nonisolated enum SubstituicoesCuradas {
                 substituto: "lapis-preto",
                 comoFazer: "Se for para desenhar o arco do cupido num visual escuro, o lápis de olho preto faz o contorno. Mantenha a ponta bem apontada."
             )
+        ],
+        "lapis-branco": [
+            Regra(
+                substituto: "sombra-branca",
+                comoFazer: "Na ausência do lápis pode tentar esfumar sombra branca na linha d`água."
+            ),
+            Regra(
+                substituto: "iluminador",
+                comoFazer: "Na ausência do lápis pode tentar aplicar seu iluminador na linha d`água, com um pincel de sombra, o brilho ficará mais suave."
+            )
+
         ],
         "blush": [
             Regra(

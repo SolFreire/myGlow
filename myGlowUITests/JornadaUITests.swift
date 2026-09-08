@@ -1,13 +1,7 @@
-//
-//  JornadaUITests.swift
-//  myGlowUITests
-//
+
 
 import XCTest
 
-/// A jornada ponta a ponta: primeiro uso com a Edna → maleta → Salão →
-/// Tutorial. É aqui que se verifica que as telas se ligam de verdade; a lógica
-/// de cada uma está coberta pelos testes unitários.
 final class JornadaUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false

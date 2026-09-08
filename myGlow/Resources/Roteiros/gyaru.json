@@ -132,7 +132,11 @@
         },
         {
           "tipo": "instrucaoPraticaTecnica",
+<<<<<<< Updated upstream
           "texto": "O grande segredo aqui é trazer esse branco radiante para o canto interno e toda a linha inferior. É essa luz que cria a base para o nosso efeito de olhos gigantes e expressivos!"
+=======
+          "texto": "Em seguida usamos o cinza para criar profundidade, esfumando cinza com mão leve ao redor da sombra branca, buscando um efeito de aumentar o nosso olhar."
+>>>>>>> Stashed changes
         }
       ]
     },
