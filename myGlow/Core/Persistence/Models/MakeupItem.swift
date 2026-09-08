@@ -6,10 +6,7 @@
 import Foundation
 import SwiftData
 
-/// Um item de maquiagem que a pessoa declarou ter na maleta.
-///
-/// `nome` e `categoria` são copiados do catálogo no momento do cadastro: assim o
-/// inventário continua legível mesmo que o catálogo mude entre versões do app.
+
 @Model
 final class MakeupItem {
     var catalogoID: String = ""
