@@ -26,6 +26,7 @@
       "ilustracoes": [
         "personagem-sana",
         "personagem-sana",
+        "personagem-sana-falando",
         "personagem-sana-falando"
       ],
       "nota": null,
@@ -56,9 +57,11 @@
         "base"
       ],
       "ilustracoes": [
-        "personagem-sana-pele-1",
-        "personagem-sana-pele-2",
-        "personagem-sana-pele-3"
+        "personagem-sana-sem-make",
+        "personagem-sana-sem-make",
+        "personagem-sana-sem-make",
+        "personagem-sana-sem-make",
+        "personagem-sana-sem-make"
       ],
       "nota": null,
       "falas": [
@@ -85,6 +88,92 @@
       ]
     },
     {
+      "id": "gyaru-sombra",
+      "titulo": "Sombra",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-branca",
+        "sombra-preta"
+      ],
+      "ilustracoes": [
+        "personagem-sana-sombra",
+        "personagem-sana-sombra-2"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Chegamos na parte mais icônica: os olhos! Vamos começar com o passo da sombra branca, aplicando uma camada bem pigmentada e luminosa por toda a pálpebra móvel."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Em seguida usamos o cinza para criar profundidade, esfumando ao redor da sombra branca, buscando um efeito de aumentar o nosso olhar."
+        }
+      ]
+    },
+    {
+      "id": "gyaru-delineado",
+      "titulo": "Delineado",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "caneta-delineadora",
+        "lapis-branco"
+      ],
+      "ilustracoes": [
+        "personagem-sana-sombra-2",
+        "personagem-sana-delineado-inferior",
+        "personagem-sana-lapis-branco",
+        "personagem-sana-delineado-externo"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Agora vamos para o rei da maquiagem Gyaru: o delineado preto! Peguem uma caneta bem pigmentada, porque aqui não tem moderação, a linha é bem marcante."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Fazemos um traço bem espesso na pálpebra e puxamos a pontinha ligeiramente para baixo no canto externo. Esse é o efeito tareme, que deixa os olhos grandes, arredondados e expressivos!"
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Na região entre a linha do delineador e a linha d`água, aplicamos o lápis branco e esfumamos com um pincel e a sombra branca."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Por fim, puxamos o delineado externo, ele pode ser longo e expressivo, Veja como essa técnica é capaz de aumentar nossos olhos."
+        }
+      ]
+    },
+    {
+      "id": "gyaru-cilios",
+      "titulo": "Cílios",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "cilios-posticos"
+      ],
+      "ilustracoes": [
+        "personagem-sana-delineado-externo",
+        "personagem-sana-cilios",
+        "personagem-sana-cilios"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Se tem uma coisa que a estética Gyaru não economiza, é nos cílios! Aqui a regra é o volume dramático, e nós vamos usar modelos tanto em cima quanto embaixo."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Cole os cílios superiores bem rente ao delineado e, o grande truque, encaixe os inferiores um pouquinho abaixo da linha d'água para abrir o olhar ao máximo!"
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "A sociedade patriarcal tenta o tempo todo convencer as mulheres a ocuparem pouco espaço. Usar um olhar tão marcante e sem medo de ser \"demais\" é uma afirmação da nossa presença no mundo!"
+        }
+      ]
+    },
+    {
       "id": "gyaru-contorno",
       "titulo": "Contorno",
       "tipo": "passo",
@@ -93,9 +182,9 @@
         "iluminador"
       ],
       "ilustracoes": [
-        "personagem-sana-contorno-1",
-        "personagem-sana-contorno-2",
-        "personagem-sana-contorno-3"
+        "personagem-sana-cilios",
+        "personagem-sana-cilios",
+        "personagem-sana-contorno-nariz"
       ],
       "nota": "O roteiro aceita iluminador OU sombra branca na faixa central do nariz.",
       "falas": [
@@ -110,89 +199,6 @@
         {
           "tipo": "instrucaoPratica",
           "texto": "Para destacar ainda mais, vale passar uma faixa de iluminador ou sombra branca bem no centro!"
-        }
-      ]
-    },
-    {
-      "id": "gyaru-sombra",
-      "titulo": "Sombra",
-      "tipo": "passo",
-      "itensNecessarios": [
-        "sombra-branca"
-      ],
-      "ilustracoes": [
-        "personagem-sana-sombra-1",
-        "personagem-sana-sombra-2"
-      ],
-      "nota": null,
-      "falas": [
-        {
-          "tipo": "instrucaoPratica",
-          "texto": "Chegamos na parte mais icônica: os olhos! Vamos começar com o passo da sombra branca, aplicando uma camada bem pigmentada e luminosa por toda a pálpebra móvel."
-        },
-        {
-          "tipo": "instrucaoPraticaTecnica",
-<<<<<<< Updated upstream
-          "texto": "O grande segredo aqui é trazer esse branco radiante para o canto interno e toda a linha inferior. É essa luz que cria a base para o nosso efeito de olhos gigantes e expressivos!"
-=======
-          "texto": "Em seguida usamos o cinza para criar profundidade, esfumando cinza com mão leve ao redor da sombra branca, buscando um efeito de aumentar o nosso olhar."
->>>>>>> Stashed changes
-        }
-      ]
-    },
-    {
-      "id": "gyaru-delineado",
-      "titulo": "Delineado",
-      "tipo": "passo",
-      "itensNecessarios": [
-        "caneta-delineadora"
-      ],
-      "ilustracoes": [
-        "personagem-sana-delineado-1",
-        "personagem-sana-delineado-2",
-        "personagem-sana-delineado-3"
-      ],
-      "nota": null,
-      "falas": [
-        {
-          "tipo": "introducao",
-          "texto": "Agora vamos para o rei da maquiagem Gyaru: o delineado preto! Peguem uma caneta bem pigmentada, porque aqui não tem moderação, a linha é bem marcante."
-        },
-        {
-          "tipo": "instrucaoPraticaTecnica",
-          "texto": "Fazemos um traço bem espesso na pálpebra e puxamos a pontinha ligeiramente para baixo no canto externo. Esse é o efeito tareme, que deixa os olhos grandes, arredondados e expressivos!"
-        },
-        {
-          "tipo": "introducao",
-          "texto": "Aqui o delineado contorna nosso olho aumentado pela sombra, dando esse visual de olhar de boneca."
-        }
-      ]
-    },
-    {
-      "id": "gyaru-cilios",
-      "titulo": "Cílios",
-      "tipo": "passo",
-      "itensNecessarios": [
-        "cilios-posticos"
-      ],
-      "ilustracoes": [
-        "personagem-sana-cilios-1",
-        "personagem-sana-cilios-2",
-        "personagem-sana-cilios-3"
-      ],
-      "nota": null,
-      "falas": [
-        {
-          "tipo": "introducao",
-          "texto": "Se tem uma coisa que a estética Gyaru não economiza, é nos cílios! Aqui a regra é o volume dramático, e nós vamos usar modelos tanto em cima quanto embaixo."
-        },
-        {
-          "tipo": "instrucaoPraticaTecnica",
-          "texto": "Cole os cílios superiores bem rente ao delineado e, o grande truque, encaixe os inferiores um pouquinho abaixo da linha d'água para abrir o olhar ao máximo!"
-        },
-        {
-          "tipo": "introducao",
-          "texto": "A sociedade patriarcal tenta o tempo todo convencer as mulheres a ocuparem pouco espaço. Usar um olhar tão marcante e sem medo de ser \"demais\" é uma afirmação da nossa presença no mundo!"
         }
       ]
     },
@@ -215,6 +221,24 @@
       ]
     },
     {
+      "id": "gyaru-beauty-mark",
+      "titulo": "Sinal",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "caneta-delineadora"
+      ],
+      "ilustracoes": [
+        "personagem-sana-pintinha"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Para adicionar mais um detalhe, faço uma beauty Mark no topo da bochecha!"
+        }
+      ]
+    },
+    {
       "id": "gyaru-batom",
       "titulo": "Batom",
       "tipo": "passo",
@@ -223,8 +247,8 @@
         "gloss"
       ],
       "ilustracoes": [
-        "personagem-sana-batom-1",
-        "personagem-sana-batom-2"
+        "personagem-sana-pintinha",
+        "personagem-sana-batom"
       ],
       "nota": null,
       "falas": [

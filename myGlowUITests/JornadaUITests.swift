@@ -50,6 +50,13 @@ final class JornadaUITests: XCTestCase {
         add(anexo)
     }
 
+    /// O card da experiência não tem rótulo próprio — o VoiceOver/XCUITest
+    /// lê o nome concatenado com a descrição completa da personagem, que muda
+    /// de texto com frequência. Casar só pelo prefixo do nome sobrevive a isso.
+    private func cardDaPersonagem(_ app: XCUIApplication, nome: String) -> XCUIElement {
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "\(nome),")).firstMatch
+    }
+
     @MainActor
     func testJornadaCompletaComMaletaFaltandoItem() throws {
         let app = appDoPrimeiroUso()
@@ -82,7 +89,7 @@ final class JornadaUITests: XCTestCase {
         continuar.tap()
 
         // 4. Salão.
-        let cardDaLucy = app.buttons["Lucy, Gótica"]
+        let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10), "O Salão traz os cards de experiência")
         capturar(app, "03-salao")
         cardDaLucy.tap()
@@ -127,7 +134,7 @@ final class JornadaUITests: XCTestCase {
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
         continuar.tap()
 
-        let cardDaLucy = app.buttons["Lucy, Gótica"]
+        let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10))
         cardDaLucy.tap()
 

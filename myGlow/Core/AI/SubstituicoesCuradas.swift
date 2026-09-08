@@ -78,7 +78,7 @@ nonisolated enum SubstituicoesCuradas {
         }
     }
 
-    static let semSubstituto = "Não achei um substituto razoável, vamos seguindo com a maquiagem."
+    static let semSubstituto = "Não achei um substituto razoável com o que você possui, vamos seguindo com a maquiagem."
 
     static let regras: [String: [Regra]] = [
         "caneta-delineadora": [
