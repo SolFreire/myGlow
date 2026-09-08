@@ -38,9 +38,11 @@ struct SalaoView: View {
             ancora: .bottom,
             largura: 0.145,
             moldura: moldura,
-            rotulo: "Sentar e escolher a experiência",
-            acao: aoSentar
-        )
+            rotulo: "Sentar e escolher a experiência"
+        ){
+            SoundManager.shared.playSoundEffect(named: "botao-efeito")
+            aoSentar()
+        }
 
         ObjetoDaCena(
             asset: "icone-maleta",
@@ -50,6 +52,7 @@ struct SalaoView: View {
             moldura: moldura,
             rotulo: "Minha maleta"
         ) {
+            SoundManager.shared.playSoundEffect(named: "botao-efeito")
             aoNavegar(.cadastro)
         }
 
@@ -61,6 +64,7 @@ struct SalaoView: View {
             moldura: moldura,
             rotulo: "Meu álbum"
         ) {
+            SoundManager.shared.playSoundEffect(named: "botao-efeito")
             aoNavegar(.galeria)
         }
 
@@ -77,6 +81,7 @@ struct SalaoView: View {
                     moldura: moldura,
                     rotulo: "Lembrança de \(subcultura.personagem)"
                 ) {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     withAnimation(.snappy) { lembrancaAberta = subcultura }
                 }
                 .matchedGeometryEffect(id: subcultura, in: animacaoDaLembranca)

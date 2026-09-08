@@ -34,7 +34,7 @@ struct FundoDeCena: View {
                     .clipped()
             }
             .ignoresSafeArea()
-            .accessibilityHidden(true)
+            .descricaoDaArte(nome)
         } else {
             FundoSalao(cor: corDoPlaceholder)
         }
@@ -46,6 +46,7 @@ struct BotaoAjustes: View {
 
     var body: some View {
         BotaoCircular(simbolo: "gearshape.fill", diametro: 48) {
+            SoundManager.shared.playSoundEffect(named: "botao-efeito")
             mostrandoAjustes = true
         }
         .accessibilityLabel("Ajustes")
@@ -64,6 +65,9 @@ struct AjustesView: View {
             Form {
                 Section {
                     Toggle("Som", isOn: $somLigado)
+                        .onChange(of: somLigado) { oldValue, newValue in
+                            SoundManager.shared.playBackgroundMusic(isOn: newValue)
+                        }
                 } footer: {
                     Text("A narração das personagens entra numa próxima versão.")
                 }

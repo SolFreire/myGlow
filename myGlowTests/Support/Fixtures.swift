@@ -47,18 +47,10 @@ enum Fixture {
     }
 
     static func sugestao(
-        passos: [String] = ["Passo de teste"],
-        substituicoes: [TechniqueSuggestion.Substituicao] = [],
+        dica: String = "Dica de teste",
         origem: TechniqueSuggestion.Origem = .regrasEstaticas
     ) -> TechniqueSuggestion {
-        TechniqueSuggestion(
-            passos: passos,
-            substituicoes: substituicoes,
-            itensNaoUtilizados: [],
-            curiosidade: "Curiosidade de teste",
-            itensForaDaMaleta: [],
-            origem: origem
-        )
+        TechniqueSuggestion(dica: dica, origem: origem)
     }
 
     static func resumos(_ ids: String...) -> [ItemResumo] {

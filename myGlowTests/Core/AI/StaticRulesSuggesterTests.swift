@@ -3,6 +3,7 @@
 //  myGlowTests
 //
 
+import Foundation
 import Testing
 @testable import myGlow
 
@@ -17,9 +18,8 @@ struct StaticRulesSuggesterTests {
             inventory: Fixture.resumos("lapis-preto", "batom")
         )
 
-        #expect(sugestao.substituicoes.count == 1)
-        #expect(sugestao.substituicoes.first?.itemAusente == "Caneta delineadora")
-        #expect(sugestao.substituicoes.first?.itemUsado == "Lápis preto")
+        #expect(sugestao.dica.contains("Caneta delineadora"))
+        #expect(sugestao.dica.contains("Lápis preto"))
         #expect(sugestao.origem == .regrasEstaticas)
     }
 
@@ -30,36 +30,38 @@ struct StaticRulesSuggesterTests {
             inventory: Fixture.resumos("batom")
         )
 
-        #expect(sugestao.substituicoes.isEmpty)
+        #expect(sugestao.dica == "Com o que você já tem na maleta dá pra seguir esta etapa do jeitinho do roteiro.")
     }
 
-    @Test("Os passos vêm das falas de instrução do roteiro, não de texto inventado")
-    func passosVemDoRoteiro() async throws {
-        let etapa = Fixture.etapa(
-            itensNecessarios: ["clown"],
-            falas: [
-                Fixture.fala(.introducao, "Vamos começar pela pele."),
-                Fixture.fala(.instrucaoPratica, "Aplique em batidinhas firmes."),
-                Fixture.fala(.contextoHistorico, "A base branca vem do pós-punk.")
-            ]
-        )
+    /// Achado empírico: 7 das 19 etapas de passo nos três roteiros pedem dois
+    /// itens ao mesmo tempo (ex: `gotica-base`, clown+pancake). Uma dica que só
+    /// resolve o primeiro deixaria a pessoa sem solução pra metade do problema.
+    @Test("Com dois itens faltando, a dica cobre os dois")
+    func dicaComDoisItensFaltando() async throws {
+        let etapa = Fixture.etapa(itensNecessarios: ["clown", "pancake"])
 
-        let sugestao = try await suggester.suggestTechnique(
-            for: etapa,
-            inventory: Fixture.resumos("base")
-        )
+        // "po" é substituto de ambos na tabela de regras — sem ele na maleta,
+        // nenhuma regra se aplicaria e a dica cairia no genérico "case 0".
+        let sugestao = try await suggester.suggestTechnique(for: etapa, inventory: Fixture.resumos("po"))
 
-        #expect(sugestao.passos == ["Aplique em batidinhas firmes."])
-        #expect(sugestao.curiosidade == "A base branca vem do pós-punk.")
+        #expect(sugestao.dica.localizedCaseInsensitiveContains("clown"))
+        #expect(sugestao.dica.localizedCaseInsensitiveContains("pancake"))
     }
 
-    @Test("Não marca itens como não utilizados — não há modelo para restringir")
-    func naoUtilizadosFicaVazio() async throws {
-        let sugestao = try await suggester.suggestTechnique(
-            for: Fixture.etapa(itensNecessarios: ["caneta-delineadora"]),
-            inventory: Fixture.resumos("lapis-preto", "bronzer-inexistente", "gloss")
-        )
+    @Test("A dica não cita produto fora da maleta")
+    func naoCitaProdutoDeFora() async throws {
+        let etapa = Fixture.etapa(itensNecessarios: ["caneta-delineadora"])
+        let maleta = Fixture.resumos("lapis-preto", "gloss")
 
-        #expect(sugestao.itensNaoUtilizados.isEmpty)
+        let sugestao = try await suggester.suggestTechnique(for: etapa, inventory: maleta)
+
+        let faltantes = etapa.itensFaltantes(naMaleta: Set(maleta.map(\.id)))
+        let catalogoParaChecagem = CatalogoMaquiagem.todos.filter { !faltantes.contains($0.id) }
+        let foraDaMaleta = ChecagemDeInventario.itensForaDaMaleta(
+            emTextos: [sugestao.dica],
+            maleta: maleta,
+            catalogo: catalogoParaChecagem
+        )
+        #expect(foraDaMaleta.isEmpty)
     }
 }

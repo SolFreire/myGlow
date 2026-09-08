@@ -52,14 +52,6 @@ final class CameraModel {
     }
     
     func startCamera() async {
-        // Garanta que os leitores do stream estejam rodando
-        Task {
-            await handleCameraPreviews()
-        }
-        Task {
-            await handleCameraPhotos()
-        }
-        
         await camera.start()
     }
     func stopCamera() {
@@ -177,7 +169,6 @@ final class CameraModel {
 
 
 fileprivate extension CIImage {
-    // Reutilizar o mesmo contexto do CoreImage evita o congelamento do app ao processar a câmera
     private static let ciContext = CIContext()
     
     var image: Image? {
