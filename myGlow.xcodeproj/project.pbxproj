@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		D6EF8A3C304C634300766EDB /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = D6EF8A3B304C634300766EDB /* AppIcon.icon */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		79A7C4313045C2AC00F50146 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		79A7C4233045C2AB00F50146 /* myGlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A7C4303045C2AC00F50146 /* myGlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myGlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A7C43A3045C2AC00F50146 /* myGlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myGlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6EF8A3B304C634300766EDB /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +75,6 @@
 		79A7C41A3045C2AB00F50146 = {
 			isa = PBXGroup;
 			children = (
-				D6EF8A3B304C634300766EDB /* AppIcon.icon */,
 				79A7C4253045C2AB00F50146 /* myGlow */,
 				79A7C4333045C2AC00F50146 /* myGlowTests */,
 				79A7C43D3045C2AC00F50146 /* myGlowUITests */,
@@ -219,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6EF8A3C304C634300766EDB /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +429,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -478,7 +471,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
