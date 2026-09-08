@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "Pose Sana=Normal.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Pose Sana=Normal 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
