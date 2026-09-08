@@ -59,10 +59,6 @@ class CameraService: NSObject {
         }
     }
     
-    var isRunning: Bool {
-        captureSession.isRunning
-    }
-    
     var isUsingFrontCaptureDevice: Bool {
         guard let captureDevice = captureDevice else { return false }
         return frontCaptureDevices.contains(captureDevice)
@@ -304,19 +300,6 @@ class CameraService: NSObject {
         isCaptureSessionConfigured = true
         
         success = true
-    }
-    
-    var flashModeValue: String {
-        switch flashMode {
-        case .off:
-            return "Desligado"
-        case .on:
-            return "Ligado"
-        case .auto:
-            return "Automático"
-        default:
-            return "Automático"
-        }
     }
     
     func setZoom(factor: CGFloat) {

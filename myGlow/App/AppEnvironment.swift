@@ -15,7 +15,6 @@ final class AppEnvironment {
     let progresso: any ProgressRepository
     let fotos: any FotoRepository
     //let classificador: any MakeupItemClassifying
-    let rolo: any PhotoLibrarySaving
 
     private(set) var roteiros: [Subcultura: Roteiro] = [:]
     private(set) var onboarding: RoteiroOnboarding?
@@ -25,15 +24,13 @@ final class AppEnvironment {
     init(
         inventario: any MakeupInventoryRepository,
         progresso: any ProgressRepository,
-        fotos: any FotoRepository,
-        //classificador: any MakeupItemClassifying = ManualEntryClassifier(),
-        rolo: any PhotoLibrarySaving = PhotoLibraryService()
+        fotos: any FotoRepository
+        //classificador: any MakeupItemClassifying = ManualEntryClassifier()
     ) {
         self.inventario = inventario
         self.progresso = progresso
         self.fotos = fotos
         //self.classificador = classificador
-        self.rolo = rolo
         carregarRoteiros()
     }
 
