@@ -1,3 +1,4 @@
+
 //
 //  Componentes.swift
 //  myGlow
@@ -68,6 +69,45 @@ struct BotaoPrimario: View {
     }
 }
 
+struct CardMaqueadora: View {
+    let background: String
+    let character: String
+    let nomeDaPersonagem: String
+    let descricao: String
+    let cor: String
+    let acao: () -> Void
+    
+    var body: some View {
+        Button(action: acao) {
+            ZStack {
+                Image(background)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 160, height: 180)
+                Image(character)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 265, height: 165, alignment: .bottomTrailing)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(nomeDaPersonagem)
+                        .font(Tipografia.titulo)
+                        .foregroundStyle(Color(cor))
+                        
+                    Text(descricao)
+                        .font(Tipografia.legenda)
+                        .foregroundStyle(Color(cor))
+                        .multilineTextAlignment(.leading)
+                        .frame(width: 125, height: 80, alignment: .topLeading)
+
+                }
+                .frame(width: 230, height: 130, alignment: .topLeading)
+                
+            }
+            
+        }
+    }
+}
+
 struct BotaoSecundario: View {
     let titulo: String
     var simbolo: String?
@@ -120,9 +160,12 @@ struct PolaroidCard: View {
                     .cornerRadius(4)
             }
             
-            Text("myGlow")
-                .font(Tipografia.titulo.scaled(by: 0.8))
-                .foregroundStyle(.corLogoPolaroid)
+            
+            Image("logo-polaroid")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 30)
+                .rotationEffect(.degrees(-4.08))
         }
         .padding()
         .padding(.bottom, 16)
@@ -131,3 +174,5 @@ struct PolaroidCard: View {
         .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
     }
 }
+
+

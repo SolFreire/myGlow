@@ -24,9 +24,9 @@
       "tipo": "abertura",
       "itensNecessarios": [],
       "ilustracoes": [
-        "personagem-sana-ola-1",
-        "personagem-sana-ola-2",
-        "personagem-sana-ola-3"
+        "personagem-sana",
+        "personagem-sana",
+        "personagem-sana-falando"
       ],
       "nota": null,
       "falas": [
@@ -240,9 +240,9 @@
       "tipo": "fechamento",
       "itensNecessarios": [],
       "ilustracoes": [
-        "personagem-sana-fechamento-1",
-        "personagem-sana-fechamento-2",
-        "personagem-sana-fechamento-3"
+          "personagem-sana",
+          "personagem-sana-falando",
+          "personagem-sana-segurando-camera"
       ],
       "nota": null,
       "falas": [
