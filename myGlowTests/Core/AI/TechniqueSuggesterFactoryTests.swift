@@ -77,7 +77,7 @@ struct SuggesterComFallbackTests {
         )
 
         #expect(sugestao.origem == .regrasEstaticas)
-        #expect(sugestao.substituicoes.first?.itemUsado == "Lápis preto")
+        #expect(sugestao.dica.contains("Lápis preto"))
     }
 
     /// Se a estética gótica esbarrar no guardrail da Apple, a trilha continua com
@@ -99,7 +99,7 @@ struct SuggesterComFallbackTests {
 
     @Test("Com o modelo funcionando, a reserva não é usada")
     func mantemOPrincipal() async throws {
-        let esperada = Fixture.sugestao(passos: ["Veio do modelo"], origem: .onDevice)
+        let esperada = Fixture.sugestao(dica: "Veio do modelo", origem: .onDevice)
         let suggester = SuggesterComFallback(
             principal: SuggesterFalso(resultado: .success(esperada)),
             reserva: reserva
@@ -111,7 +111,7 @@ struct SuggesterComFallbackTests {
         )
 
         #expect(sugestao.origem == .onDevice)
-        #expect(sugestao.passos == ["Veio do modelo"])
+        #expect(sugestao.dica == "Veio do modelo")
     }
 
     @Test("A mensagem de erro não expõe texto técnico")

@@ -34,5 +34,10 @@ enum Paleta {
         nomeDoClaro: "cor-botao-secundario-claro"
     )
 
-    static let familiasDeBotao = [botao, botaoDeContexto]
+    static let botaoDeSugestao = Botao(
+        nomeDaBase: "cor-balao-sugestao",
+        nomeDoClaro: "cor-botao-terciario-claro"
+    )
+
+    static let familiasDeBotao = [botao, botaoDeContexto, botaoDeSugestao]
 }

@@ -30,6 +30,7 @@ struct BalaoDeFala: View {
         static let fundo = Color("cor-balao-fundo")
         static let borda = Color("cor-balao-borda")
         static let contexto = Color("cor-balao-borda-secundaria")
+        static let sugestao = Color("cor-balao-sugestao")
         static let texto = Color("cor-balao-texto")
     }
 
@@ -38,21 +39,24 @@ struct BalaoDeFala: View {
         case padrao
         case passo
         case contexto
+        case sugestao
 
         /// Cor da borda e da aba.
         var cor: Color {
             switch self {
             case .padrao, .passo: Cor.borda
             case .contexto: Cor.contexto
+            case .sugestao: Cor.sugestao
             }
         }
 
         /// Os botões de navegar acompanham o balão: no contexto histórico o
-        /// roxo destoaria da borda ciano.
+        /// roxo destoaria da borda ciano, e na dica destoaria do verde.
         var botoes: Paleta.Botao {
             switch self {
             case .padrao, .passo: Paleta.botao
             case .contexto: Paleta.botaoDeContexto
+            case .sugestao: Paleta.botaoDeSugestao
             }
         }
     }
