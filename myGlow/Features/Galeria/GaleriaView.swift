@@ -51,6 +51,7 @@ struct GaleriaView: View {
                     ForEach(photos) { photo in
                         if let uiImage = UIImage(data: photo.dados) {
                             Button {
+                                SoundManager.shared.playSoundEffect(named: "botao-efeito")
                                 aoAbrirFoto(photo)
                             } label: {
                                 Image(uiImage: uiImage)

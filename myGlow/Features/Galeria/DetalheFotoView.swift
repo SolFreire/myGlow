@@ -34,13 +34,17 @@ struct DetalheFotoView: View {
             
             .toolbar {
                 ToolbarItem(placement: .topBarLeading){
-                    BotaoCircular(simbolo: "door.right.hand.open", acao: aoVoltar)
+                    BotaoCircular(simbolo: "door.right.hand.open"){
+                        SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                        aoVoltar()
+                    }
                 }
                 .sharedBackgroundVisibility(.hidden)
             }
             .alert("Tem certeza de que deseja excluir a foto?", isPresented: $showAlert) {
                 Button("Cancelar", role: .cancel) {}
                 Button("Excluir", role: .destructive) {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     modelContext.delete(foto)
                     aoVoltar()
                 }
@@ -65,6 +69,7 @@ struct DetalheFotoView: View {
             .background(Paleta.botao.gradiente, in: Capsule())
             
             BotaoPrimario(titulo: "Deletar", simbolo: "trash", cores: Paleta.botaoDeletarFoto, preencheLargura: false) {
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 showAlert = true
             }
         }

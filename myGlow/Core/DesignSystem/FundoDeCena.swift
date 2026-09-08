@@ -46,6 +46,7 @@ struct BotaoAjustes: View {
 
     var body: some View {
         BotaoCircular(simbolo: "gearshape.fill", diametro: 48) {
+            SoundManager.shared.playSoundEffect(named: "botao-efeito")
             mostrandoAjustes = true
         }
         .accessibilityLabel("Ajustes")
