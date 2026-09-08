@@ -6,9 +6,10 @@
 import SwiftUI
 
 struct BotaoPrimario: View {
-    let titulo: String
+    var titulo: String? = nil
     var simbolo: String?
     var tamanho: Tamanho = .padrao
+    var cores: Paleta.Botao = Paleta.botao
     var preencheLargura = true
     var simboloAoFim = false
     let acao: () -> Void
@@ -16,11 +17,13 @@ struct BotaoPrimario: View {
     enum Tamanho {
         case padrao
         case grande
+        case camera
 
         var fonte: Font {
             switch self {
             case .padrao: Tipografia.destaqueDoCorpo
             case .grande: Tipografia.botao
+            case .camera: Tipografia.titulo
             }
         }
 
@@ -28,6 +31,7 @@ struct BotaoPrimario: View {
             switch self {
             case .padrao: 14
             case .grande: 20
+            case .camera: 16
             }
         }
 
@@ -35,6 +39,7 @@ struct BotaoPrimario: View {
             switch self {
             case .padrao: 24
             case .grande: 56
+            case .camera: 20
             }
         }
     }
@@ -45,7 +50,9 @@ struct BotaoPrimario: View {
                 if let simbolo, !simboloAoFim {
                     Image(systemName: simbolo)
                 }
-                Text(titulo)
+                if let titulo {
+                    Text(titulo)
+                }
                 if let simbolo, simboloAoFim {
                     Image(systemName: simbolo)
                 }
@@ -55,7 +62,7 @@ struct BotaoPrimario: View {
             .padding(.horizontal, tamanho.recuoHorizontal)
             .padding(.vertical, tamanho.recuoVertical)
             .frame(maxWidth: preencheLargura ? .infinity : nil)
-            .background(Paleta.botao.gradiente, in: Capsule())
+            .background(cores.gradiente, in: Capsule())
         }
         .buttonStyle(.plain)
     }
@@ -113,11 +120,9 @@ struct PolaroidCard: View {
                     .cornerRadius(4)
             }
             
-            
-            Image("logo-polaroid")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 50, height: 30)
+            Text("myGlow")
+                .font(Tipografia.titulo.scaled(by: 0.8))
+                .foregroundStyle(.corLogoPolaroid)
         }
         .padding()
         .padding(.bottom, 16)

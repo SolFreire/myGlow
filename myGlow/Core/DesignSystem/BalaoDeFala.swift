@@ -108,6 +108,7 @@ struct BalaoDeFala: View {
                 // texto transforma o balão inteiro num elemento — os botões ←
                 // e → perdem os nomes deles junto.
                 .accessibilityLabel(rotulo)
+                .offset(x: 0, y: -Medida.recuoVerticalDaAba - 5)
         }
     }
 
