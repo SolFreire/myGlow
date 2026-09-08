@@ -190,10 +190,10 @@ final class LembrancasNoSalaoUITests: XCTestCase {
         // Daqui a volta ao salão é reabrindo o app, e não pela câmera.
         //
         // Não é preguiça: é o que também prova que a conquista foi **gravada**,
-        // e não só guardada na sessão. Antes este teste procurava "Voltar ao
-        // salão" logo após os toques e passava por corrida — encontrava o botão
-        // de sair do próprio tutorial, porque a câmera ainda não tinha subido.
-        // Nunca chegou a exercitar a volta pela câmera.
+        // e não só guardada na sessão. A versão anterior deste teste procurava
+        // "Voltar ao salão" logo após os toques — o botão do próprio tutorial,
+        // que já não existe na tela da câmera — e nunca chegou a exercitar a
+        // volta de verdade.
         let aranha = app.buttons["Lembrança de Lucy"]
         app.terminate()
         app.launchArguments = ["-pularTelaInicial", "YES", "-primeiroUsoConcluido", "YES"]

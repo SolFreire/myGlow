@@ -34,9 +34,10 @@ enum Paleta {
         nomeDoClaro: "cor-botao-secundario-claro"
     )
 
-    static let botaoDeCamera = Botao(nomeDaBase: "cor-botao-camera", nomeDoClaro: "cor-botao-camera-claro")
-    
-    static let botaoDeletarFoto = Botao(nomeDaBase: "cor-botao-deletar", nomeDoClaro: "cor-botao-deletar-claro")
+    static let botaoDeSugestao = Botao(
+        nomeDaBase: "cor-balao-sugestao",
+        nomeDoClaro: "cor-botao-terciario-claro"
+    )
 
-    static let familiasDeBotao = [botao, botaoDeContexto, botaoDeCamera, botaoDeletarFoto]
+    static let familiasDeBotao = [botao, botaoDeContexto, botaoDeSugestao]
 }
