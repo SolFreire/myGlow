@@ -22,7 +22,7 @@ struct CenaInterativa<Objetos: View>: View {
                         .scaledToFill()
                         .frame(width: proxy.size.width, height: proxy.size.height)
                         .clipped()
-                        .accessibilityHidden(true)
+                        .descricaoDaArte(cenario)
                 } else {
                     FundoSalao()
                 }
