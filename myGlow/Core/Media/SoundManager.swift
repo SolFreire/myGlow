@@ -22,8 +22,12 @@ class SoundManager {
         ])
     }
 
+    private var efeitosSonorosLigados: Bool {
+        (UserDefaults.standard.object(forKey: "efeitosSonorosLigados") as? Bool) ?? true
+    }
+
     func playSoundEffect(named soundName: String) {
-        guard somLigado else { return }
+        guard efeitosSonorosLigados else { return }
 
         if let url = Bundle.main.url(forResource: soundName, withExtension: ".mp3") {
             do {
@@ -35,22 +39,6 @@ class SoundManager {
         }
         else {
             print("error loading sound \(soundName).mp3")
-        }
-    }
-    
-    func playBackgroundMusic(isOn: Bool) {
-        if isOn {
-            if let url = Bundle.main.url(forResource: "background-music", withExtension: ".wav") {
-                do {
-                    soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
-                    soundEffectPlayer?.play()
-                } catch {
-                    print(error.localizedDescription)
-                }
-
-            } else {
-                print("Erro carregando \(soundName).mp3")
-            }
         }
     }
 
