@@ -11,7 +11,6 @@ struct RootView: View {
     @AppStorage("primeiroUsoConcluido") private var primeiroUsoConcluido = false
 
     @State private var emOnboarding: Bool?
-    @State private var mostrandoAjustes = false
 
     @State private var lembrancas: LembrancaViewModel?
 
@@ -47,14 +46,6 @@ struct RootView: View {
             }
         }
         .tint(Cores.destaque)
-        .environment(\.abrirAjustes) { withAnimation(.snappy) { mostrandoAjustes = true } }
-        .overlay {
-            if mostrandoAjustes {
-                BalaoAjustes {
-                    withAnimation(.snappy) { mostrandoAjustes = false }
-                }
-            }
-        }
     }
 
     private var salao: some View {
