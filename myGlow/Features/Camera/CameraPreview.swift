@@ -9,6 +9,7 @@ import UIKit
 struct CameraPreview: View {
     @Environment(CameraModel.self) var model: CameraModel
     @Environment(\.voltarAoSalao) private var voltarAoSalao
+    @Environment(\.confirmarVoltarAoSalao) private var confirmarVoltarAoSalao
     
     var body: some View {
         GeometryReader { geometry in
@@ -45,7 +46,7 @@ struct CameraPreview: View {
             ToolbarItem(placement: .topBarLeading){
                 Button {
                     SoundManager.shared.playSoundEffect(named: "botao-efeito")
-                    voltarAoSalao()
+                    confirmarVoltarAoSalao()
                 } label: {
                     Image(systemName: "door.right.hand.open")
                         .font(Font.system(size: 16, weight: .bold, design: .rounded))

@@ -33,9 +33,6 @@ class SoundManager {
                 print(error.localizedDescription)
             }
         }
-        else {
-            print("error loading sound \(soundName).mp3")
-        }
     }
     
 
