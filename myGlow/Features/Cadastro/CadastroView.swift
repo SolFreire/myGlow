@@ -14,6 +14,7 @@ struct CadastroView: View {
     @State private var vm: CadastroViewModel?
     @State private var molduraDaMaleta: CGRect = .zero
     @State private var maletaEmDestaque = false
+    @State private var arrastandoAlgo = false
 
     private let espaco = "cadastro"
 
@@ -51,16 +52,14 @@ struct CadastroView: View {
 
                 catalogo(vm)
                     .frame(width: proxy.size.width * 0.40)
+                    .zIndex(arrastandoAlgo ? 1 : 0)
             }
             .frame(height: proxy.size.height)
         }
     }
 
     private func maleta(_ vm: CadastroViewModel) -> some View {
-        // `ignoresSafeArea` aqui, e nao no `conteudo`: assim a maleta mede a
-        // altura fisica da tela e encosta na borda, do mesmo jeito que as
-        // personagens do Tutorial. O catalogo ao lado continua dentro da area
-        // segura, porque tem o botao Salvar no topo.
+
         GeometryReader { proxy in
             let largura = proxy.size.width
             let altura = largura / (Arte.proporcao("maleta-aberta") ?? 1)
@@ -110,6 +109,7 @@ struct CadastroView: View {
                             ForEach(vm.itensNaMaleta) { item in
                                 CartaoDeItem(item: item, dentroDaMaleta: true) {
                                     Task { await vm.alternar(item) }
+                                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                                 }
                             }
                         }
@@ -133,10 +133,7 @@ struct CadastroView: View {
     }
 
     private enum Medida {
-        /// Recuo interno do painel de itens.
         static let recuoDoCatalogo: CGFloat = 14
-        /// Do lado da maleta o recuo e maior: sem ele o primeiro cartao encosta
-        /// na arte, e os dois blocos brigam por atencao.
         static let respiroAteAMaleta: CGFloat = 32
     }
 
@@ -165,15 +162,21 @@ struct CadastroView: View {
                             item: item,
                             dentroDaMaleta: false,
                             espaco: espaco,
-                            aoTocar: { Task { await vm.alternar(item) } },
+                            aoTocar: {
+                                Task { await vm.alternar(item) }
+                                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                            },
                             aoArrastar: { ponto in
+                                arrastandoAlgo = true
                                 maletaEmDestaque = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
                             },
                             aoSoltar: { ponto in
+                                arrastandoAlgo = false
                                 maletaEmDestaque = false
                                 let acertou = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
                                 if acertou {
                                     Task { await vm.adicionar(item) }
+                                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                                 }
                                 return acertou
                             }
@@ -185,6 +188,7 @@ struct CadastroView: View {
                 .padding(.leading, Medida.respiroAteAMaleta)
             }
             .scrollIndicators(.hidden)
+            .scrollClipDisabled()
             .background(
                 Cores.painelDoCatalogo,
                 in: UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
@@ -212,14 +216,6 @@ private struct CartaoDeItem: View {
     @State private var arrastando = false
 
     var body: some View {
-        // O quadrado vem de um `Color.clear`, e nao da propria arte.
-        //
-        // Antes o `aspectRatio` ficava depois da imagem: como `ArteView` usa
-        // `scaledToFit`, ela devolvia o tamanho **da arte encaixada**, com a
-        // proporcao de cada PNG. O cartao herdava isso, e cada item da linha
-        // saia de uma largura — batom estreito, paleta larga. Com o quadrado
-        // vindo de fora, todo cartao ocupa a coluna inteira e a arte se encaixa
-        // dentro dele.
         Color.clear
             .aspectRatio(1, contentMode: .fit)
             .overlay {

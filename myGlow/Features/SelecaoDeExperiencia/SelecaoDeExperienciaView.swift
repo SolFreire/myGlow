@@ -40,6 +40,7 @@ struct SelecaoDeExperienciaView: View {
                                 cor: "\(subcultura.corCard)"
                             ) {
                                 withAnimation(.snappy) { focada = subcultura }
+                                SoundManager.shared.playSoundEffect(named: "botao-efeito")
                             }
                             .rotationEffect(.degrees(subcultura.rotation))
                             .offset(x: CGFloat(subcultura.x), y: CGFloat(subcultura.y))
@@ -64,6 +65,7 @@ struct SelecaoDeExperienciaView: View {
                     VStack(spacing: 40) {
                         card(para: focada, emFoco: true) {
                             aoEscolher(focada)
+                            SoundManager.shared.playSoundEffect(named: "botao-efeito")
                         }
                         .scaleEffect(1.3)
 
