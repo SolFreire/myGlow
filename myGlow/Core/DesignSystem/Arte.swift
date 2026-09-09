@@ -7,23 +7,11 @@ import SwiftUI
 import UIKit
 
 
-/// A descrição das artes para o VoiceOver, vinda do String Catalog
-/// `Acessibilidade`.
-///
-/// Fica fora do código de propósito: escrever a descrição no catálogo já liga a
-/// arte para o VoiceOver, sem tocar em Swift. E uma arte sem descrição continua
-/// decorativa, que é o certo para as que não acrescentam informação.
 enum DescricaoDeArte {
     static let tabela = "Acessibilidade"
 
     static func chave(de asset: String) -> String { "arte.\(asset)" }
 
-    /// A descrição, ou `nil` quando ainda não existe uma.
-    ///
-    /// `NSLocalizedString` devolve a própria chave quando não encontra a
-    /// entrada — e é essa igualdade que separa "sem descrição" de "descrita".
-    /// Sem a comparação, uma arte não descrita faria o VoiceOver ler
-    /// "arte.fundo-salao" em voz alta.
     static func para(_ asset: String) -> String? {
         let chave = chave(de: asset)
         let texto = NSLocalizedString(chave, tableName: tabela, comment: "")
@@ -32,10 +20,6 @@ enum DescricaoDeArte {
 }
 
 extension View {
-    /// Descreve a arte para o VoiceOver, ou a esconde quando não há descrição.
-    ///
-    /// Todo desenho do app passa por aqui — o `ArteView` e as cinco telas que
-    /// desenham `Image` direto —, para a regra ser uma só.
     func descricaoDaArte(_ asset: String) -> some View {
         modifier(DescricaoDaArte(asset: asset))
     }

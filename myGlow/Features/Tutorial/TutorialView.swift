@@ -12,6 +12,7 @@ struct TutorialView: View {
     @Environment(AppEnvironment.self) private var ambiente
     @State private var vm: TutorialViewModel?
 
+
     var body: some View {
         Group {
             if let vm {
@@ -96,9 +97,6 @@ struct TutorialView: View {
         }
     }
 
-
-    /// O texto do balão é markdown; anunciado cru, o VoiceOver leria os
-    /// asteriscos de **negrito** em voz alta.
     private static func semMarcacao(_ texto: String) -> String {
         (try? AttributedString(markdown: texto)).map { String($0.characters) } ?? texto
     }

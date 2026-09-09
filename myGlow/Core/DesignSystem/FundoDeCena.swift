@@ -10,6 +10,7 @@ struct FundoDeCena: View {
     let nome: String
     var corDoPlaceholder: Color = Cores.destaque
     var emFoco = false
+
     
     var body: some View {
         conteudo
@@ -42,72 +43,43 @@ struct FundoDeCena: View {
 }
 
 struct BotaoAjustes: View {
-    @State private var mostrandoAjustes = false
-    
+    @Environment(\.abrirAjustes) private var abrirAjustes
+
     var body: some View {
         BotaoCircular(simbolo: "gearshape.fill", diametro: 48) {
             SoundManager.shared.playSoundEffect(named: "botao-efeito")
-            mostrandoAjustes = true
+            abrirAjustes()
         }
         .accessibilityLabel("Ajustes")
-        .sheet(isPresented: $mostrandoAjustes) {
-            AjustesView()
-                .presentationBackground(.clear)
-                .presentationCornerRadius(AjustesView.Medida.canto)
-                .presentationDetents([.height(AjustesView.Medida.altura)])
-        }
     }
 }
-
-struct AjustesView: View {
-    @AppStorage("efeitosSonorosLigados") private var efeitosSonorosLigados = true
-    @AppStorage("musicaLigada") private var musicaLigada = true
-
-    fileprivate enum Medida {
-        static let canto: CGFloat = 24
-        static let traco: CGFloat = 5
-        static let altura: CGFloat = 380
-        static let recuoDaAba: CGFloat = 38
-    }
-
-    private enum Musica {
-        static let artista = "VIV3LI"
-        static let fonte = "https://youtu.be/ymTjeOlUcts?si=swS8EDfvewnAbP6s"
-    }
-
+struct BotaoVoltar: View {
+    @Environment(\.confirmarVoltarAoSalao) private var confirmarVoltarAoSalao
     var body: some View {
-        NavigationStack {
-            Form {
-                Section {
-                    Toggle("Efeitos sonoros", isOn: $efeitosSonorosLigados)
-                    
-                    Toggle("Música", isOn: $musicaLigada)
-                        .onChange(of: musicaLigada) { oldValue, newValue in
-                            SoundManager.shared.playBackgroundMusic(isOn: newValue)
-                        }
-                } footer: {
-                    Text("A narração das personagens entra numa próxima versão.")
-                }
-            }
-            .navigationTitle("Ajustes")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Pronto") {
-                        fechar()
-                    }
-                }
-            }
+        BotaoCircular(simbolo: "door.right.hand.open", diametro: 48) {
+            SoundManager.shared.playSoundEffect(named: "botao-efeito")
+            confirmarVoltarAoSalao()
+        }
+        .accessibilityLabel("Voltar ao salão")
+        .onAppear {
+            if UserDefaults.standard.bool(forKey: "testarBotaoVoltarDebug") { confirmarVoltarAoSalao() }
         }
     }
 }
+
+extension EnvironmentValues {
+    @Entry var abrirAjustes: () -> Void = {}
+    @Entry var voltarAoSalao: () -> Void = {}
+    @Entry var confirmarVoltarAoSalao: () -> Void = {}
+}
+
 
 
 struct BalaoAjustes: View {
     @AppStorage("efeitosSonorosLigados") private var efeitosSonorosLigados = true
     @AppStorage("musicaLigada") private var musicaLigada = true
     @Environment(\.dismiss) private var fechar
-        @Environment(\.dismiss) private var fechar
+
     
     var estilo: BalaoDeFala.Estilo = .padrao
     let aoFechar: () -> Void
@@ -117,7 +89,14 @@ struct BalaoAjustes: View {
     }
 
     var body: some View {
-        conteudo()
+        ZStack {
+            Color.black.opacity(0.45)
+                .ignoresSafeArea()
+                .contentShape(Rectangle())
+                .onTapGesture(perform: aoFechar)
+
+            conteudo()
+        }
     }
     
     private func conteudo() -> some View {
@@ -139,6 +118,8 @@ struct BalaoAjustes: View {
                     .font(.system(size: 20, weight: .semibold, design: .rounded))
             }
         }
+        .foregroundStyle(BalaoDeFala.Cor.texto)
+        .tint(estilo.cor)
         .fixedSize(horizontal: false, vertical: true)
         .padding(.horizontal, BalaoDeFala.Medida.recuoHorizontal + 25)
         .padding(.bottom, BalaoDeFala.Medida.recuoVertical)
@@ -169,37 +150,40 @@ struct BalaoAjustes: View {
     }
 }
 
-//Alert de quando está em uma experiência e quer voltar para o salão
-struct VoltarAlert: View {
-    @Environment(\.dismiss) private var fechar
-    @Environment(\.voltarAoSalao) private var voltarAoSalao
+
+struct BalaoVoltar: View {
     var estilo: BalaoDeFala.Estilo = .padrao
-    
+    let aoVoltar: () -> Void
+    let aoFechar: () -> Void
+
     private var forma: RoundedRectangle {
         RoundedRectangle(cornerRadius: BalaoDeFala.Medida.canto)
     }
-    
+
     var body: some View {
-        conteudo()
+        ZStack {
+            Color.black.opacity(0.45)
+                .ignoresSafeArea()
+                .contentShape(Rectangle())
+                .onTapGesture(perform: aoFechar)
+
+            conteudo()
+        }
     }
-    
     private func conteudo() -> some View {
         VStack (spacing: 40){
             VStack(spacing: 4) {
-                Text("Tem certeza de que deseja voltar para o salão?")
-                    .font(.system(size: 24, weight: .semibold, design: .rounded))
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
                 Text("Ao voltar para o salão, você perderá todo o progresso")
                     .font(.system(size: 16, weight: .medium, design: .rounded))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.corBalaoTexto)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 36)
             }
             HStack (spacing: 48){
                 Button {
                     SoundManager.shared.playSoundEffect(named: "botao-efeito")
-                    voltarAoSalao()
+                    aoVoltar()
+                    aoFechar()
                 } label: {
                     Text("Voltar")
                         .font(.system(size: 18, weight: .semibold, design: .rounded))
@@ -211,7 +195,7 @@ struct VoltarAlert: View {
                     .stroke(Color.corBalaoBorda, lineWidth: 3))
                 BotaoPrimario(titulo: "Continuar", preencheLargura: false){
                     SoundManager.shared.playSoundEffect(named: "botao-efeito")
-                    fechar()
+                    aoFechar()
                 }
             }
         }
@@ -220,17 +204,25 @@ struct VoltarAlert: View {
         .padding(.bottom, BalaoDeFala.Medida.recuoVertical - 12)
         .padding(.top, BalaoDeFala.Medida.recuoDaAba - 12)
         .background(fundo)
+        .overlay(alignment: .top) { aba }
         .frame(maxWidth: 400)
     }
-    
     private var fundo: some View {
         forma
             .fill(BalaoDeFala.Cor.fundo)
             .overlay { forma.stroke(estilo.cor, lineWidth: BalaoDeFala.Medida.traco) }
     }
+
+    @ViewBuilder
+    private var aba: some View {
+        Text("Voltar ao Salão")
+            .font(Tipografia.nomeDaPersonagem)
+            .foregroundStyle(BalaoDeFala.Cor.fundo)
+            .padding(.horizontal, BalaoDeFala.Medida.recuoHorizontalDaAba)
+            .padding(.vertical, BalaoDeFala.Medida.recuoVerticalDaAba)
+            .background(estilo.cor, in: Capsule())
+            .accessibilityLabel("Voltar ao Salão")
+            .offset(y: -BalaoDeFala.Medida.recuoVerticalDaAba - 5)
+    }
 }
 
-
-#Preview {
-    BalaoAjustes(aoFechar: {})
-}

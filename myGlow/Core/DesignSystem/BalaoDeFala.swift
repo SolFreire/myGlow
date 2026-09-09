@@ -15,8 +15,7 @@ struct BalaoDeFala: View {
         static let recuoHorizontal: CGFloat = 22
         static let recuoVertical: CGFloat = 44
         static let recuoDaAba: CGFloat = 38
-        /// A aba e uma capsula centrada na borda de cima: metade dela fica
-        /// para dentro do balao. `recuoDaAba` precisa cobrir essa metade.
+
         static let recuoVerticalDaAba: CGFloat = 5
         static let recuoHorizontalDaAba: CGFloat = 18
         static let recuoLateralDaAba: CGFloat = 22
@@ -41,7 +40,7 @@ struct BalaoDeFala: View {
         case contexto
         case sugestao
 
-        /// Cor da borda e da aba.
+
         var cor: Color {
             switch self {
             case .padrao, .passo: Cor.borda
@@ -50,8 +49,7 @@ struct BalaoDeFala: View {
             }
         }
 
-        /// Os botões de navegar acompanham o balão: no contexto histórico o
-        /// roxo destoaria da borda ciano, e na dica destoaria do verde.
+
         var botoes: Paleta.Botao {
             switch self {
             case .padrao, .passo: Paleta.botao
@@ -107,10 +105,6 @@ struct BalaoDeFala: View {
                 .background(estilo.cor, in: Capsule())
                 .padding(.leading, Medida.recuoLateralDaAba)
                 .alignmentGuide(.top) { $0[VerticalAlignment.center] }
-                // A aba é uma parada própria do VoiceOver: "Passo 1", depois a
-                // instrução. Já tentei juntar as duas num rótulo só, e rotular o
-                // texto transforma o balão inteiro num elemento — os botões ←
-                // e → perdem os nomes deles junto.
                 .accessibilityLabel(rotulo)
                 .offset(x: 0, y: -Medida.recuoVerticalDaAba - 5)
         }
@@ -145,8 +139,6 @@ struct BalaoDeFala: View {
 struct BotaoCircular: View {
     let simbolo: String
     var diametro: CGFloat = 48
-    /// A família de cor. O roxo é o padrão em toda a interface; só o balão de
-    /// contexto histórico passa outra.
     var cores: Paleta.Botao = Paleta.botao
     let acao: () -> Void
 
