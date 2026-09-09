@@ -98,7 +98,7 @@ struct CadastroView: View {
                 if vm.itensNaMaleta.isEmpty {
                     Text("Adicione seus itens de maquiagens")
                         .font(Tipografia.secao)
-                        .foregroundStyle(Provisorio.texto)
+                        .foregroundStyle(Cores.texto)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
@@ -186,7 +186,7 @@ struct CadastroView: View {
             }
             .scrollIndicators(.hidden)
             .background(
-                Provisorio.painelDoCatalogo,
+                Cores.painelDoCatalogo,
                 in: UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
             )
             .ignoresSafeArea(edges: .bottom)
@@ -229,7 +229,7 @@ private struct CartaoDeItem: View {
             .background {
                 if !dentroDaMaleta {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Provisorio.cartaoDoCatalogo)
+                        .fill(Cores.cartaoDoCatalogo)
                 }
             }
             .scaleEffect(arrastando ? 1.12 : 1)

@@ -92,7 +92,9 @@ final class JornadaUITests: XCTestCase {
         let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10), "O Salão traz os cards de experiência")
         capturar(app, "03-salao")
-        cardDaLucy.tap()
+        cardDaLucy.tap() // 1º toque: foca o card
+        XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 5), "O card focado continua tocável")
+        cardDaLucy.tap() // 2º toque: seleciona a experiência
 
         // 5. Edna chama a especialista.
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
@@ -136,7 +138,9 @@ final class JornadaUITests: XCTestCase {
 
         let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10))
-        cardDaLucy.tap()
+        cardDaLucy.tap() // 1º toque: foca o card
+        XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 5), "O card focado continua tocável")
+        cardDaLucy.tap() // 2º toque: seleciona a experiência
 
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
         continuar.tap()

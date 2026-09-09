@@ -11,12 +11,6 @@ struct TutorialView: View {
 
     @Environment(AppEnvironment.self) private var ambiente
     @State private var vm: TutorialViewModel?
-    /// A fala nova, anunciada ao VoiceOver.
-    ///
-    /// Sem isto a tela muda em silêncio: o texto do balão troca e o foco fica
-    /// parado no botão de avançar. Optei por anúncio em vez de mover o foco
-    /// porque `accessibilityFocused` no balão o transforma num elemento só, e
-    /// os botões ← e → perdem os próprios nomes.
 
     var body: some View {
         Group {
@@ -24,8 +18,8 @@ struct TutorialView: View {
                 conteudo(vm)
             } else {
                 ZStack {
-                    FundoSalao(cor: Provisorio.cor(de: subcultura))
-                    ProgressView().tint(Provisorio.destaque)
+                    FundoSalao(cor: Color(subcultura.corCard))
+                    ProgressView().tint(Cores.destaque)
                 }
             }
         }
@@ -60,7 +54,7 @@ struct TutorialView: View {
     private func conteudo(_ vm: TutorialViewModel) -> some View {
         FundoDeCena(
             nome: "fundo-espelho-tutoriais",
-            corDoPlaceholder: Provisorio.cor(de: subcultura),
+            corDoPlaceholder: Color(subcultura.corCard),
             emFoco: vm.cenaEmFoco
         )
         .overlay {
@@ -86,7 +80,7 @@ struct TutorialView: View {
         let arte = ArteView(
             nome: vm.ilustracaoAtual,
             simbolo: "person.crop.square",
-            cor: Provisorio.cor(de: subcultura)
+            cor: Color(subcultura.corCard)
         )
         .shadow(color: .white.opacity(vm.cenaEmFoco ? 0.9 : 0), radius: 12)
         .frame(height: cena.height, alignment: .bottom)

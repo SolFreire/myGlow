@@ -29,6 +29,7 @@ extension AppRoute {
 
         switch partes[0] {
         case "cadastro": return [.cadastro]
+        case "selecaoDeExperiencia": return [.selecaoDeExperiencia]
         case "galeria": return [.galeria]
         case "tutorial": return [.tutorial(subcultura ?? .gotica)]
         case "camera": return [.camera(subcultura ?? .gotica)]

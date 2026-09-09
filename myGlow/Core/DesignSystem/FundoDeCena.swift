@@ -8,7 +8,7 @@ import SwiftUI
 
 struct FundoDeCena: View {
     let nome: String
-    var corDoPlaceholder: Color = Provisorio.destaque
+    var corDoPlaceholder: Color = Cores.destaque
     var emFoco = false
 
     var body: some View {
