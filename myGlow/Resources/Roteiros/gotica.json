@@ -32,15 +32,15 @@
       "falas": [
         {
           "tipo": "introducao",
-          "texto": "Olá, hoje vou te guiar nesse universo de maquiagem repleta de drama, melancolia e romantismo. Você já ouviu muito de gótico por aí, não é?"
+          "texto": "Olá, hoje vou te guiar nesse universo de maquiagem repleta de drama, melancolia e romantismo.Você provavelmente já tem alguma imagem do gótico na mente, não tem?"
         },
         {
           "tipo": "contexto",
-          "texto": "A subcultura gótica nasceu no final dos anos 70, no Reino Unido, dentro de clubes da juventude alternativa, desde o início, como uma resposta política contra o consumismo exacerbado e a superficialidade da época."
+          "texto": "Essa subcultura floresceu no Reino Unido no final dos anos 70, nos clubes da juventude alternativa. Desde o berço, o movimento nasceu como um manifesto político contra o consumismo e a superficialidade da época."
         },
         {
           "tipo": "fechamentoIntro",
-          "texto": "Contra essa corrente neoliberal do tatcherismo britânico e desemprego de jovens pelo fechamento das fábricas, os góticos surgem mudando a visão de sucesso, considerando o consumo de arte e poesia como virtudes maiores que o dinheiro."
+          "texto": "Contra o Thatcherismo e a onda de desemprego da época, os góticos mudaram a ideia de sucesso, colocando o consumo de arte e poesia muito acima do dinheiro."
         }
       ]
     },
@@ -70,7 +70,7 @@
         },
         {
           "tipo": "discussao",
-          "texto": "No movimento Afro-Goth resgatamos a maquiagem clown do pós-punk sem apagar a nossa ancestralidade. Usar essa estética sendo uma mulher negra é uma declaração de autonomia e protesto."
+          "texto": "O Afro-Goth resgata a maquiagem clown do pós-punk sem apagar a nossa ancestralidade. Para mim, cada traço é autonomia e protesto.."
         },
         {
           "tipo": "instrucaoPratica",
@@ -213,11 +213,11 @@
       "falas": [
         {
           "tipo": "introducao",
-          "texto": "Nosso visual está pronto. De Wandinha Addams a Lydia Deetz, a cultura pop sempre tentou traduzir a cultura gótica. Mas para além do clichê do cinema, a nossa maquiagem é um manifesto de autonomia, arte e alto contraste."
+          "texto": "Visual finalizado. Figuras como Wandinha Addams e Lydia Deetz popularizaram nossa imagem, mas para nós a maquiagem transcende a tela: é expressão política, arte e soberania da própria pele."
         },
         {
           "tipo": "fechamento",
-          "texto": "O universo gótico é vasto e acolhedor: vai do Romantic Goth, cheio de rendas e poesia, ao Cybergoth industrial e ao Trad Goth oitentista. Cada vertente carrega sua própria voz."
+          "texto": "A cena gótica é rica em nuances. Das rendas do Romantic Goth à estética industrial do Cybergoth e ao espírito pós-punk do Trad Goth, encontre a vertente que faz ecoar a sua verdade."
         }
       ]
     }

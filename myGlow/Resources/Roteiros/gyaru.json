@@ -33,19 +33,19 @@
       "falas": [
         {
           "tipo": "introducao",
-          "texto": "Olá, que alegria ter você aqui para aprender mais sobre a maquiagem Gyaru! Vai se acomodando, organizando suas makes na bancada e ficando bem pertinho do seu espelho."
+          "texto": "Aah, que amor ter você aqui! Pega suas makes, fica bem pertinho do espelho e vem aprender o estilo Gyaru comigo!"
         },
         {
           "tipo": "introducao",
-          "texto": "Para quem não conhece, o Gyaru é uma subcultura que nasceu no coração de Shibuya, lá nos anos 90. Eu sou completamente apaixonada por essa estética porque ela nasceu da pura rebeldia!"
+          "texto": "Esse movimento nasceu no coração de Shibuya, lá nos anos 90. Eu sou completamente apaixonada por essa estética porque ela nasceu da pura rebeldia!"
         },
         {
           "tipo": "introducao",
-          "texto": " As garotas daquela época simplesmente não aguentavam mais o padrão sufocante da Yamato Nadeshiko — aquele ideal da mulher submissa, \"pura\", do lar, discreta e calada."
+          "texto": " As garotas daquela época simplesmente não aguentavam mais o padrão sufocante da Yamato Nadeshiko aquele ideal da mulher submissa, \"pura\", do lar, discreta e calada."
         },
         {
           "tipo": "fechamentoIntro",
-          "texto": "A gente recusa o silêncio! Gostamos de ser expressivas, de ser vistas e de ocupar o nosso lugar no mundo exatamente como queremos: através da nossa própria imagem. Pega a sua base e o seu contorno, e vamos juntas!"
+          "texto": "A gente recusa o silêncio! Ser Gyaru é ocupar espaço com cor, presença, expressividade e autonomia. Prepara a pele e vamos juntas!"
         }
       ]
     },
@@ -67,7 +67,7 @@
       "falas": [
         {
           "tipo": "instrucaoPratica",
-          "texto": "Com o rostinho limpinho, vamos começar com a pele, aplicando nossa base uniformemente no rostinho. Bem, não é obrigatório, mas eu gosto de usar uma base levemente bronzeada, eu amo essa pegada radiante."
+          "texto": "Com o rostinho limpinho, vamos começar com a pele, aplicando nossa base uniformemente no rostinho. Eu gosto de usar uma base levemente bronzeada para uma pegada radiante."
         },
         {
           "tipo": "contextoHistorico",
@@ -83,7 +83,7 @@
         },
         {
           "tipo": "contextoHistorico",
-          "texto": " Elas pegaram o que a sociedade usava para discriminar as classes trabalhadoras e transformaram em um símbolo de orgulho, liberdade e autonomia corporal. Incrível, né?"
+          "texto": "Transformaram a tonalidade em um símbolo de orgulho, liberdade e autonomia corporal. Incrível, né?"
         }
       ]
     },
@@ -276,15 +276,15 @@
       "falas": [
         {
           "tipo": "fechamento",
-          "texto": "E o nosso visual Gyaru está oficialmente pronto! Essa técnica que mostrei para vocês hoje é só uma das formas incríveis de reproduzir e vivenciar o nosso estilo."
+          "texto": "E o nosso visual Gyaru está oficialmente pronto! Essa é apenas uma das várias formas de vivenciar a nossa estética."
         },
         {
           "tipo": "fechamento",
-          "texto": "A nossa subcultura é um universo dinâmico! Há vários subgêneros dentro do movimento como o Kogal, a Hime Gyaru, a Agejo e a Ganguro, e cada um traz variações bem marcantes na maquiagem e na vestimenta."
+          "texto": "Nosso movimento é super dinâmico: vai da delicadeza do Hime Gyaru ao impacto do Ganguro, passando pelo Kogal e Agejo. Cada vertente tem sua própria magia!"
         },
         {
           "tipo": "fechamento",
-          "texto": "O mais bonito da estética Gyaru é que não existe uma regra única. Você tem total autonomia para explorar a vertente que mais combina com a sua personalidade e com a forma como você quer se expressar no mundo!"
+          "texto": "O mais bonito é que não existe uma regra fixa. Você tem liberdade total para explorar a vertente que mais combina com quem você é de verdade!"
         }
       ]
     }

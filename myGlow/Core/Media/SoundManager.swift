@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import Foundation
 
 class SoundManager {
 
@@ -23,29 +24,21 @@ class SoundManager {
 
     func playSoundEffect(named soundName: String) {
 
-        let efeitosLigados = UserDefaults.standard.bool(
-            forKey: "efeitosSonorosLigados"
-        )
 
-        if efeitosLigados {
-
-            if let url = Bundle.main.url(
-                forResource: soundName,
-                withExtension: "mp3"
-            ) {
-
-                do {
-                    soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
-                    soundEffectPlayer?.play()
-                } catch {
-                    print(error.localizedDescription)
-                }
-
-            } else {
-                print("Erro carregando \(soundName).mp3")
+        if let url = Bundle.main.url(forResource: soundName, withExtension: ".mp3") {
+            do {
+                soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
+                soundEffectPlayer?.play()
+            } catch {
+                print(error.localizedDescription)
             }
         }
+        else {
+            print("error loading sound \(soundName).mp3")
+        }
     }
+    
+
 
     func playBackgroundMusic(isOn: Bool) {
 

@@ -11,8 +11,9 @@ struct RootView: View {
     @AppStorage("primeiroUsoConcluido") private var primeiroUsoConcluido = false
 
     @State private var emOnboarding: Bool?
-
     @State private var lembrancas: LembrancaViewModel?
+    @State private var mostrandoAjustes = false
+    @State private var mostrandoConfirmacaoDeSaida  = false
 
     @State private var jogou = {
         #if DEBUG
@@ -46,6 +47,23 @@ struct RootView: View {
             }
         }
         .tint(Cores.destaque)
+        .environment(\.abrirAjustes) { withAnimation(.snappy) { mostrandoAjustes = true } }
+        .environment(\.confirmarVoltarAoSalao) { mostrandoConfirmacaoDeSaida = true }
+        .environment(\.voltarAoSalao) { caminho.removeAll() }
+        .overlay {
+            if mostrandoAjustes {
+                BalaoAjustes {
+                    withAnimation(.snappy) { mostrandoAjustes = false }
+                }
+            }
+            if mostrandoConfirmacaoDeSaida {
+                BalaoVoltar {
+                    caminho.removeAll()
+                } aoFechar: {
+                    withAnimation(.snappy) { mostrandoConfirmacaoDeSaida = false }
+                }
+            }
+        }
     }
 
     private var salao: some View {
@@ -90,6 +108,7 @@ struct RootView: View {
             await lembrancas?.carregar()
         }
         .environment(\.voltarAoSalao) { caminho.removeAll() }
+        .environment(\.confirmarVoltarAoSalao) { mostrandoConfirmacaoDeSaida = true}
     }
 }
 
@@ -113,4 +132,5 @@ private struct TelaDeErroDeRoteiro: View {
             .padding(40)
         }
     }
+
 }
