@@ -23,18 +23,24 @@ class SoundManager {
     }
 
     func playSoundEffect(named soundName: String) {
+        let soundEffectsEnabled = UserDefaults.standard.bool(
+            forKey: "efeitosSonorosLigados"
+        )
 
-
-        if let url = Bundle.main.url(forResource: soundName, withExtension: ".mp3") {
-            do {
-                soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
-                soundEffectPlayer?.play()
-            } catch {
-                print(error.localizedDescription)
+        if soundEffectsEnabled {
+            if let url = Bundle.main.url(
+                forResource: soundName,
+                withExtension: "mp3"
+            ) {
+                do {
+                    soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
+                    soundEffectPlayer?.play()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            } else {
+                print("Erro carregando som \(soundName).mp3")
             }
-        }
-        else {
-            print("error loading sound \(soundName).mp3")
         }
     }
     

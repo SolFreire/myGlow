@@ -27,6 +27,7 @@ struct PinDaSubcultura: View {
 
 struct GaleriaView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.voltarAoSalao) private var voltarAoSalao
     @Query(sort: \FotoSalva.criadaEm, order: .reverse)
     var photos: [FotoSalva]
 
@@ -75,7 +76,10 @@ struct GaleriaView: View {
         
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                BotaoDoCanto(papel: .voltarAoSalao)
+                BotaoCircular(simbolo: "door.right.hand.open"){
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    voltarAoSalao()
+                }
             }
             .sharedBackgroundVisibility(.hidden)
 
