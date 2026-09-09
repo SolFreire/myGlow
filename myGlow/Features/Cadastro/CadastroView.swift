@@ -188,7 +188,7 @@ struct CadastroView: View {
                 .padding(.leading, Medida.respiroAteAMaleta)
             }
             .scrollIndicators(.hidden)
-            .scrollClipDisabled()
+            .scrollClipDisabled(arrastandoAlgo)
             .background(
                 Cores.painelDoCatalogo,
                 in: UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
