@@ -18,7 +18,7 @@ struct OnboardingView: View {
             } else {
                 ZStack {
                     FundoSalao()
-                    ProgressView().tint(Provisorio.destaque)
+                    ProgressView().tint(Cores.destaque)
                 }
             }
         }
@@ -45,7 +45,7 @@ struct OnboardingView: View {
 
         case .fim:
             ProgressView()
-                .tint(Provisorio.destaque)
+                .tint(Cores.destaque)
                 .onAppear { aoTerminar(vm.subculturaEscolhida ?? .gotica) }
         }
     }

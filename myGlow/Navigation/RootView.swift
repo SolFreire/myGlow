@@ -45,7 +45,7 @@ struct RootView: View {
                 salao
             }
         }
-        .tint(Provisorio.destaque)
+        .tint(Cores.destaque)
     }
 
     private var salao: some View {
@@ -107,9 +107,9 @@ private struct TelaDeErroDeRoteiro: View {
                 Text(mensagem)
                     .font(Tipografia.corpo)
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(Provisorio.textoSecundario)
+                    .foregroundStyle(Cores.textoSecundario)
             }
-            .foregroundStyle(Provisorio.texto)
+            .foregroundStyle(Cores.texto)
             .padding(40)
         }
     }

@@ -67,19 +67,15 @@ final class CameraModel {
     }
     
     private func unpackPhoto(_ photo: AVCapturePhoto) -> PhotoData? {
-         guard let imageData = photo.fileDataRepresentation() else { return nil }
          guard let cgImage = photo.cgImageRepresentation(),
                let metadataOrientation = photo.metadata[String(kCGImagePropertyOrientation)] as? UInt32,
                let cgImageOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
          else { return nil }
-         
+
          let imageOrientation = UIImage.Orientation(cgImageOrientation)
          let image = Image(uiImage: UIImage(cgImage: cgImage, scale: 1, orientation: imageOrientation))
-         
-         let photoDimensions = photo.resolvedSettings.photoDimensions
-         let imageSize = (width: Int(photoDimensions.width), height: Int(photoDimensions.height))
 
-         return PhotoData(image: image, imageData: imageData, imageSize: imageSize)
+         return PhotoData(image: image)
      }
  
         
@@ -196,6 +192,4 @@ fileprivate extension UIImage.Orientation {
 
 struct PhotoData {
     var image: Image
-    var imageData: Data
-    var imageSize: (width: Int, height: Int)
 }

@@ -70,7 +70,9 @@ enum Arte {
 struct ArteView: View {
     let nome: String
     var simbolo = "photo"
-    var cor: Color = Provisorio.destaque
+    var cor: Color = Cores.destaque
+
+    private let cantoDoCartao: CGFloat = 20
 
     var body: some View {
         if Arte.existe(nome) {
@@ -84,7 +86,7 @@ struct ArteView: View {
     }
 
     private var placeholder: some View {
-        RoundedRectangle(cornerRadius: Provisorio.cantoDoCartao, style: .continuous)
+        RoundedRectangle(cornerRadius: cantoDoCartao, style: .continuous)
             .fill(cor.opacity(0.18))
             .overlay {
                 Image(systemName: simbolo)
@@ -92,7 +94,7 @@ struct ArteView: View {
                     .foregroundStyle(cor)
             }
             .overlay {
-                RoundedRectangle(cornerRadius: Provisorio.cantoDoCartao, style: .continuous)
+                RoundedRectangle(cornerRadius: cantoDoCartao, style: .continuous)
                     .strokeBorder(cor.opacity(0.35), style: StrokeStyle(lineWidth: 1, dash: [5, 4]))
             }
             .accessibilityHidden(true)

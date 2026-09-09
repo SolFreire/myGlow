@@ -30,7 +30,9 @@ struct StaticRulesSuggesterTests {
             inventory: Fixture.resumos("batom")
         )
 
-        #expect(sugestao.dica == "Com o que você já tem na maleta dá pra seguir esta etapa do jeitinho do roteiro.")
+        // Referencia a constante, não o texto literal — assim o teste não
+        // fica desatualizado da próxima vez que a copy mudar.
+        #expect(sugestao.dica == SubstituicoesCuradas.semSubstituto)
     }
 
     /// Achado empírico: 7 das 19 etapas de passo nos três roteiros pedem dois

@@ -75,8 +75,9 @@ struct CardMaqueadora: View {
     let nomeDaPersonagem: String
     let descricao: String
     let cor: String
+    var emFoco: Bool = false
     let acao: () -> Void
-    
+
     var body: some View {
         Button(action: acao) {
             ZStack {
@@ -92,7 +93,7 @@ struct CardMaqueadora: View {
                     Text(nomeDaPersonagem)
                         .font(Tipografia.titulo)
                         .foregroundStyle(Color(cor))
-                        
+
                     Text(descricao)
                         .font(Tipografia.legenda)
                         .foregroundStyle(Color(cor))
@@ -101,10 +102,12 @@ struct CardMaqueadora: View {
 
                 }
                 .frame(width: 230, height: 130, alignment: .topLeading)
-                
+
             }
-            
+
         }
+        .accessibilityLabel("\(nomeDaPersonagem), \(descricao)")
+        .accessibilityHint(emFoco ? "Toque para selecionar" : "Toque para focar")
     }
 }
 
@@ -128,17 +131,17 @@ struct BotaoSecundario: View {
         }
         .buttonStyle(.bordered)
         .buttonBorderShape(.capsule)
-        .tint(Provisorio.textoSecundario)
+        .tint(Cores.textoSecundario)
     }
 }
 
 
 struct FundoSalao: View {
-    var cor: Color = Provisorio.destaque
+    var cor: Color = Cores.destaque
 
     var body: some View {
         LinearGradient(
-            colors: [Provisorio.fundo, cor.opacity(0.18), Provisorio.fundo],
+            colors: [Cores.fundo, cor.opacity(0.18), Cores.fundo],
             startPoint: .top,
             endPoint: .bottom
         )

@@ -1,13 +1,7 @@
-//
-//  JornadaUITests.swift
-//  myGlowUITests
-//
+
 
 import XCTest
 
-/// A jornada ponta a ponta: primeiro uso com a Edna → maleta → Salão →
-/// Tutorial. É aqui que se verifica que as telas se ligam de verdade; a lógica
-/// de cada uma está coberta pelos testes unitários.
 final class JornadaUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -56,6 +50,13 @@ final class JornadaUITests: XCTestCase {
         add(anexo)
     }
 
+    /// O card da experiência não tem rótulo próprio — o VoiceOver/XCUITest
+    /// lê o nome concatenado com a descrição completa da personagem, que muda
+    /// de texto com frequência. Casar só pelo prefixo do nome sobrevive a isso.
+    private func cardDaPersonagem(_ app: XCUIApplication, nome: String) -> XCUIElement {
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "\(nome),")).firstMatch
+    }
+
     @MainActor
     func testJornadaCompletaComMaletaFaltandoItem() throws {
         let app = appDoPrimeiroUso()
@@ -88,10 +89,12 @@ final class JornadaUITests: XCTestCase {
         continuar.tap()
 
         // 4. Salão.
-        let cardDaLucy = app.buttons["Lucy, Gótica"]
+        let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10), "O Salão traz os cards de experiência")
         capturar(app, "03-salao")
-        cardDaLucy.tap()
+        cardDaLucy.tap() // 1º toque: foca o card
+        XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 5), "O card focado continua tocável")
+        cardDaLucy.tap() // 2º toque: seleciona a experiência
 
         // 5. Edna chama a especialista.
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
@@ -133,9 +136,11 @@ final class JornadaUITests: XCTestCase {
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
         continuar.tap()
 
-        let cardDaLucy = app.buttons["Lucy, Gótica"]
+        let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10))
-        cardDaLucy.tap()
+        cardDaLucy.tap() // 1º toque: foca o card
+        XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 5), "O card focado continua tocável")
+        cardDaLucy.tap() // 2º toque: seleciona a experiência
 
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
         continuar.tap()
