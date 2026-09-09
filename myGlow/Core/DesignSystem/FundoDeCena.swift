@@ -52,33 +52,71 @@ struct BotaoAjustes: View {
         .accessibilityLabel("Ajustes")
         .sheet(isPresented: $mostrandoAjustes) {
             AjustesView()
+                .presentationBackground(.clear)
+                .presentationCornerRadius(AjustesView.Medida.canto)
+                .presentationDetents([.height(AjustesView.Medida.altura)])
         }
     }
 }
 
+/// O balão de ajustes: mesma família visual do `BalaoDeFala` (fundo branco,
+/// borda roxa, aba na borda de cima) — só sem fala, com toggles.
 struct AjustesView: View {
     @AppStorage("somLigado") private var somLigado = true
-    @Environment(\.dismiss) private var fechar
+    @AppStorage("musicaLigada") private var musicaLigada = true
+
+    fileprivate enum Medida {
+        static let canto: CGFloat = 24
+        static let traco: CGFloat = 5
+        static let altura: CGFloat = 380
+        static let recuoDaAba: CGFloat = 38
+    }
+
+    private enum Musica {
+        static let artista = "VIV3LI"
+        static let fonte = "https://youtu.be/ymTjeOlUcts?si=swS8EDfvewnAbP6s"
+    }
 
     var body: some View {
-        NavigationStack {
-            Form {
-                Section {
-                    Toggle("Som", isOn: $somLigado)
-                        .onChange(of: somLigado) { oldValue, newValue in
-                            SoundManager.shared.playBackgroundMusic(isOn: newValue)
-                        }
-                } footer: {
-                    Text("A narração das personagens entra numa próxima versão.")
+        VStack(spacing: 24) {
+            Toggle("Som", isOn: $somLigado)
+            Toggle("Música", isOn: $musicaLigada)
+                .onChange(of: musicaLigada) { _, novoValor in
+                    SoundManager.shared.playBackgroundMusic(isOn: novoValor)
                 }
+
+            VStack(spacing: 4) {
+                (Text("Música por ") + Text(Musica.artista).fontWeight(.bold))
+                Text("Fonte: \(Musica.fonte)")
+                    .font(.footnote)
             }
-            .navigationTitle("Ajustes")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Pronto") { fechar() }
-                }
-            }
+            .font(Tipografia.legenda)
+            .multilineTextAlignment(.center)
+            .padding(.top, 8)
         }
+        .foregroundStyle(BalaoDeFala.Cor.texto)
+        .tint(BalaoDeFala.Cor.borda)
+        .padding(.horizontal, 22)
+        .padding(.bottom, 32)
+        .padding(.top, Medida.recuoDaAba)
+        .frame(maxWidth: 420)
+        .background(
+            RoundedRectangle(cornerRadius: Medida.canto)
+                .fill(BalaoDeFala.Cor.fundo)
+                .overlay {
+                    RoundedRectangle(cornerRadius: Medida.canto)
+                        .stroke(BalaoDeFala.Cor.borda, lineWidth: Medida.traco)
+                }
+        )
+        .overlay(alignment: .top) {
+            Text("Ajustes")
+                .font(Tipografia.nomeDaPersonagem)
+                .foregroundStyle(BalaoDeFala.Cor.fundo)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 8)
+                .background(BalaoDeFala.Cor.borda, in: Capsule())
+                .offset(y: -20)
+        }
+        .padding(.horizontal, 24)
     }
 }

@@ -165,6 +165,17 @@ nonisolated enum SubstituicoesCuradas {
                 comoFazer: "Um toque de iluminador no canto interno e no centro da pálpebra faz a luz que abre o olhar."
             )
         ],
+        "sombra-preta": [
+            Regra(
+                substituto: "lapis-preto",
+                comoFazer: "Em alguns casos pode ser substituido pelo lápis preto com bastante cautela, aplicando um pouco e esfumando muito."
+            ),
+            Regra(
+                substituto: "contorno",
+                comoFazer: "No caso de contornos frios e acinzentados, eles podem substituir a sombra preta dando um efeito bem mais leve e apenas de profundidade nos olhos ou bochecas e nariz."
+            )
+        ],
+
         "iluminador": [
             Regra(
                 substituto: "sombra-branca",
@@ -203,6 +214,22 @@ nonisolated enum SubstituicoesCuradas {
                 substituto: "sombra-rosa",
                 comoFazer: "Sombra rosa funciona como blush: aplique sobre as maças e esfume bem, comece com pouco produto e vá espalhando e acrescentando mais se necessário."
             )
+        ],
+        "batom": [
+            Regra(
+                substituto: "blush",
+                comoFazer: "Para tons rosados, pode dar umas batidinhas com blush na boca."
+            ),
+            Regra(
+                substituto: "sombra-rosa",
+                comoFazer: "Para tons rosados, pode dar umas batidinhas com sombra rosa na boca"
+            ),
+            Regra(
+                substituto: "gloss",
+                comoFazer: "Na ausência do batom, as vezes, apenas o gloss já é satisfatório e adiciona cor aos lábios"
+            ),
+
         ]
+
     ]
 }

@@ -50,8 +50,8 @@ nonisolated struct FoundationModelsSuggester: TechniqueSuggesting {
         \(roteiro.personagem.personalidade)
 
         REGRAS OBRIGATÓRIAS
-        1. A troca de produto já foi decidida — você só explica COMO fazer, nunca escolhe \
-        O QUE usar. Cite os produtos exatamente como foram nomeados no pedido, sem inventar \
+        1. A troca de produto já foi decidida você só explica COMO fazer.\
+        Cite os produtos exatamente como foram nomeados no pedido, sem inventar \
         cor, acabamento ou variante que não foi mencionada.\
         2. Responda em português do Brasil, na primeira pessoa, na sua voz.
         3. Uma dica curta e objetiva — no máximo três linhas ao todo, sem lista, sem introdução.
@@ -77,7 +77,7 @@ nonisolated struct FoundationModelsSuggester: TechniqueSuggesting {
         Trocas já decididas para esta etapa, com os fatos que valem pra cada produto:
         \(linhas)
         Explique como fazer cada troca, na prática — usando só os fatos acima, sem \
-        inventar característica de produto que não foi dita.
+        inventar característica de produto que não foi dita, se atente onde do rosto a dica está sendo aplicada.
         """
     }
 

@@ -6,13 +6,23 @@
 //
 
 import AVFoundation
+import Foundation
 
 class SoundManager {
     static let shared = SoundManager()
     private var soundEffectPlayer: AVAudioPlayer?
     private var backgroundPlayer: AVAudioPlayer?
-    
+
+    /// Lido direto do `UserDefaults` porque `AjustesView` já persiste ali
+    /// com `@AppStorage("somLigado")` — mesma chave, sem precisar injetar
+    /// nada num serviço que, como o da câmera, não tem protocolo.
+    private var somLigado: Bool {
+        (UserDefaults.standard.object(forKey: "somLigado") as? Bool) ?? true
+    }
+
     func playSoundEffect(named soundName: String) {
+        guard somLigado else { return }
+
         if let url = Bundle.main.url(forResource: soundName, withExtension: ".mp3") {
             do {
                 soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
