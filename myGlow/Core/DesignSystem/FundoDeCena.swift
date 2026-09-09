@@ -154,7 +154,68 @@ struct BalaoAjustes: View {
     }
 }
 
+//Alert de quando está em uma experiência e quer voltar para o salão
+struct VoltarAlert: View {
+    @Environment(\.dismiss) private var fechar
+    @Environment(\.voltarAoSalao) private var voltarAoSalao
+    var estilo: BalaoDeFala.Estilo = .padrao
+    
+    private var forma: RoundedRectangle {
+        RoundedRectangle(cornerRadius: BalaoDeFala.Medida.canto)
+    }
+    
+    var body: some View {
+        conteudo()
+    }
+    
+    private func conteudo() -> some View {
+        VStack (spacing: 40){
+            VStack(spacing: 4) {
+                Text("Tem certeza de que deseja voltar para o salão?")
+                    .font(.system(size: 24, weight: .semibold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                Text("Ao voltar para o salão, você perderá todo o progresso")
+                    .font(.system(size: 16, weight: .medium, design: .rounded))
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 36)
+            }
+            HStack (spacing: 48){
+                Button {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    voltarAoSalao()
+                } label: {
+                    Text("Voltar")
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.corBalaoBorda)
+                }
+                .padding(.horizontal, 32)
+                .padding(.vertical, 13)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                    .stroke(Color.corBalaoBorda, lineWidth: 3))
+                BotaoPrimario(titulo: "Continuar", preencheLargura: false){
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    fechar()
+                }
+            }
+        }
+        .fixedSize(horizontal: false, vertical: true)
+        .padding(.horizontal, BalaoDeFala.Medida.recuoHorizontal + 16)
+        .padding(.bottom, BalaoDeFala.Medida.recuoVertical - 12)
+        .padding(.top, BalaoDeFala.Medida.recuoDaAba - 12)
+        .background(fundo)
+        .frame(maxWidth: 400)
+    }
+    
+    private var fundo: some View {
+        forma
+            .fill(BalaoDeFala.Cor.fundo)
+            .overlay { forma.stroke(estilo.cor, lineWidth: BalaoDeFala.Medida.traco) }
+    }
+}
+
 
 #Preview {
-    BalaoAjustes(aoFechar: {})
+    VoltarAlert()
 }
