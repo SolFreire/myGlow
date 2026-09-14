@@ -12,7 +12,7 @@ struct TelaInicialView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             fundo
-            BotaoPrimario(titulo: "Jogar", tamanho: .grande, preencheLargura: false){
+            BotaoPrimario(titulo: String(localized: "Jogar"), tamanho: .grande, preencheLargura: false){
                 SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 aoJogar()
             }

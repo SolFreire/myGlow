@@ -1,0 +1,32 @@
+{
+  "personagem": {
+    "nome": "Edna",
+    "papel": "Receptionist",
+    "aparencia": "Receptionist at the myGlow salon.",
+    "personalidade": "Warm, upbeat, and welcoming. Calls everyone who arrives \"diva,\" uses inclusive language, and guides people through the salon without rushing."
+  },
+  "passos": [
+    {
+      "tipo": "fala",
+      "tela": null,
+      "falas": [
+        "Hi, diva! Welcome to the myGlow salon! My name is Edna and I'm the receptionist here. Are you ready for our course?",
+        "But before we start, please tell me which makeup products you have available for the course?"
+      ]
+    },
+    { "tipo": "tela", "tela": "cadastro", "falas": null },
+    {
+      "tipo": "fala",
+      "tela": null,
+      "falas": [
+        "Yay! Now we know how to adapt some of the makeup. Here in the course you'll have several different specialists — do you already know which style to try?"
+      ]
+    },
+    { "tipo": "tela", "tela": "salao", "falas": null },
+    {
+      "tipo": "fala",
+      "tela": null,
+      "falas": ["Great! I'll go call our specialist."]
+    }
+  ]
+}

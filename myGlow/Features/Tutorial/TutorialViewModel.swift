@@ -104,14 +104,14 @@ final class TutorialViewModel {
     }
 
     var rotuloDaFala: String? {
-        if naFalaDeSugestao { return "Dica da \(roteiro.personagem.nome)" }
+        if naFalaDeSugestao { return "\(String(localized: "Dica da")) \(roteiro.personagem.nome)" }
         guard let fala = falaAtual else { return nil }
 
         switch fala.tipo.estiloDoBalao {
         case .padrao:
             return roteiro.personagem.nome
         case .passo:
-            return numeroDoPasso.map { "Passo \($0)" } ?? roteiro.personagem.nome
+            return numeroDoPasso.map { "\(String(localized: "Passo")) \($0)" } ?? roteiro.personagem.nome
         case .contexto:
             return fala.titulo ?? roteiro.subcultura.rotuloDeContexto
         case .sugestao:

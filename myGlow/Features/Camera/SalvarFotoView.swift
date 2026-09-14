@@ -33,7 +33,7 @@ struct SalvarFotoView: View {
                         .rotationEffect(.degrees(-4.08))
                         .padding(.top, 48)
                     BalaoDeFala(
-                        texto: "Uau! Você arrasou! Deseja salvar a foto pra mostrar o quanto ficou incrível?",
+                        texto: String(localized: "Uau! Você arrasou! Deseja salvar a foto pra mostrar o quanto ficou incrível?"),
                         rotulo: subcultura.personagem
                     )
                     .frame(maxWidth: width * 0.45)
@@ -56,7 +56,7 @@ struct SalvarFotoView: View {
     }
     private func buttonsView() -> some View {
         HStack {
-            BotaoPrimario(titulo: "Refazer", simbolo: "arrow.trianglehead.counterclockwise", preencheLargura: false){
+            BotaoPrimario(titulo: String(localized: "Refazer"), simbolo: "arrow.trianglehead.counterclockwise", preencheLargura: false){
                 SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 model.clearPhoto()
             }

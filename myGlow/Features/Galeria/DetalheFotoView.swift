@@ -68,7 +68,7 @@ struct DetalheFotoView: View {
             .frame(maxWidth: nil)
             .background(Paleta.botao.gradiente, in: Capsule())
             
-            BotaoPrimario(titulo: "Deletar", simbolo: "trash", cores: Paleta.botaoDeletarFoto, preencheLargura: false) {
+            BotaoPrimario(titulo: String(localized: "Deletar"), simbolo: "trash", cores: Paleta.botaoDeletarFoto, preencheLargura: false) {
                 SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 showAlert = true
             }

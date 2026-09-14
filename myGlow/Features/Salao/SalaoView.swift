@@ -38,7 +38,7 @@ struct SalaoView: View {
             ancora: .bottom,
             largura: 0.145,
             moldura: moldura,
-            rotulo: "Sentar e escolher a experiência"
+            rotulo: String(localized: "Sentar e escolher a experiência")
         ){
             SoundManager.shared.playSoundEffect(named: "botao-efeito")
             aoSentar()
@@ -50,7 +50,7 @@ struct SalaoView: View {
             posicao: Cena.maleta,
             largura: 0.110,
             moldura: moldura,
-            rotulo: "Minha maleta"
+            rotulo: String(localized: "Minha maleta")
         ) {
             SoundManager.shared.playSoundEffect(named: "botao-efeito")
             aoNavegar(.cadastro)
@@ -62,7 +62,7 @@ struct SalaoView: View {
             posicao: Cena.album,
             largura: 0.086,
             moldura: moldura,
-            rotulo: "Meu álbum"
+            rotulo: String(localized: "Meu álbum")
         ) {
             SoundManager.shared.playSoundEffect(named: "botao-efeito")
             aoNavegar(.galeria)
@@ -79,7 +79,7 @@ struct SalaoView: View {
                     posicao: lugar.posicao,
                     largura: lugar.largura,
                     moldura: moldura,
-                    rotulo: "Lembrança de \(subcultura.personagem)"
+                    rotulo: "\(String(localized: "Lembrança de")) \(subcultura.personagem)"
                 ) {
                     SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     withAnimation(.snappy) { lembrancaAberta = subcultura }

@@ -79,7 +79,7 @@ struct CadastroView: View {
                     molduraDaMaleta = $0
                 }
                 .animation(.spring(duration: 0.25), value: maletaEmDestaque)
-                .accessibilityLabel("Minha maleta, \(vm.quantidadeNaMaleta) itens")
+                .accessibilityLabel("\(String(localized: "Minha maleta")), \(vm.quantidadeNaMaleta) \(vm.quantidadeNaMaleta == 1 ? String(localized: "item") : String(localized: "itens"))")
             }
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottom)
             .clipped()
@@ -146,7 +146,7 @@ struct CadastroView: View {
 
     private func catalogo(_ vm: CadastroViewModel) -> some View {
         VStack(spacing: 12) {
-            BotaoPrimario(titulo: "Salvar", simbolo: "checkmark", preencheLargura: false) {
+            BotaoPrimario(titulo: String(localized: "Salvar"), simbolo: "checkmark", preencheLargura: false) {
                 SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 aoConcluir()
             }
@@ -235,11 +235,11 @@ private struct CartaoDeItem: View {
             .gesture(arraste)
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(item.nome)
-            .accessibilityValue(dentroDaMaleta ? "Na maleta" : "Fora da maleta")
+            .accessibilityValue(dentroDaMaleta ? String(localized: "Na maleta") : String(localized: "Fora da maleta"))
             .accessibilityHint(
                 dentroDaMaleta
-                    ? "Toque duas vezes para tirar da maleta"
-                    : "Toque duas vezes para guardar na maleta"
+                    ? String(localized: "Toque duas vezes para tirar da maleta")
+                    : String(localized: "Toque duas vezes para guardar na maleta")
             )
             .accessibilityAddTraits(.isButton)
             .sensoryFeedback(.selection, trigger: dentroDaMaleta)

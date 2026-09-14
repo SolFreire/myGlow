@@ -16,9 +16,9 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
 
     var nome: String {
         switch self {
-        case .gotica: "Gótica"
-        case .gyaru: "Gyaru"
-        case .newRomantic: "New Romantic"
+        case .gotica: String(localized: "Gótica")
+        case .gyaru: String(localized: "Gyaru")
+        case .newRomantic: String(localized: "New Romantic")
         }
     }
 
@@ -32,9 +32,9 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
 
     var chamada: String {
         switch self {
-        case .gotica: "Contraste, drama e um preto que não pede licença."
-        case .gyaru: "Olhos enormes, brilho e atitude vinda de Shibuya."
-        case .newRomantic: "Cor teatral e excesso elegante dos anos 80."
+        case .gotica: String(localized: "Contraste, drama e um preto que não pede licença.")
+        case .gyaru: String(localized: "Olhos enormes, brilho e atitude vinda de Shibuya.")
+        case .newRomantic: String(localized: "Cor teatral e excesso elegante dos anos 80.")
         }
     }
     
@@ -56,9 +56,9 @@ nonisolated enum Subcultura: String, Codable, CaseIterable, Identifiable, Sendab
     
     var descricao: String {
         switch self {
-        case .gotica: "Intelectual e elegante, movida pela história, política e resistência Afro-Goth."
-        case .gyaru: "Uma gyaru vibrante e extrovertida, de atitude feminista e progressista."
-        case .newRomantic: "Introspectiva e sensível, encontra na música e na arte New Romantic sua forma de expressão."
+        case .gotica: String(localized: "Intelectual e elegante, movida pela história, política e resistência Afro-Goth.")
+        case .gyaru: String(localized: "Uma gyaru vibrante e extrovertida, de atitude feminista e progressista.")
+        case .newRomantic: String(localized: "Introspectiva e sensível, encontra na música e na arte New Romantic sua forma de expressão.")
         }
     }
     

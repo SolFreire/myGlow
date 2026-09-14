@@ -21,21 +21,21 @@ extension Subcultura {
                 asset: "icone-aranha-lucy",
                 simbolo: "ant.fill",
                 rotulo: "Spider",
-                texto: "Uma lembrancinha da Lucy pela sua incrível maquiagem gótica"
+                texto: String(localized: "Uma lembrancinha da Lucy pela sua incrível maquiagem gótica")
             )
         case .gyaru:
             Lembranca(
                 asset: "icone-urso-sana",
                 simbolo: "teddybear.fill",
                 rotulo: "Bear",
-                texto: "Uma lembrancinha da Sana pela sua fofa maquiagem gyaru"
+                texto: String(localized: "Uma lembrancinha da Sana pela sua fofa maquiagem gyaru")
             )
         case .newRomantic:
             Lembranca(
                 asset: "icone-disco-cindy",
                 simbolo: "opticaldisc.fill",
                 rotulo: "Disco",
-                texto: "Uma lembrancinha da Cindy pela sua maquiagem New Romantics Eletrizante"
+                texto: String(localized: "Uma lembrancinha da Cindy pela sua maquiagem New Romantics Eletrizante")
             )
         }
     }
