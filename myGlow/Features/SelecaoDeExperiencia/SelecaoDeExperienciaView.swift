@@ -5,61 +5,94 @@
 
 import SwiftUI
 
-/// A escolha da especialista.
-///
-/// Aparece em dois momentos com o mesmo desenho: no primeiro uso, quando a Edna
-/// pergunta qual estilo tentar, e depois sempre que a pessoa senta na cadeira do
-/// salão. Ainda sem desenho do design — por enquanto só os três caminhos.
+
 struct SelecaoDeExperienciaView: View {
-    /// No primeiro uso ainda não existe salão para onde voltar; a partir da
-    /// cadeira, existe.
+
     var papelDoCanto: PapelDoCanto = .voltarAoSalao
     let aoEscolher: (Subcultura) -> Void
 
     @Environment(AppEnvironment.self) private var ambiente
+    @State private var focada: Subcultura?
+    @Namespace private var animacaoDoFoco
 
     var body: some View {
-        TelaEmConstrucao(titulo: "Escolha a experiência", papelDoCanto: papelDoCanto) {
-            VStack(spacing: 12) {
-                ForEach(Subcultura.allCases) { subcultura in
-                    BotaoPrimario(
-                        titulo: "\(nome(de: subcultura)), \(subcultura.nome)",
-                        preencheLargura: false
-                    ) {
-                        aoEscolher(subcultura)
+        ZStack {
+            Image("fundo-selecao-experiencia")
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipped()
+                .ignoresSafeArea()
+
+            VStack(spacing: 24) {
+                Text("Escolha a experiência")
+                    .font(Tipografia.titulo)
+                    .foregroundStyle(Color.corBotao)
+
+                ZStack {
+                    ForEach(Subcultura.allCases) { subcultura in
+                        if focada != subcultura {
+                            CardMaqueadora(
+                                background: "\(subcultura.backgroundCard)",
+                                character: "\(subcultura.character)",
+                                nomeDaPersonagem: "\(subcultura.personagem)",
+                                descricao: "\(subcultura.descricao)",
+                                cor: "\(subcultura.corCard)"
+                            ) {
+                                withAnimation(.snappy) { focada = subcultura }
+                                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                            }
+                            .rotationEffect(.degrees(subcultura.rotation))
+                            .offset(x: CGFloat(subcultura.x), y: CGFloat(subcultura.y))
+                            .matchedGeometryEffect(id: subcultura, in: animacaoDoFoco)
+                        }
+                    }
+                }
+            }
+            .multilineTextAlignment(.center)
+            .padding(32)
+        }
+        .toolbar(.hidden, for: .navigationBar)
+        .overlay(alignment: .topLeading) { BotaoDoCanto(papel: papelDoCanto).padding(20) }
+        .overlay {
+            if let focada {
+                ZStack {
+                    Color.black.opacity(0.45)
+                        .ignoresSafeArea()
+                        .contentShape(Rectangle())
+                        .onTapGesture { withAnimation(.snappy) { self.focada = nil } }
+
+                    VStack(spacing: 40) {
+                        card(para: focada, emFoco: true) {
+                            aoEscolher(focada)
+                            SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                        }
+                        .scaleEffect(1.3)
+
+                        Text("Toque em qualquer lugar para fechar")
+                            .font(Tipografia.legenda)
+                            .foregroundStyle(.white.opacity(0.85))
                     }
                 }
             }
         }
-        .toolbar(.hidden, for: .navigationBar)
+    }
+
+    @ViewBuilder
+    private func card(para subcultura: Subcultura, emFoco: Bool, acao: @escaping () -> Void) -> some View {
+        CardMaqueadora(
+            background: "\(subcultura.backgroundCard)",
+            character: "\(subcultura.character)",
+            nomeDaPersonagem: "\(subcultura.personagem)",
+            descricao: "\(subcultura.descricao)",
+            cor: "\(subcultura.corCard)",
+            emFoco: emFoco,
+            acao: acao
+        )
+        .matchedGeometryEffect(id: subcultura, in: animacaoDoFoco)
     }
 
     private func nome(de subcultura: Subcultura) -> String {
         ambiente.roteiro(de: subcultura)?.personagem.nome ?? subcultura.personagem
-    }
-}
-
-/// A lembrança que cada trilha deixa no salão. Sem desenho ainda.
-///
-/// Chega-se aqui tocando o objeto no salão, e o objeto só está lá quando a
-/// trilha terminou — então na prática esta tela só abre desbloqueada. A outra
-/// mensagem fica como rede: se algum dia houver outra porta de entrada (um
-/// atalho de DEBUG, uma lista de conquistas), ela não abre mentindo.
-struct LembrancaView: View {
-    let subcultura: Subcultura
-    let desbloqueado: Bool
-
-    var body: some View {
-        TelaEmConstrucao(titulo: "Lembrança de \(subcultura.personagem)") {
-            Text(
-                desbloqueado
-                    ? "Você já concluiu a experiência com \(subcultura.personagem)."
-                    : "Conclua a experiência com \(subcultura.personagem) para desbloquear."
-            )
-            .font(Tipografia.corpo)
-            .foregroundStyle(Provisorio.textoSecundario)
-            .multilineTextAlignment(.center)
-        }
-        .toolbar(.hidden, for: .navigationBar)
     }
 }

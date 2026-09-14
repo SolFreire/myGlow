@@ -1,0 +1,225 @@
+{
+  "subcultura": "gotica",
+  "briefing": "Goth subculture was born in the late '70s in the United Kingdom, in alternative youth clubs, as a political response to the consumerism and superficiality of the era — against Thatcherism and youth unemployment, goths traded the idea of success for the consumption of art and poetry. Visual marks: theatrical clown-white skin sealed with pancake, high contrast, smoky gray contour under the cheekbone, cold and deep eyeshadows (purple, wine, gray), graphic and continuous eyeliner with sharp points top and bottom, dark lips perfectly lined with pencil, vinyl-finish gloss. It's an aesthetic of performance and manifesto, not 'whitening.' The Afro-Goth movement reclaims post-punk clown makeup without erasing Black ancestry. Branches: Romantic Goth, Cybergoth, Trad Goth.",
+  "personagem": {
+    "nome": "Lucy",
+    "aparencia": "A tall, slender girl with an elegant neckline, red hair in side buns, bangs, black skin.",
+    "personalidade": "Elegant, serene, and sweet. Speaks in a poetic and highly intellectual tone, rich in cultural capital, showing a lot of historical and political knowledge. She's an activist in the Afro-Goth movement and treats makeup as a manifesto of autonomy and art.",
+    "produtos": [
+      "clown",
+      "pancake",
+      "sombra-preta",
+      "sombra-roxa",
+      "caneta-delineadora",
+      "mascara-cilios",
+      "batom",
+      "lapis-preto",
+      "gloss"
+    ]
+  },
+  "etapas": [
+    {
+      "id": "gotica-ola",
+      "titulo": "Hi, I'm Lucy",
+      "tipo": "abertura",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-lucy",
+        "personagem-lucy-indicador-falando",
+        "personagem-lucy-indicador-falando"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Hi, today I'll guide you through this universe of makeup full of drama, melancholy, and romance. You probably already have some image of gothic in mind, don't you?"
+        },
+        {
+          "tipo": "contexto",
+          "texto": "This subculture flourished in the United Kingdom in the late '70s, in alternative youth clubs. From its very birth, the movement was a political manifesto against the consumerism and superficiality of the era."
+        },
+        {
+          "tipo": "fechamentoIntro",
+          "texto": "Against Thatcherism and the era's wave of unemployment, goths changed the idea of success, placing the consumption of art and poetry far above money."
+        }
+      ]
+    },
+    {
+      "id": "gotica-base",
+      "titulo": "Base (Clown White + Pancake)",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "clown",
+        "pancake"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-sem-make",
+        "personagem-lucy-clown",
+        "personagem-lucy-clown",
+        "personagem-lucy-pancake"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "I start with the skin: in goth, the dense white base is about high contrast and performance, not whitening."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "I apply the clown white with a damp sponge in firm dabs all over the face, until reaching even coverage."
+        },
+        {
+          "tipo": "discussao",
+          "texto": "Afro-Goth reclaims post-punk clown makeup without erasing our ancestry. To me, every stroke is autonomy and protest."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Now, with a sponge, we apply the pancake in dabs, to seal our skin and keep the clown white from transferring — similar to what we do with setting powder."
+        }
+      ]
+    },
+    {
+      "id": "gotica-contorno",
+      "titulo": "Contour",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-preta"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-contorno"
+      ],
+      "nota": "O roteiro pede sombra CINZA. O catálogo não tem cinza, então a etapa aponta para a sombra preta (esfumada com mão leve).",
+      "falas": [
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "To create depth in our dramatic face, I'll use a gray eyeshadow right under the cheekbone, blending it toward the ear."
+        }
+      ]
+    },
+    {
+      "id": "gotica-sombra",
+      "titulo": "Eyeshadow",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-roxa"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-contorno",
+        "personagem-lucy-sombra"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "The eyes are the portal to the gothic soul. We often use cold, deep tones on them. Let's build a deep gaze using a purple eyeshadow."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "With a brush, we start by blending the crease for depth, then apply over the mobile lid and pull the shadow toward the outer corner of the eye."
+        }
+      ]
+    },
+    {
+      "id": "gotica-delineado",
+      "titulo": "Eyeliner",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "caneta-delineadora",
+        "mascara-cilios"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-sombra",
+        "personagem-lucy-delineado-interno-esquerdo",
+        "personagem-lucy-delineado-externo",
+        "personagem-lucy-delineado-grafia-inferior",
+        "personagem-lucy-cilios"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "One really striking makeup stroke is the eyeliner. It's the same somber aesthetic you see in Tim Burton's sets, just adapted to real life and to our own face."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "We start with the pen, drawing a line from the inner corner of the eye..."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Then we draw a line from the outer corner of the eyes. We fill in until reaching the lash line again."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Our gaze is already quite dramatic. To finish off this detail-rich look, like a gothic cathedral, we draw a few lines at the lower outer corner of the eye."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "To complete our gaze, we add mascara."
+        }
+      ]
+    },
+    {
+      "id": "gotica-batom",
+      "titulo": "Lipstick",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "lapis-preto",
+        "batom"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-cilios",
+        "personagem-lucy-boca"
+      ],
+      "nota": "O \"lápis preto\" do roteiro é o lápis de olho, usado aqui para contornar o arco do cupido.",
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "For the lips, we bring the scene's ultimate intensity: dark, closed tones, perfectly drawn."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "I outline the cupid's bow very sharply with the black pencil and fill the center with black lipstick, bringing a hypnotic depth."
+        }
+      ]
+    },
+    {
+      "id": "gotica-gloss",
+      "titulo": "Gloss",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "gloss"
+      ],
+      "ilustracoes": [
+        "personagem-lucy-finalizada"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "To finish the lips, we bring in a gloss for a vinyl effect, applying it evenly over the lips."
+        }
+      ]
+    },
+    {
+      "id": "gotica-fechamento",
+      "titulo": "Wrap-up",
+      "tipo": "fechamento",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-lucy",
+        "personagem-lucy-segurando-camera"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Look finished. Figures like Wednesday Addams and Lydia Deetz popularized our image, but for us makeup transcends the screen: it's political expression, art, and sovereignty over our own skin."
+        },
+        {
+          "tipo": "fechamento",
+          "texto": "The goth scene is rich in nuance. From the lace of Romantic Goth to the industrial aesthetic of Cybergoth and the post-punk spirit of Trad Goth, find the branch that echoes your truth."
+        }
+      ]
+    }
+  ]
+}

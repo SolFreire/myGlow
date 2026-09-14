@@ -11,11 +11,9 @@ struct RootView: View {
     @AppStorage("primeiroUsoConcluido") private var primeiroUsoConcluido = false
 
     @State private var emOnboarding: Bool?
-    /// Dono único de quais lembranças já foram conquistadas. Fica aqui, e não
-    /// dentro do salão, porque o salão é a raiz da pilha e nunca desaparece —
-    /// um `.task` lá dentro rodaria uma vez só e o objeto recém-conquistado só
-    /// apareceria no próximo lançamento do app.
     @State private var lembrancas: LembrancaViewModel?
+    @State private var mostrandoAjustes = false
+    @State private var mostrandoConfirmacaoDeSaida  = false
 
     @State private var jogou = {
         #if DEBUG
@@ -48,7 +46,24 @@ struct RootView: View {
                 salao
             }
         }
-        .tint(Provisorio.destaque)
+        .tint(Cores.destaque)
+        .environment(\.abrirAjustes) { withAnimation(.snappy) { mostrandoAjustes = true } }
+        .environment(\.confirmarVoltarAoSalao) { mostrandoConfirmacaoDeSaida = true }
+        .environment(\.voltarAoSalao) { caminho.removeAll() }
+        .overlay {
+            if mostrandoAjustes {
+                BalaoAjustes {
+                    withAnimation(.snappy) { mostrandoAjustes = false }
+                }
+            }
+            if mostrandoConfirmacaoDeSaida {
+                BalaoVoltar {
+                    caminho.removeAll()
+                } aoFechar: {
+                    withAnimation(.snappy) { mostrandoConfirmacaoDeSaida = false }
+                }
+            }
+        }
     }
 
     private var salao: some View {
@@ -56,8 +71,7 @@ struct RootView: View {
             SalaoView(
                 desbloqueadas: lembrancas?.concluidas ?? [],
                 aoSentar: { caminho.append(.selecaoDeExperiencia) },
-                aoNavegar: { caminho.append($0) },
-                aoTocarLembranca: { caminho.append(.lembranca($0)) }
+                aoNavegar: { caminho.append($0) }
             )
             .navigationDestination(for: AppRoute.self) { rota in
                 switch rota {
@@ -67,11 +81,6 @@ struct RootView: View {
                     SelecaoDeExperienciaView { subcultura in
                         caminho.append(.tutorial(subcultura))
                     }
-                case let .lembranca(subcultura):
-                    LembrancaView(
-                        subcultura: subcultura,
-                        desbloqueado: lembrancas?.desbloqueado(subcultura) ?? false
-                    )
                 case let .tutorial(subcultura):
                     TutorialView(subcultura: subcultura) {
                         caminho.append(.camera(subcultura))
@@ -81,23 +90,25 @@ struct RootView: View {
                         caminho = [.galeria]
                     }
                 case .galeria:
-                    GaleriaView()
+                    GaleriaView(aoAbrirFoto: { foto in
+                        caminho.append(.detalheFoto(foto))
+                    })
+                case let .detalheFoto(foto):
+                    DetalheFotoView(foto: foto) {
+                        caminho.removeLast()
+                    }
                 }
             }
         }
-        // Relê o progresso a cada mudança de rota — em particular ao voltar do
-        // tutorial, que é quando uma lembrança nova passa a existir. São três
-        // registros; reler de mais é barato, reler de menos deixa o salão
-        // desatualizado bem no momento da recompensa.
+
         .task(id: caminho) {
             if lembrancas == nil {
                 lembrancas = LembrancaViewModel(progresso: ambiente.progresso)
             }
             await lembrancas?.carregar()
         }
-        // Voltar ao salão é esvaziar a pilha — vale de qualquer profundidade, e
-        // interrompe a experiência em andamento se houver uma.
         .environment(\.voltarAoSalao) { caminho.removeAll() }
+        .environment(\.confirmarVoltarAoSalao) { mostrandoConfirmacaoDeSaida = true}
     }
 }
 
@@ -115,10 +126,11 @@ private struct TelaDeErroDeRoteiro: View {
                 Text(mensagem)
                     .font(Tipografia.corpo)
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(Provisorio.textoSecundario)
+                    .foregroundStyle(Cores.textoSecundario)
             }
-            .foregroundStyle(Provisorio.texto)
+            .foregroundStyle(Cores.texto)
             .padding(40)
         }
     }
+
 }

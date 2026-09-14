@@ -15,8 +15,7 @@ struct BalaoDeFala: View {
         static let recuoHorizontal: CGFloat = 22
         static let recuoVertical: CGFloat = 44
         static let recuoDaAba: CGFloat = 38
-        /// A aba e uma capsula centrada na borda de cima: metade dela fica
-        /// para dentro do balao. `recuoDaAba` precisa cobrir essa metade.
+
         static let recuoVerticalDaAba: CGFloat = 5
         static let recuoHorizontalDaAba: CGFloat = 18
         static let recuoLateralDaAba: CGFloat = 22
@@ -30,6 +29,7 @@ struct BalaoDeFala: View {
         static let fundo = Color("cor-balao-fundo")
         static let borda = Color("cor-balao-borda")
         static let contexto = Color("cor-balao-borda-secundaria")
+        static let sugestao = Color("cor-balao-sugestao")
         static let texto = Color("cor-balao-texto")
     }
 
@@ -38,21 +38,23 @@ struct BalaoDeFala: View {
         case padrao
         case passo
         case contexto
+        case sugestao
 
-        /// Cor da borda e da aba.
+
         var cor: Color {
             switch self {
             case .padrao, .passo: Cor.borda
             case .contexto: Cor.contexto
+            case .sugestao: Cor.sugestao
             }
         }
 
-        /// Os botões de navegar acompanham o balão: no contexto histórico o
-        /// roxo destoaria da borda ciano.
+
         var botoes: Paleta.Botao {
             switch self {
             case .padrao, .passo: Paleta.botao
             case .contexto: Paleta.botaoDeContexto
+            case .sugestao: Paleta.botaoDeSugestao
             }
         }
     }
@@ -104,13 +106,18 @@ struct BalaoDeFala: View {
                 .padding(.leading, Medida.recuoLateralDaAba)
                 .alignmentGuide(.top) { $0[VerticalAlignment.center] }
                 .accessibilityLabel(rotulo)
+                .offset(x: 0, y: -Medida.recuoVerticalDaAba - 5)
         }
     }
 
     @ViewBuilder
     private var avancar: some View {
         if let aoAvancar {
-            BotaoCircular(simbolo: "arrow.right", diametro: Medida.diametroDoBotao, cores: estilo.botoes, acao: aoAvancar)
+            BotaoCircular(simbolo: "arrow.right", diametro: Medida.diametroDoBotao, cores: estilo.botoes)
+            {
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                aoAvancar()
+            }
                 .offset(x: Medida.diametroDoBotao / 4, y: Medida.diametroDoBotao / 4)
                 .accessibilityLabel("Continuar")
         }
@@ -119,7 +126,10 @@ struct BalaoDeFala: View {
     @ViewBuilder
     private var voltar: some View {
         if let aoVoltar {
-            BotaoCircular(simbolo: "arrow.left", diametro: Medida.diametroDoBotao, cores: estilo.botoes, acao: aoVoltar)
+            BotaoCircular(simbolo: "arrow.left", diametro: Medida.diametroDoBotao, cores: estilo.botoes){
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                aoVoltar()
+            }
                 .offset(x: -Medida.diametroDoBotao / 4, y: Medida.diametroDoBotao / 4)
                 .accessibilityLabel("Voltar")
         }
@@ -129,8 +139,6 @@ struct BalaoDeFala: View {
 struct BotaoCircular: View {
     let simbolo: String
     var diametro: CGFloat = 48
-    /// A família de cor. O roxo é o padrão em toda a interface; só o balão de
-    /// contexto histórico passa outra.
     var cores: Paleta.Botao = Paleta.botao
     let acao: () -> Void
 

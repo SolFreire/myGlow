@@ -79,3 +79,26 @@ final class ProgressoEmMemoria: ProgressRepository {
         conclusoes[subcultura, default: 0] += 1
     }
 }
+
+/// Suggester cuja resposta o teste controla na mão — para simular duas
+/// chamadas em voo ao mesmo tempo respondendo fora de ordem.
+actor SuggesterControlavel: TechniqueSuggesting {
+    private var pendentes: [String: CheckedContinuation<TechniqueSuggestion, Error>] = [:]
+
+    func suggestTechnique(
+        for step: TutorialStep,
+        inventory: [ItemResumo]
+    ) async throws -> TechniqueSuggestion {
+        try await withCheckedThrowingContinuation { continuacao in
+            pendentes[step.id] = continuacao
+        }
+    }
+
+    func temChamadaPendente(paraEtapa id: String) -> Bool {
+        pendentes[id] != nil
+    }
+
+    func resolver(etapa id: String, com sugestao: TechniqueSuggestion) {
+        pendentes.removeValue(forKey: id)?.resume(returning: sugestao)
+    }
+}

@@ -12,9 +12,11 @@ import SwiftUI
 struct myGlowApp: App {
     private let container: ModelContainer
     @State private var ambiente: AppEnvironment
-    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
+        let musicaLigada = (UserDefaults.standard.object(forKey: "musicaLigada") as? Bool) ?? true
+        SoundManager.shared.playBackgroundMusic(isOn: musicaLigada)
         Fontes.registrar()
         let container = Self.criarContainer()
         self.container = container

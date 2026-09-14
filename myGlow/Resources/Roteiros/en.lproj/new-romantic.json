@@ -1,0 +1,235 @@
+{
+  "subcultura": "newRomantic",
+  "briefing": "New Romantic is the British movement of the early '80s, born at The Blitz club in London, which turned a lack of money into fantasy — a poetic escapism against the austerity of the time, refusing gray reality and rigid gender roles. It's NOT generic 'romantic makeup' nor a delicate bridal look: it's theatrical, androgynous makeup, heir to Pierrot, Glam Rock, and the Dandies, validated by David Bowie in the Ashes to Ashes video with the Blitz Kids. Visual marks: total clown-white skin sealed with pancake as a high-contrast canvas, magenta blush concentrated below the cheekbone pulled in a sharp diagonal toward the temples, electric blue eyeshadow blended into a geometric shape connecting with the blush, graphic and pointed black eyeliner, a well-drawn cupid's bow, and a black beauty mark on the cheek, a nod to Rococo and neoclassical theater.",
+  "personagem": {
+    "nome": "Cindy",
+    "aparencia": "A slender, pale girl with short hair and a small face, androgynous look.",
+    "personalidade": "Introspective, sensitive, and possessing a deeply poetic gaze. Shy day-to-day, she finds her true voice in electronic synth music and the visual arts. Speaks softly, in short, imagistic sentences, with pauses.",
+    "produtos": [
+      "clown",
+      "pancake",
+      "blush",
+      "sombra-azul",
+      "sombra-verde",
+      "sombra-amarela",
+      "caneta-delineadora",
+      "lapis-labial",
+      "lapis-preto"
+    ]
+  },
+  "etapas": [
+    {
+      "id": "new-romantic-oi",
+      "titulo": "Hi, I'm Cindy",
+      "tipo": "abertura",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-cindy",
+        "personagem-cindy",
+        "personagem-cindy-falando"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "introducao",
+          "texto": "Hi… I'm Cindy. When the sound of synthesizers starts playing, I feel like I can be anything. Today I'll show you how I turn my favorite music into art on my face."
+        },
+        {
+          "tipo": "introducao",
+          "texto": "In the early '80s, at The Blitz club in London, we turned a lack of money into pure fantasy. The New Romantic movement was born as a poetic escapism against the austerity of the era."
+        },
+        {
+          "tipo": "fechamentoIntro",
+          "texto": "We refused gray reality and rigid gender roles. The shoulder-padded blazer and theatrical makeup created a strong androgyny, turning the night into a living gallery."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-base",
+      "titulo": "Base",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "clown",
+        "pancake"
+      ],
+      "ilustracoes": [
+        "personagem-cindy-sem-make",
+        "personagem-cindy-clown",
+        "personagem-cindy-clown",
+        "personagem-cindy-pancake"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Let's start with the white clown paint! In the New Romantic scene, this theatrical skin, inspired by Pierrot and David Bowie, isn't about covering who you are — it's about creating a high-contrast canvas for the colors."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "I apply the clown white with the sponge all over the face until getting full, velvety coverage."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "With the skin completely white and sealed, my androgynous look gets the perfect structure."
+        },
+        {
+          "tipo": "instrucaoPratica",
+          "texto": "Now, with a sponge, we apply the pancake in dabs, to seal our skin and keep the clown white from transferring — similar to what we do with setting powder."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-blush",
+      "titulo": "Blush",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "blush",
+        "sombra-amarela"
+      ],
+      "ilustracoes": [
+        "personagem-cindy-pancake",
+        "personagem-cindy-blush-amarelo",
+        "personagem-cindy-blush-magenta",
+        "personagem-cindy-blush-magenta"
+      ],
+      "nota": "O roteiro pede um blush amarelo bem vibrante.",
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Now comes the magic: New Romantic blush! Against the clown's white background, colors light up twice as intense. Let's sculpt the face with a mix of vibrant yellow and magenta."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "I apply the vibrant yellow tone concentrated on top of the cheek, spreading it across the cheekbone."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "Then I apply a pink blush toward the temple, on the upper part of the eyes at the outer third of the face."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "This face-sculpting technique comes from the Dandies and Glam Rock. It redefines the features and brings incredible visual presence to the dance floor."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-sombra",
+      "titulo": "Eyeshadow",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "sombra-azul"
+      ],
+      "ilustracoes": [
+        "personagem-cindy-blush-magenta",
+        "personagem-cindy-sombra-azul",
+        "personagem-cindy-sombra-verde"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "On the eyes, I lay down an electric blue eyeshadow all over the lid and pull the blend outward in a geometric shape, connecting the color directly with the blush at the temple."
+        },
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "On the lower part of the eyes, we apply the green eyeshadow, close to the waterline."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "Here the colors contrast with the rest of the classic, Dandy-inspired elements of the makeup, bringing in the futurism of the synthesizers that entered our music."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-delineado",
+      "titulo": "Eyeliner",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "caneta-delineadora"
+      ],
+      "ilustracoes": [
+        "personagem-cindy-sombra-verde",
+        "personagem-cindy-delineado"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "I use black pen eyeliner to create a graphic line along the lash line, framing the gaze with precision."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "When David Bowie put on the Pierrot costume and recruited the Blitz Kids for the Ashes to Ashes video, he validated our subculture for the whole world. This makeup is our direct reverence to the Chameleon's legacy."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-boca",
+      "titulo": "Mouth",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "lapis-labial",
+        "batom"
+      ],
+      "ilustracoes": [
+        "personagem-cindy-batom"
+      ],
+      "nota": "O roteiro não nomeava o produto desta etapa; o time definiu lápis labial.",
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "For the mouth, I accentuate the cupid's bow for a well-defined shape, and add a striking red."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-detalhe",
+      "titulo": "Detail",
+      "tipo": "passo",
+      "itensNecessarios": [
+        "lapis-preto"
+      ],
+      "ilustracoes": [
+        "personagem-cindy-pintas",
+        "personagem-cindy-finalizada"
+      ],
+      "nota": null,
+      "falas": [
+        {
+          "tipo": "instrucaoPraticaTecnica",
+          "texto": "And for the final touch, I draw a small black beauty mark on the cheek using the pencil."
+        },
+        {
+          "tipo": "contextoHistorico",
+          "texto": "This beauty mark is a direct reference to Rococo and neoclassical theater. It's the detail that turns the look into a celebration of artifice and Victorian charm."
+        }
+      ]
+    },
+    {
+      "id": "new-romantic-fechamento",
+      "titulo": "Wrap-up",
+      "tipo": "fechamento",
+      "itensNecessarios": [],
+      "ilustracoes": [
+        "personagem-cindy",
+        "personagem-cindy-falando",
+        "personagem-cindy-segurando-camera"
+      ],
+      "nota": "Etapa escrita pelo time de desenvolvimento: o roteiro original não tinha fechamento para a Cindy. Pendente de revisão do roteiro.",
+      "falas": [
+        {
+          "tipo": "fechamento",
+          "texto": "There… just look at that. The white became a canvas, the magenta became an angle, the blue became sound. You didn't cover your face: you turned it into a work of art."
+        },
+        {
+          "tipo": "fechamento",
+          "texto": "That's exactly what we used to do at the Blitz. Nobody had money for anything, but everyone showed up like a walking painting. Fantasy was our way of saying austerity wasn't going to have us."
+        },
+        {
+          "tipo": "fechamento",
+          "texto": "There's no right face for this makeup. There's just yours, and whatever you decide to say with it today. If you're ready, it's time for the photo."
+        }
+      ]
+    }
+  ]
+}

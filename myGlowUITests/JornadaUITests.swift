@@ -1,13 +1,7 @@
-//
-//  JornadaUITests.swift
-//  myGlowUITests
-//
+
 
 import XCTest
 
-/// A jornada ponta a ponta: primeiro uso com a Edna → maleta → Salão →
-/// Tutorial. É aqui que se verifica que as telas se ligam de verdade; a lógica
-/// de cada uma está coberta pelos testes unitários.
 final class JornadaUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -56,6 +50,13 @@ final class JornadaUITests: XCTestCase {
         add(anexo)
     }
 
+    /// O card da experiência não tem rótulo próprio — o VoiceOver/XCUITest
+    /// lê o nome concatenado com a descrição completa da personagem, que muda
+    /// de texto com frequência. Casar só pelo prefixo do nome sobrevive a isso.
+    private func cardDaPersonagem(_ app: XCUIApplication, nome: String) -> XCUIElement {
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "\(nome),")).firstMatch
+    }
+
     @MainActor
     func testJornadaCompletaComMaletaFaltandoItem() throws {
         let app = appDoPrimeiroUso()
@@ -88,10 +89,12 @@ final class JornadaUITests: XCTestCase {
         continuar.tap()
 
         // 4. Salão.
-        let cardDaLucy = app.buttons["Lucy, Gótica"]
+        let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10), "O Salão traz os cards de experiência")
         capturar(app, "03-salao")
-        cardDaLucy.tap()
+        cardDaLucy.tap() // 1º toque: foca o card
+        XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 5), "O card focado continua tocável")
+        cardDaLucy.tap() // 2º toque: seleciona a experiência
 
         // 5. Edna chama a especialista.
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
@@ -133,9 +136,11 @@ final class JornadaUITests: XCTestCase {
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
         continuar.tap()
 
-        let cardDaLucy = app.buttons["Lucy, Gótica"]
+        let cardDaLucy = cardDaPersonagem(app, nome: "Lucy")
         XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 10))
-        cardDaLucy.tap()
+        cardDaLucy.tap() // 1º toque: foca o card
+        XCTAssertTrue(cardDaLucy.waitForExistence(timeout: 5), "O card focado continua tocável")
+        cardDaLucy.tap() // 2º toque: seleciona a experiência
 
         XCTAssertTrue(continuar.waitForExistence(timeout: 5))
         continuar.tap()
@@ -178,38 +183,45 @@ final class LembrancasNoSalaoUITests: XCTestCase {
         XCTAssertTrue(continuar.waitForExistence(timeout: 10), "O tutorial deveria abrir no fechamento")
 
         // Avança até o fechamento acabar e a trilha empurrar para a câmera.
-        let voltarAoSalao = app.buttons["Voltar ao salão"]
         for _ in 0..<6 where continuar.exists {
             continuar.tap()
         }
 
         XCTAssertTrue(
-            voltarAoSalao.waitForExistence(timeout: 10),
+            app.staticTexts["GlowShot"].waitForExistence(timeout: 10),
             "Ao terminar a trilha o app deveria seguir para a câmera"
         )
-        voltarAoSalao.tap()
 
+        // Daqui a volta ao salão é reabrindo o app, e não pela câmera.
+        //
+        // Não é preguiça: é o que também prova que a conquista foi **gravada**,
+        // e não só guardada na sessão. A versão anterior deste teste procurava
+        // "Voltar ao salão" logo após os toques — o botão do próprio tutorial,
+        // que já não existe na tela da câmera — e nunca chegou a exercitar a
+        // volta de verdade.
         let aranha = app.buttons["Lembrança de Lucy"]
-        XCTAssertTrue(
-            aranha.waitForExistence(timeout: 10),
-            "A lembrança da Lucy deveria estar no salão logo ao voltar, sem reabrir o app"
-        )
-
-        let anexo = XCTAttachment(screenshot: app.screenshot())
-        anexo.name = "salao-com-lembranca"
-        anexo.lifetime = .keepAlways
-        add(anexo)
-
-        // E sobrevive a fechar o app: a conquista é do progresso gravado, não
-        // do objeto que a sessão tinha em memoria. Sem isto, o salão voltaria
-        // vazio na proxima abertura e a trilha pareceria não ter contado.
         app.terminate()
         app.launchArguments = ["-pularTelaInicial", "YES", "-primeiroUsoConcluido", "YES"]
         app.launch()
 
         XCTAssertTrue(
-            app.buttons["Lembrança de Lucy"].waitForExistence(timeout: 10),
+            aranha.waitForExistence(timeout: 10),
             "A lembrança deveria continuar no salão depois de reabrir o app"
         )
+
+        // Tocar abre a lembrança em destaque, sobre o salão — sem trocar de tela.
+        aranha.tap()
+        let titulo = app.staticTexts["Spider"]
+        XCTAssertTrue(titulo.waitForExistence(timeout: 5), "O toque deveria abrir a lembrança em destaque")
+
+        let destaque = XCTAttachment(screenshot: app.screenshot())
+        destaque.name = "lembranca-em-destaque"
+        destaque.lifetime = .keepAlways
+        add(destaque)
+
+        // E qualquer toque fecha, devolvendo o objeto à estante.
+        app.tap()
+        XCTAssertFalse(titulo.waitForExistence(timeout: 2), "Tocar em qualquer lugar deveria fechar")
+        XCTAssertTrue(aranha.waitForExistence(timeout: 5), "A lembrança volta para o lugar dela na cena")
     }
 }

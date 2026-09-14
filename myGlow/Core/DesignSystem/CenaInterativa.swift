@@ -22,7 +22,7 @@ struct CenaInterativa<Objetos: View>: View {
                         .scaledToFill()
                         .frame(width: proxy.size.width, height: proxy.size.height)
                         .clipped()
-                        .accessibilityHidden(true)
+                        .descricaoDaArte(cenario)
                 } else {
                     FundoSalao()
                 }
@@ -60,10 +60,6 @@ struct ObjetoDaCena: View {
     let rotulo: String
     let acao: () -> Void
 
-    /// Quanto descer para que o ponto `ancora` do objeto caia em `posicao`.
-    ///
-    /// A altura sai da proporção do próprio asset — não dá para medir o objeto
-    /// antes de posicioná-lo, mas dá para calculá-la.
     private var deslocamentoVertical: CGFloat {
         guard ancora != .center, let proporcao = Arte.proporcao(asset), proporcao > 0 else { return 0 }
         let altura = moldura.width * largura / proporcao

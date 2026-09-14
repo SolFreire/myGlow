@@ -5,11 +5,7 @@
 
 import Foundation
 
-/// Categoria de um item de maquiagem.
-///
-/// Vem sempre do catálogo curado (`CatalogoMaquiagem`), nunca de texto digitado
-/// pela pessoa — por isso não existe validação de texto livre em lugar nenhum
-/// do fluxo de cadastro.
+
 nonisolated enum CategoriaItem: String, Codable, CaseIterable, Sendable {
     case base
     case corretivo
@@ -32,24 +28,24 @@ nonisolated enum CategoriaItem: String, Codable, CaseIterable, Sendable {
 
     var nome: String {
         switch self {
-        case .base: "Base"
-        case .corretivo: "Corretivo"
-        case .po: "Pó"
-        case .blush: "Blush"
-        case .contorno: "Contorno"
-        case .iluminador: "Iluminador"
-        case .sombra: "Sombra"
-        case .delineadorLiquido: "Delineador líquido"
-        case .lapisOlho: "Lápis de olho"
-        case .lapisOlhoBranco: "Lápis de olho branco"
-        case .mascara: "Máscara de cílios"
-        case .sobrancelha: "Sobrancelha"
-        case .batom: "Batom"
-        case .gloss: "Gloss"
-        case .lapisLabial: "Lápis labial"
-        case .clown: "Clown"
-        case .pancake: "Pancake"
-        case .ciliosPosticos: "Cílios postiços"
+        case .base: String(localized: "Base")
+        case .corretivo: String(localized: "Corretivo")
+        case .po: String(localized: "Pó")
+        case .blush: String(localized: "Blush")
+        case .contorno: String(localized: "Contorno")
+        case .iluminador: String(localized: "Iluminador")
+        case .sombra: String(localized: "Sombra")
+        case .delineadorLiquido: String(localized: "Delineador líquido")
+        case .lapisOlho: String(localized: "Lápis de olho")
+        case .lapisOlhoBranco: String(localized: "Lápis de olho branco")
+        case .mascara: String(localized: "Máscara de cílios")
+        case .sobrancelha: String(localized: "Sobrancelha")
+        case .batom: String(localized: "Batom")
+        case .gloss: String(localized: "Gloss")
+        case .lapisLabial: String(localized: "Lápis labial")
+        case .clown: String(localized: "Clown")
+        case .pancake: String(localized: "Pancake")
+        case .ciliosPosticos: String(localized: "Cílios postiços")
         }
     }
 }

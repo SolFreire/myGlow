@@ -167,7 +167,7 @@ struct TutorialComRoteiroRealTests {
             Issue.record("Faltando o pancake, a etapa Base deveria trazer uma sugestão. Veio \(vm.sugestao)")
             return
         }
-        #expect(!sugestao.passos.isEmpty)
+        #expect(!sugestao.dica.isEmpty)
     }
 
     @Test("Com clown e pancake na maleta, a etapa Base não pede sugestão")
@@ -390,5 +390,148 @@ struct CenaDoTutorialTests {
         await vm.voltar()
         await vm.voltar()
         #expect(progresso.etapasMarcadas == ["gotica-ola"], "A etapa concluída continua concluída")
+    }
+}
+
+/// A dica de sugestão vira uma parada extra, sempre depois da última fala real
+/// da etapa — nunca substituindo o texto de uma instrução específica. Isso
+/// evita que, numa etapa com várias falas de passo, a mesma dica genérica
+/// apareça no lugar de instruções diferentes (achado real: `gotica-delineado`
+/// tem 5 falas de passo, `gotica-base` tem 3).
+@Suite("A dica de sugestão como parada extra")
+@MainActor
+struct DicaComoParadaExtraTests {
+    @Test("Numa etapa com várias falas de passo, a dica não substitui nenhuma delas")
+    func dicaNaoSobrepoeInstrucoesDoPasso() async {
+        let etapa = Fixture.etapa(
+            itensNecessarios: ["pancake"],
+            falas: [
+                Fixture.fala(.instrucaoPraticaTecnica, "Prepare a pele."),
+                Fixture.fala(.instrucaoPraticaTecnica, "Aplique a tinta clown."),
+                Fixture.fala(.instrucaoPratica, "Sele com o pó.")
+            ]
+        )
+        let vm = TutorialViewModel(
+            roteiro: Fixture.roteiro(etapas: [etapa]),
+            suggester: SuggesterFalso(resultado: .success(Fixture.sugestao(dica: "Sem pancake? Use pó."))),
+            inventarioRepo: InventarioEmMemoria()
+        )
+        await vm.carregar()
+
+        #expect(vm.textoDoBalao == "Prepare a pele.")
+        await vm.avancar()
+        #expect(vm.textoDoBalao == "Aplique a tinta clown.")
+        await vm.avancar()
+        #expect(vm.textoDoBalao == "Sele com o pó.", "A terceira instrução real não pode virar a dica")
+
+        // Só depois da última fala real é que a dica aparece.
+        await vm.avancar()
+        #expect(vm.estiloDaFala == .sugestao)
+        #expect(vm.textoDoBalao == "Sem pancake? Use pó.")
+        #expect(vm.rotuloDaFala == "Dica da Lucy")
+    }
+
+    @Test("Voltar da dica retorna à última fala real")
+    func voltarDaDicaFuncionaSemMudanca() async {
+        let etapa = Fixture.etapa(itensNecessarios: ["pancake"], falas: [Fixture.fala(.instrucaoPratica, "Sele com o pó.")])
+        let vm = TutorialViewModel(
+            roteiro: Fixture.roteiro(etapas: [etapa]),
+            suggester: SuggesterFalso(resultado: .success(Fixture.sugestao(dica: "Sem pancake? Use pó."))),
+            inventarioRepo: InventarioEmMemoria()
+        )
+        await vm.carregar()
+        await vm.avancar()
+        #expect(vm.estiloDaFala == .sugestao)
+
+        await vm.voltar()
+        #expect(vm.textoDoBalao == "Sele com o pó.")
+        #expect(vm.estiloDaFala == .passo)
+    }
+
+    @Test("Sem sugestão pronta, não existe parada extra depois da última fala")
+    func semSugestaoNaoTemParadaExtra() async {
+        let etapa = Fixture.etapa(itensNecessarios: [], falas: [Fixture.fala(.instrucaoPratica, "Aplique.")])
+        let vm = TutorialViewModel(
+            roteiro: Fixture.roteiro(etapas: [etapa]),
+            suggester: SuggesterFalso(),
+            inventarioRepo: InventarioEmMemoria()
+        )
+        await vm.carregar()
+
+        // Etapa única, sem próxima: um avanço deveria terminar a trilha, não
+        // mostrar uma dica que nunca existiu (maleta completa, sem faltantes).
+        await vm.avancar()
+        #expect(vm.terminou)
+    }
+
+    @Test("Uma etapa sem item faltando fica ociosa mesmo se outra etapa do roteiro pedir sugestão")
+    func sugestaoNaoVazaEntreEtapas() async {
+        let comFalta = Fixture.etapa(id: "pele", itensNecessarios: ["pancake"], falas: [Fixture.fala(.instrucaoPratica, "Aplique o clown.")])
+        let semFalta = Fixture.etapa(id: "olhos", itensNecessarios: ["sombra-roxa"], falas: [Fixture.fala(.instrucaoPratica, "Esfume a sombra.")])
+
+        let vm = TutorialViewModel(
+            roteiro: Fixture.roteiro(etapas: [comFalta, semFalta]),
+            suggester: SuggesterFalso(resultado: .success(Fixture.sugestao(dica: "Sem pancake? Use pó."))),
+            inventarioRepo: InventarioEmMemoria(ids: ["sombra-roxa"])
+        )
+        await vm.carregar()
+        #expect(vm.sugestao == .pronta(Fixture.sugestao(dica: "Sem pancake? Use pó.")))
+
+        await vm.avancar() // da única fala real de "pele" para a dica dela
+        await vm.avancar() // da dica de "pele" para a primeira fala de "olhos"
+        #expect(vm.etapaAtual?.id == "olhos")
+        #expect(vm.sugestao == .ociosa, "sombra-roxa está na maleta — a etapa de olhos não pede sugestão")
+        #expect(vm.estiloDaFala == .passo)
+    }
+}
+
+/// Reproduz o relato: passar rápido pelas etapas fazia a dica de uma etapa
+/// já abandonada sobrescrever a da etapa atual, porque cada toque em avançar
+/// dispara uma chamada à IA sem esperar a anterior terminar.
+@Suite("Respostas fora de ordem não se sobrescrevem")
+@MainActor
+struct RespostaForaDeOrdemTests {
+    private func aguardarChamada(_ suggester: SuggesterControlavel, etapa id: String) async {
+        for _ in 0..<200 {
+            if await suggester.temChamadaPendente(paraEtapa: id) { return }
+            await Task.yield()
+        }
+    }
+
+    @Test("A resposta atrasada de uma etapa anterior não sobrescreve a etapa atual")
+    func respostaAtrasadaNaoSobrescreve() async {
+        let suggester = SuggesterControlavel()
+        let etapaA = Fixture.etapa(id: "a", itensNecessarios: ["caneta-delineadora"], falas: [Fixture.fala(.instrucaoPratica, "Trace a linha.")])
+        let etapaB = Fixture.etapa(id: "b", itensNecessarios: ["blush"], falas: [Fixture.fala(.instrucaoPratica, "Aplique o blush.")])
+        let vm = TutorialViewModel(
+            roteiro: Fixture.roteiro(etapas: [etapaA, etapaB]),
+            suggester: suggester,
+            inventarioRepo: InventarioEmMemoria()
+        )
+
+        // carregar() e avancar() ficam esperando a IA responder — cada um
+        // despachado à parte, porque nenhum dos dois retorna antes de a
+        // resposta correspondente chegar, e o teste precisa seguir em frente
+        // para poder resolvê-las na ordem que quer testar.
+        let carregando = Task { await vm.carregar() }
+        await aguardarChamada(suggester, etapa: "a")
+        #expect(vm.sugestao == .carregando)
+
+        let avancando = Task { await vm.avancar() }
+        await aguardarChamada(suggester, etapa: "b")
+
+        // B responde primeiro, e o teste espera avancar() terminar de aplicar.
+        await suggester.resolver(etapa: "b", com: Fixture.sugestao(dica: "Dica de B"))
+        await avancando.value
+        #expect(vm.sugestao == .pronta(Fixture.sugestao(dica: "Dica de B")))
+
+        // Só agora a resposta atrasada de A chega — não pode mudar nada.
+        await suggester.resolver(etapa: "a", com: Fixture.sugestao(dica: "Dica de A, atrasada"))
+        await carregando.value
+
+        #expect(
+            vm.sugestao == .pronta(Fixture.sugestao(dica: "Dica de B")),
+            "A resposta atrasada da etapa A não pode sobrescrever a dica da etapa B, que é a atual"
+        )
     }
 }

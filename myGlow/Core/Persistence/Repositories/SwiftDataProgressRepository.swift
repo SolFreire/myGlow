@@ -39,8 +39,6 @@ final class SwiftDataProgressRepository: ProgressRepository {
         try contexto.save()
     }
 
-    /// Filtra em memória de propósito: `subcultura` é um enum `Codable` e não
-    /// entra num `#Predicate`. São no máximo três registros.
     private func buscar(_ subcultura: Subcultura) throws -> UserProgress? {
         try contexto
             .fetch(FetchDescriptor<UserProgress>())

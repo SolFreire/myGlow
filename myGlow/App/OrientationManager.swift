@@ -11,8 +11,7 @@ final class OrientationManager {
     static let shared = OrientationManager()
     var currentOrientationMask: UIInterfaceOrientationMask = .landscape
     
-    func updateOrientation(to mask: UIInterfaceOrientationMask, forceRotateTo orientation:
-        UIInterfaceOrientationMask? = nil) {
+    func updateOrientation(to mask: UIInterfaceOrientationMask, forceRotateTo orientation: UIInterfaceOrientationMask? = nil) {
         currentOrientationMask = mask
         
         guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

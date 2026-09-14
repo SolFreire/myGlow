@@ -8,10 +8,10 @@ import Foundation
 enum AppRoute: Hashable {
     case cadastro
     case selecaoDeExperiencia
-    case lembranca(Subcultura)
     case tutorial(Subcultura)
     case camera(Subcultura)
     case galeria
+    case detalheFoto(FotoSalva)
 }
 
 #if DEBUG
@@ -29,6 +29,7 @@ extension AppRoute {
 
         switch partes[0] {
         case "cadastro": return [.cadastro]
+        case "selecaoDeExperiencia": return [.selecaoDeExperiencia]
         case "galeria": return [.galeria]
         case "tutorial": return [.tutorial(subcultura ?? .gotica)]
         case "camera": return [.camera(subcultura ?? .gotica)]

@@ -14,6 +14,7 @@ struct CadastroView: View {
     @State private var vm: CadastroViewModel?
     @State private var molduraDaMaleta: CGRect = .zero
     @State private var maletaEmDestaque = false
+    @State private var arrastandoAlgo = false
 
     private let espaco = "cadastro"
 
@@ -51,14 +52,14 @@ struct CadastroView: View {
 
                 catalogo(vm)
                     .frame(width: proxy.size.width * 0.40)
+                    .zIndex(arrastandoAlgo ? 1 : 0)
             }
             .frame(height: proxy.size.height)
         }
     }
 
-    // MARK: - Maleta
-
     private func maleta(_ vm: CadastroViewModel) -> some View {
+
         GeometryReader { proxy in
             let largura = proxy.size.width
             let altura = largura / (Arte.proporcao("maleta-aberta") ?? 1)
@@ -78,11 +79,12 @@ struct CadastroView: View {
                     molduraDaMaleta = $0
                 }
                 .animation(.spring(duration: 0.25), value: maletaEmDestaque)
-                .accessibilityLabel("Minha maleta, \(vm.quantidadeNaMaleta) itens")
+                .accessibilityLabel("\(String(localized: "Minha maleta")), \(vm.quantidadeNaMaleta) \(vm.quantidadeNaMaleta == 1 ? String(localized: "item") : String(localized: "itens"))")
             }
             .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottom)
             .clipped()
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 
 
@@ -95,7 +97,7 @@ struct CadastroView: View {
                 if vm.itensNaMaleta.isEmpty {
                     Text("Adicione seus itens de maquiagens")
                         .font(Tipografia.secao)
-                        .foregroundStyle(Provisorio.texto)
+                        .foregroundStyle(Cores.texto)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
@@ -107,6 +109,7 @@ struct CadastroView: View {
                             ForEach(vm.itensNaMaleta) { item in
                                 CartaoDeItem(item: item, dentroDaMaleta: true) {
                                     Task { await vm.alternar(item) }
+                                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                                 }
                             }
                         }
@@ -121,8 +124,6 @@ struct CadastroView: View {
         }
     }
 
-    /// O fundo desta tela é um degradê entre duas cores do catálogo, e não uma
-    /// ilustração — como todo degradê do app, de cima para baixo.
     private enum Fundo {
         static let gradiente = LinearGradient(
             colors: [Color("fundo-cadastro"), Color("fundo-cadastro-escuro")],
@@ -131,8 +132,11 @@ struct CadastroView: View {
         )
     }
 
-    /// A área útil dentro da mala, em fração da arte: a metade de baixo, onde
-    /// os produtos se acomodam — a de cima é a tampa aberta.
+    private enum Medida {
+        static let recuoDoCatalogo: CGFloat = 14
+        static let respiroAteAMaleta: CGFloat = 32
+    }
+
     private enum Interior {
         static let esquerda: CGFloat = 0.06
         static let direita: CGFloat = 0.94
@@ -140,18 +144,10 @@ struct CadastroView: View {
         static let base: CGFloat = 0.94
     }
 
-    // MARK: - Catálogo
-
-    /// O catálogo.
-    ///
-    /// Sem conta de largura: a coluna recebe uma largura explícita de quem a
-    /// posiciona, as colunas do grid são flexíveis e o cartão fica quadrado pela
-    /// própria proporção. Calcular o lado à mão exigia descontar recuo externo,
-    /// interno e vão entre colunas — e errar qualquer um deles jogava o grid
-    /// para fora da tela.
     private func catalogo(_ vm: CadastroViewModel) -> some View {
         VStack(spacing: 12) {
-            BotaoPrimario(titulo: "Salvar", simbolo: "checkmark", preencheLargura: false) {
+            BotaoPrimario(titulo: String(localized: "Salvar"), simbolo: "checkmark", preencheLargura: false) {
+                SoundManager.shared.playSoundEffect(named: "botao-efeito")
                 aoConcluir()
             }
             .disabled(vm.quantidadeNaMaleta == 0 && modo == .onboarding)
@@ -166,26 +162,35 @@ struct CadastroView: View {
                             item: item,
                             dentroDaMaleta: false,
                             espaco: espaco,
-                            aoTocar: { Task { await vm.alternar(item) } },
+                            aoTocar: {
+                                Task { await vm.alternar(item) }
+                                SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                            },
                             aoArrastar: { ponto in
+                                arrastandoAlgo = true
                                 maletaEmDestaque = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
                             },
                             aoSoltar: { ponto in
+                                arrastandoAlgo = false
                                 maletaEmDestaque = false
                                 let acertou = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
                                 if acertou {
                                     Task { await vm.adicionar(item) }
+                                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
                                 }
                                 return acertou
                             }
                         )
                     }
                 }
-                .padding(14)
+                .padding(.vertical, Medida.recuoDoCatalogo)
+                .padding(.trailing, Medida.recuoDoCatalogo)
+                .padding(.leading, Medida.respiroAteAMaleta)
             }
             .scrollIndicators(.hidden)
+            .scrollClipDisabled(arrastandoAlgo)
             .background(
-                Provisorio.painelDoCatalogo,
+                Cores.painelDoCatalogo,
                 in: UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
             )
             .ignoresSafeArea(edges: .bottom)
@@ -211,13 +216,16 @@ private struct CartaoDeItem: View {
     @State private var arrastando = false
 
     var body: some View {
-        ArteView(nome: item.asset)
-            .padding(dentroDaMaleta ? 2 : 10)
+        Color.clear
             .aspectRatio(1, contentMode: .fit)
+            .overlay {
+                ArteView(nome: item.asset)
+                    .padding(dentroDaMaleta ? 2 : 10)
+            }
             .background {
                 if !dentroDaMaleta {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Provisorio.cartaoDoCatalogo)
+                        .fill(Cores.cartaoDoCatalogo)
                 }
             }
             .scaleEffect(arrastando ? 1.12 : 1)
@@ -227,11 +235,11 @@ private struct CartaoDeItem: View {
             .gesture(arraste)
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(item.nome)
-            .accessibilityValue(dentroDaMaleta ? "Na maleta" : "Fora da maleta")
+            .accessibilityValue(dentroDaMaleta ? String(localized: "Na maleta") : String(localized: "Fora da maleta"))
             .accessibilityHint(
                 dentroDaMaleta
-                    ? "Toque duas vezes para tirar da maleta"
-                    : "Toque duas vezes para guardar na maleta"
+                    ? String(localized: "Toque duas vezes para tirar da maleta")
+                    : String(localized: "Toque duas vezes para guardar na maleta")
             )
             .accessibilityAddTraits(.isButton)
             .sensoryFeedback(.selection, trigger: dentroDaMaleta)
@@ -256,3 +264,4 @@ private struct CartaoDeItem: View {
             }
     }
 }
+

@@ -6,11 +6,7 @@
 import Foundation
 import FoundationModels
 
-/// Escolhe qual implementação de `TechniqueSuggesting` usar.
-///
-/// A disponibilidade entra por parâmetro em vez de ser lida direto do
-/// `SystemLanguageModel`: é o que permite testar a decisão sem um iPhone 15 Pro
-/// à mão. O default cobre o uso real.
+
 nonisolated enum TechniqueSuggesterFactory {
     static func make(
         roteiro: Roteiro,
@@ -20,8 +16,6 @@ nonisolated enum TechniqueSuggesterFactory {
 
         switch disponibilidade {
         case .available:
-            // Mesmo com o sistema dizendo que o modelo está disponível, a chamada
-            // pode falhar — já aconteceu. As regras estáticas ficam atrás como rede.
             return SuggesterComFallback(
                 principal: FoundationModelsSuggester(roteiro: roteiro),
                 reserva: reserva
@@ -31,9 +25,6 @@ nonisolated enum TechniqueSuggesterFactory {
         }
     }
 
-    /// Texto de diagnóstico. A PoC pede exibir o motivo bruto do `.unavailable`,
-    /// porque já houve caso de o availability mentir quando o idioma da Siri
-    /// diverge do idioma do sistema.
     static func diagnostico(
         _ disponibilidade: SystemLanguageModel.Availability = SystemLanguageModel.default.availability
     ) -> String {
