@@ -226,3 +226,84 @@ struct BalaoVoltar: View {
     }
 }
 
+struct BalaoDeletar: View {
+    var estilo: BalaoDeFala.Estilo = .padrao
+    let aoConfirmarExclusao: () -> Void
+    let aoFechar: () -> Void
+
+    private var forma: RoundedRectangle {
+        RoundedRectangle(cornerRadius: BalaoDeFala.Medida.canto)
+    }
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.45)
+                .ignoresSafeArea()
+                .contentShape(Rectangle())
+                .onTapGesture(perform: aoFechar)
+
+            conteudo()
+        }
+    }
+    private func conteudo() -> some View {
+        VStack (spacing: 40){
+            VStack(spacing: 4) {
+                Text("Após confirmar, a foto será deletada e não poderá ser recuperada")
+                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                    .foregroundStyle(.corBalaoTexto)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+
+            }
+            HStack (spacing: 48){
+                Button {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    aoFechar()
+                } label: {
+                    Text("Voltar")
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.corBalaoBorda)
+                }
+                .padding(.horizontal, 32)
+                .padding(.vertical, 13)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                    .stroke(Color.corBalaoBorda, lineWidth: 3))
+                BotaoPrimario(titulo: String(localized: "Deletar"), cores: Paleta.botaoDeletarFoto, preencheLargura: false) {
+                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    aoConfirmarExclusao()
+                    aoFechar()
+                }
+            }
+        }
+        .fixedSize(horizontal: false, vertical: true)
+        .padding(.horizontal, BalaoDeFala.Medida.recuoHorizontal + 16)
+        .padding(.bottom, BalaoDeFala.Medida.recuoVertical - 12)
+        .padding(.top, BalaoDeFala.Medida.recuoDaAba - 12)
+        .background(fundo)
+        .overlay(alignment: .top) { aba }
+        .frame(maxWidth: 400)
+    }
+    private var fundo: some View {
+        forma
+            .fill(BalaoDeFala.Cor.fundo)
+            .overlay { forma.stroke(estilo.cor, lineWidth: BalaoDeFala.Medida.traco) }
+    }
+
+    @ViewBuilder
+    private var aba: some View {
+        Text("Deletar Foto")
+            .font(Tipografia.nomeDaPersonagem)
+            .foregroundStyle(BalaoDeFala.Cor.fundo)
+            .padding(.horizontal, BalaoDeFala.Medida.recuoHorizontalDaAba)
+            .padding(.vertical, BalaoDeFala.Medida.recuoVerticalDaAba)
+            .background(estilo.cor, in: Capsule())
+            .accessibilityLabel("Deletar Foto")
+            .offset(y: -BalaoDeFala.Medida.recuoVerticalDaAba - 5)
+    }
+}
+
+
+#Preview{
+    BalaoDeletar(aoConfirmarExclusao: {}, aoFechar: {})
+}
