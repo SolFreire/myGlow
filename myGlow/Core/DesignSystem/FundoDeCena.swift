@@ -60,7 +60,7 @@ struct BotaoVoltar: View {
             SoundManager.shared.playSoundEffect(named: "botao-efeito")
             confirmarVoltarAoSalao()
         }
-        .accessibilityLabel("Voltar ao salão")
+        .accessibilityLabel("Voltar ao Salão")
         .onAppear {
             if UserDefaults.standard.bool(forKey: "testarBotaoVoltarDebug") { confirmarVoltarAoSalao() }
         }
@@ -193,7 +193,7 @@ struct BalaoVoltar: View {
                 .padding(.vertical, 13)
                 .overlay(RoundedRectangle(cornerRadius: 30)
                     .stroke(Color.corBalaoBorda, lineWidth: 3))
-                BotaoPrimario(titulo: "Continuar", preencheLargura: false){
+                BotaoPrimario(titulo: String(localized: "Continuar"), preencheLargura: false){
                     SoundManager.shared.playSoundEffect(named: "botao-efeito")
                     aoFechar()
                 }

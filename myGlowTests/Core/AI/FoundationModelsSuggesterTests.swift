@@ -23,13 +23,9 @@ struct FoundationModelsSuggesterTests {
     /// `SuggesterComFallback` de fato entra em ação quando o modelo erra.
     @Test("Uma dica que cita produto fora da maleta é rejeitada")
     func rejeitaProdutoForaDaMaleta() {
-        let gerada = FoundationModelsSuggester.DicaGerada(
-            dica: "Sem Caneta delineadora? Passe um Blush antes para fixar melhor o traço."
-        )
-
         #expect(throws: SuggestionError.respostaInvalida) {
             _ = try FoundationModelsSuggester.mapear(
-                gerada,
+                "Sem Caneta delineadora? Passe um Blush antes para fixar melhor o traço.",
                 pares: [par(ausente: "caneta-delineadora", substituto: "lapis-preto")],
                 maleta: Fixture.resumos("lapis-preto")
             )
@@ -38,12 +34,8 @@ struct FoundationModelsSuggesterTests {
 
     @Test("Uma dica que só cita o item ausente e produtos da maleta passa")
     func aceitaDicaLimpa() throws {
-        let gerada = FoundationModelsSuggester.DicaGerada(
-            dica: "Sem Caneta delineadora? Use o Lápis preto, pressionando mais firme no traço."
-        )
-
         let sugestao = try FoundationModelsSuggester.mapear(
-            gerada,
+            "Sem Caneta delineadora? Use o Lápis preto, pressionando mais firme no traço.",
             pares: [par(ausente: "caneta-delineadora", substituto: "lapis-preto")],
             maleta: Fixture.resumos("lapis-preto")
         )
@@ -57,12 +49,8 @@ struct FoundationModelsSuggesterTests {
     /// falhar: uma dica citando o próprio par esperado nunca é "fora da maleta".
     @Test("Citar o par esperado nunca conta como produto de fora")
     func citarOParEsperadoNaoEFlagrado() throws {
-        let gerada = FoundationModelsSuggester.DicaGerada(
-            dica: "Sem Blush? Use Batom: toque o dedo no produto e esfume nas maçãs do rosto."
-        )
-
         let sugestao = try FoundationModelsSuggester.mapear(
-            gerada,
+            "Sem Blush? Use Batom: toque o dedo no produto e esfume nas maçãs do rosto.",
             pares: [par(ausente: "blush", substituto: "batom")],
             maleta: Fixture.resumos("batom")
         )

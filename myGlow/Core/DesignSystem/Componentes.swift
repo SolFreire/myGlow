@@ -107,7 +107,7 @@ struct CardMaqueadora: View {
 
         }
         .accessibilityLabel("\(nomeDaPersonagem), \(descricao)")
-        .accessibilityHint(emFoco ? "Toque para selecionar" : "Toque para focar")
+        .accessibilityHint(emFoco ? String(localized: "Toque para selecionar") : String(localized: "Toque para focar"))
     }
 }
 

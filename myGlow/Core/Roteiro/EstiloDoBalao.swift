@@ -22,9 +22,9 @@ extension Fala.Tipo {
 extension Subcultura {
     var rotuloDeContexto: String {
         switch self {
-        case .gotica: "Sobre góticos"
-        case .gyaru: "Sobre gyarus"
-        case .newRomantic: "Sobre new romantics"
+        case .gotica: String(localized: "Sobre góticos")
+        case .gyaru: String(localized: "Sobre gyarus")
+        case .newRomantic: String(localized: "Sobre new romantics")
         }
     }
 }
