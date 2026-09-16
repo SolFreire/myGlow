@@ -10,8 +10,9 @@ nonisolated struct ItemCatalogo: Identifiable, Hashable, Sendable {
     let id: String
     let nome: String
     let categoria: CategoriaItem
-    /// Nome do asset ilustrado no `Assets.xcassets`. O nome do produto vem
-    /// desenhado dentro da arte.
+    /// Nome do asset ilustrado no `Assets.xcassets`. A arte não contém
+    /// texto — o nome do produto é desenhado por `CartaoDeItem` a partir
+    /// de `nome`, já localizado.
     let asset: String
 }
 
