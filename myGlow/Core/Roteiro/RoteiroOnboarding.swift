@@ -5,11 +5,7 @@
 
 import Foundation
 
-/// O fluxo de primeiro uso conduzido pela Edna, a recepcionista.
-///
-/// Alterna falas e telas na mesma ordem do roteiro: ela recebe, manda cadastrar
-/// a maleta, comenta o resultado, manda escolher a experiência e chama a
-/// especialista.
+
 nonisolated struct RoteiroOnboarding: Codable, Hashable, Sendable {
     struct Personagem: Codable, Hashable, Sendable {
         let nome: String
