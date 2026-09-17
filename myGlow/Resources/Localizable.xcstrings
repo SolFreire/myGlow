@@ -1,1476 +1,1500 @@
 {
-  "sourceLanguage": "pt-BR",
-  "strings": {
-    "%@, %@": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$@, %2$@"
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    ".description" : {
+      "extractionState" : "manual"
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
           }
         }
       }
     },
-    "%@, %lld %@": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$@, %2$lld %3$@"
+    "%@, %lld %@" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$lld %3$@"
           }
         }
       }
+    },
+    "%lld" : {
+
     },
-    "%lld": {},
-    ".description": {
-      "extractionState": "manual"
+    "0.5x" : {
+
     },
-    "0.5x": {},
-    "1x": {},
-    "2x": {},
-    "A própria sombra branca faz a faixa central do nariz — aplique com um pincel fino e esfume só nas bordas.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White eyeshadow itself can do the center of the nose — apply with a thin brush and blend only at the edges."
+    "1x" : {
+
+    },
+    "2x" : {
+
+    },
+    "A própria sombra branca faz a faixa central do nariz — aplique com um pincel fino e esfume só nas bordas." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "White eyeshadow itself can do the center of the nose — apply with a thin brush and blend only at the edges."
           }
         }
       }
     },
-    "A sombra laranja fosca funciona como contorno quente, do tipo bronzer. Aplique nas laterais do nariz e esfume bem com a esponja úmida.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Matte orange eyeshadow works as a warm, bronzer-like contour. Apply along the sides of the nose and blend well with a damp sponge."
+    "A sombra laranja fosca funciona como contorno quente, do tipo bronzer. Aplique nas laterais do nariz e esfume bem com a esponja úmida." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Matte orange eyeshadow works as a warm, bronzer-like contour. Apply along the sides of the nose and blend well with a damp sponge."
           }
         }
       }
     },
-    "A verde puxada para o azulado segura o mesmo efeito geométrico. Aplique bem pigmentada e conecte com o blush na têmpora do mesmo jeito.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A green that leans blue holds the same geometric effect. Apply it heavily pigmented and connect it to the blush at the temple the same way."
+    "A verde puxada para o azulado segura o mesmo efeito geométrico. Aplique bem pigmentada e conecte com o blush na têmpora do mesmo jeito." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A green that leans blue holds the same geometric effect. Apply it heavily pigmented and connect it to the blush at the temple the same way."
           }
         }
       }
     },
-    "Adicione seus itens de maquiagens": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add your makeup items"
+    "Adicione seus itens de maquiagens" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add your makeup items"
           }
         }
       }
     },
-    "Ajustes": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+    "Ajustes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
           }
         }
       }
     },
-    "Ao voltar para o salão, você perderá todo o progresso": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Going back to the salon, you'll lose all your progress"
+    "Ao voltar para o salão, você perderá todo o progresso" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Going back to the salon, you'll lose all your progress"
           }
         }
       }
     },
-    "Aplique a azul no côncavo e leve por cima um toque de magenta ou de batom vermelho esfumado com o dedo — a mistura puxa para o roxo.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apply the blue in the crease and layer a touch of magenta or red lipstick smudged with your finger over it — the mix pulls toward purple."
+    "Aplique a azul no côncavo e leve por cima um toque de magenta ou de batom vermelho esfumado com o dedo — a mistura puxa para o roxo." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply the blue in the crease and layer a touch of magenta or red lipstick smudged with your finger over it — the mix pulls toward purple."
           }
         }
       }
     },
-    "Aplique a base mais clara que você tem em camadas finas, esperando secar entre uma e outra, e sele cada camada com pó. Não fica opaco como o clown, mas constrói o contraste.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apply the lightest foundation you have in thin layers, letting each one dry before the next, and set each layer with powder. It won't be as opaque as clown white, but it builds up the contrast."
+    "Aplique a base mais clara que você tem em camadas finas, esperando secar entre uma e outra, e sele cada camada com pó. Não fica opaco como o clown, mas constrói o contraste." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply the lightest foundation you have in thin layers, letting each one dry before the next, and set each layer with powder. It won't be as opaque as clown white, but it builds up the contrast."
           }
         }
       }
+    },
+    "Após confirmar, a foto será deletada e não poderá ser recuperada" : {
+
     },
-    "Aqueça a ponta do lápis por alguns segundos entre os dedos, trace a linha rente aos cílios em pequenos tracinhos e depois una tudo num traço só. Para o efeito de caneta, passe por cima de novo pressionando mais firme.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Warm the pencil tip between your fingers for a few seconds, draw the line along the lash line in small strokes, then join it all into one line. For a pen-like effect, go over it again pressing a bit firmer."
+    "Aqueça a ponta do lápis por alguns segundos entre os dedos, trace a linha rente aos cílios em pequenos tracinhos e depois una tudo num traço só. Para o efeito de caneta, passe por cima de novo pressionando mais firme." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warm the pencil tip between your fingers for a few seconds, draw the line along the lash line in small strokes, then join it all into one line. For a pen-like effect, go over it again pressing a bit firmer."
           }
         }
       }
     },
-    "Base": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Foundation"
+    "Base" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foundation"
           }
         }
       }
     },
-    "Base é cobertura uniforme no tom da própria pele, aplicada no rosto todo — sem variante de cor.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Foundation is even coverage in your own skin tone, applied all over the face — no color variants."
+    "Base é cobertura uniforme no tom da própria pele, aplicada no rosto todo — sem variante de cor." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foundation is even coverage in your own skin tone, applied all over the face — no color variants."
           }
         }
       }
     },
-    "Batom": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lipstick"
+    "Batom" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lipstick"
           }
         }
       }
     },
-    "Batom cobre o lábio inteiro, de forma opaca.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lipstick covers the whole lip, opaquely."
+    "Batom cobre o lábio inteiro, de forma opaca." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lipstick covers the whole lip, opaquely."
           }
         }
       }
     },
-    "Batom cremoso funciona como blush: toque o dedo no produto, encoste nas maçãs e esfume rápido, antes de fixar.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Creamy lipstick works as blush: dab your finger in the product, touch it to the cheeks, and blend quickly before it sets."
+    "Batom cremoso funciona como blush: toque o dedo no produto, encoste nas maçãs e esfume rápido, antes de fixar." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creamy lipstick works as blush: dab your finger in the product, touch it to the cheeks, and blend quickly before it sets."
           }
         }
       }
     },
-    "Blush": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blush"
+    "Blush" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blush"
           }
         }
       }
     },
-    "Blush dá cor às maçãs do rosto pode ir na boca nem nos olhos.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blush adds color to the cheeks — it doesn't go on the lips or the eyes."
+    "Blush dá cor às maçãs do rosto pode ir na boca nem nos olhos." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blush adds color to the cheeks — it doesn't go on the lips or the eyes."
           }
         }
       }
     },
-    "Cancelar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel"
+    "Cancelar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
           }
         }
       }
     },
-    "Caneta delineadora": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Liquid eyeliner pen"
+    "Caneta delineadora" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liquid eyeliner pen"
           }
         }
       }
     },
-    "Clown": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Clown white"
+    "Cílios postiços" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "False lashes"
           }
         }
       }
     },
-    "Construa a profundidade com a preta esfumada e traga um brilho frio por cima. Perde o roxo, mas mantém o olhar profundo que a etapa pede.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Build the depth with smoky black and add a cool shimmer on top. You lose the purple, but keep the deep-eyed look the step calls for."
+    "Cílios postiços vão colados sobre a linha dos cílios naturais, pra volume extra." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "False lashes are glued along the natural lash line, for extra volume."
           }
         }
       }
     },
-    "Continuar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continue"
+    "Clown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clown white"
           }
         }
       }
     },
-    "Contorno": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contour"
+    "Construa a profundidade com a preta esfumada e traga um brilho frio por cima. Perde o roxo, mas mantém o olhar profundo que a etapa pede." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Build the depth with smoky black and add a cool shimmer on top. You lose the purple, but keep the deep-eyed look the step calls for."
           }
         }
       }
     },
-    "Contorno é sempre num tom terroso/acastanhado, pra esculpir sombra — nunca colorido.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contour is always an earthy/brownish tone, for sculpting shadow — never colored."
+    "Continuar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
           }
         }
       }
     },
-    "Contraste, drama e um preto que não pede licença.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contrast, drama, and a black that doesn't ask permission."
+    "Contorno" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contour"
           }
         }
       }
     },
-    "Cor teatral e excesso elegante dos anos 80.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Theatrical color and elegant excess from the '80s."
+    "Contorno é sempre num tom terroso/acastanhado, pra esculpir sombra — nunca colorido." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contour is always an earthy/brownish tone, for sculpting shadow — never colored."
           }
         }
       }
     },
-    "Corretivo": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Concealer"
+    "Contraste, drama e um preto que não pede licença." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrast, drama, and a black that doesn't ask permission."
           }
         }
       }
     },
-    "Corretivo cobre olheiras e manchas pontuais, no tom da pele ou um pouco mais claro — sem variante de cor.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Concealer covers dark circles and spot blemishes, in skin tone or a bit lighter — no color variants."
+    "Cor teatral e excesso elegante dos anos 80." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Theatrical color and elegant excess from the '80s."
           }
         }
       }
     },
-    "Cílios postiços": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "False lashes"
+    "Corretivo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Concealer"
           }
         }
       }
     },
-    "Cílios postiços vão colados sobre a linha dos cílios naturais, pra volume extra.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "False lashes are glued along the natural lash line, for extra volume."
+    "Corretivo cobre olheiras e manchas pontuais, no tom da pele ou um pouco mais claro — sem variante de cor." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Concealer covers dark circles and spot blemishes, in skin tone or a bit lighter — no color variants."
           }
         }
       }
     },
-    "Deletar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete"
+    "Deletar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
           }
         }
       }
     },
-    "Delineador líquido": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Liquid eyeliner"
+    "Deletar Foto" : {
+
+    },
+    "Delineador líquido" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liquid eyeliner"
           }
         }
       }
     },
-    "Delineador líquido traça uma linha fina e definida rente aos cílios.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Liquid eyeliner draws a thin, defined line right along the lash line."
+    "Delineador líquido traça uma linha fina e definida rente aos cílios." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liquid eyeliner draws a thin, defined line right along the lash line."
           }
         }
       }
     },
-    "Dica da": {
-      "comment": "Início do rótulo do balão de dica: \"Dica da X\" (X = nome da personagem).",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tip from"
+    "Dica da" : {
+      "comment" : "Início do rótulo do balão de dica: \"Dica da X\" (X = nome da personagem).",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tip from"
           }
         }
       }
     },
-    "Efeitos sonoros": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sound effects"
+    "Efeitos sonoros" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sound effects"
           }
         }
       }
     },
-    "Em alguns casos pode ser substituido pelo lápis preto com bastante cautela, aplicando um pouco e esfumando muito.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In some cases it can be substituted with the black pencil, very carefully — apply a little and blend a lot."
+    "Em alguns casos pode ser substituido pelo lápis preto com bastante cautela, aplicando um pouco e esfumando muito." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In some cases it can be substituted with the black pencil, very carefully — apply a little and blend a lot."
           }
         }
       }
     },
-    "Escolha a experiência": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choose the experience"
+    "Escolha a experiência" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the experience"
           }
         }
       }
     },
-    "Essa ação não pode ser desfeita.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This action can't be undone."
+    "Essa ação não pode ser desfeita." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This action can't be undone."
           }
         }
       }
     },
-    "Excluir": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete"
+    "Excluir" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
           }
         }
       }
     },
-    "Exportar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
+    "Exportar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
           }
         }
       }
     },
-    "Faltando mais de um item:": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Missing more than one item:"
+    "Faça três camadas de máscara, esperando secar entre elas, movendo o pincel em ziguezague na raiz. Não chega ao volume do postiço, mas abre bastante o olhar." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply three coats of mascara, letting each one dry, wiggling the wand at the root in a zigzag. It won't match false-lash volume, but it opens up the eyes a lot."
           }
         }
       }
     },
-    "Faça três camadas de máscara, esperando secar entre elas, movendo o pincel em ziguezague na raiz. Não chega ao volume do postiço, mas abre bastante o olhar.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apply three coats of mascara, letting each one dry, wiggling the wand at the root in a zigzag. It won't match false-lash volume, but it opens up the eyes a lot."
+    "Faltando mais de um item:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing more than one item:"
           }
         }
       }
     },
-    "Fora da maleta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not in your kit"
+    "Fora da maleta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not in your kit"
           }
         }
       }
     },
-    "Gloss": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lip gloss"
+    "Gloss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lip gloss"
           }
         }
       }
     },
-    "Gloss dá brilho e volume ao lábio, cobertura mais leve que o batom.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gloss adds shine and volume to the lip, lighter coverage than lipstick."
+    "Gloss dá brilho e volume ao lábio, cobertura mais leve que o batom." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gloss adds shine and volume to the lip, lighter coverage than lipstick."
           }
         }
       }
     },
-    "GlowShot": {},
-    "Gyaru": {},
-    "Gótica": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Goth"
+    "GlowShot" : {
+
+    },
+    "Gótica" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goth"
           }
         }
       }
+    },
+    "Gyaru" : {
+
     },
-    "Iluminador": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Highlighter"
+    "Iluminador" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlighter"
           }
         }
       }
     },
-    "Iluminador ilumina os pontos altos do rosto (maçãs, nariz, arco do cupido) — não é pigmento de cor.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Highlighter lights up the high points of the face (cheekbones, nose, cupid's bow) — it's not a color pigment."
+    "Iluminador ilumina os pontos altos do rosto (maçãs, nariz, arco do cupido) — não é pigmento de cor." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlighter lights up the high points of the face (cheekbones, nose, cupid's bow) — it's not a color pigment."
           }
         }
       }
     },
-    "Intelectual e elegante, movida pela história, política e resistência Afro-Goth.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Intellectual and elegant, driven by history, politics, and Afro-Goth resistance."
+    "Intelectual e elegante, movida pela história, política e resistência Afro-Goth." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intellectual and elegant, driven by history, politics, and Afro-Goth resistance."
           }
         }
       }
     },
-    "Introspectiva e sensível, encontra na música e na arte New Romantic sua forma de expressão.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Introspective and sensitive, she finds her form of expression in New Romantic music and art."
+    "Introspectiva e sensível, encontra na música e na arte New Romantic sua forma de expressão." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introspective and sensitive, she finds her form of expression in New Romantic music and art."
           }
         }
       }
     },
-    "Jogar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Play"
+    "item" : {
+      "comment" : "Contagem singular de itens na maleta, ex: \"Minha maleta, 1 item\".",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "item"
           }
         }
       }
     },
-    "Lembrança de": {
-      "comment": "Prefixo do rótulo de acessibilidade do objeto-lembrança no salão; o nome da personagem é concatenado em código, sem tradução.",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Souvenir from"
+    "itens" : {
+      "comment" : "Contagem plural de itens na maleta, ex: \"Minha maleta, 3 itens\".",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "items"
           }
         }
       }
     },
-    "Lápis branco": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White eye pencil"
+    "Jogar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play"
           }
         }
       }
     },
-    "Lápis branco ilumina o canto interno do olho ou a linha d'água.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White pencil brightens the inner corner of the eye or the waterline."
+    "Lápis branco" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "White eye pencil"
           }
         }
       }
     },
-    "Lápis de olho": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eye pencil"
+    "Lápis branco ilumina o canto interno do olho ou a linha d'água." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "White pencil brightens the inner corner of the eye or the waterline."
           }
         }
       }
     },
-    "Lápis de olho branco": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White eye pencil"
+    "Lápis de olho" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eye pencil"
           }
         }
       }
     },
-    "Lápis de olho tem ponta macia — serve pra traços mais suaves ou esfumados que a caneta líquida.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eye pencil has a soft tip — good for softer or smudged lines than the liquid pen."
+    "Lápis de olho branco" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "White eye pencil"
           }
         }
       }
     },
-    "Lápis labial": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lip liner"
+    "Lápis de olho tem ponta macia — serve pra traços mais suaves ou esfumados que a caneta líquida." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eye pencil has a soft tip — good for softer or smudged lines than the liquid pen."
           }
         }
       }
     },
-    "Lápis labial contorna e preenche o lábio, geralmente por baixo do batom.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lip liner outlines and fills in the lip, usually worn under lipstick."
+    "Lápis labial" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lip liner"
           }
         }
       }
     },
-    "Lápis preto": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Black eye pencil"
+    "Lápis labial contorna e preenche o lábio, geralmente por baixo do batom." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lip liner outlines and fills in the lip, usually worn under lipstick."
           }
         }
       }
     },
-    "Meu álbum": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "My album"
+    "Lápis preto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Black eye pencil"
           }
         }
       }
     },
-    "Minha maleta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "My kit"
+    "Lembrança de" : {
+      "comment" : "Prefixo do rótulo de acessibilidade do objeto-lembrança no salão; o nome da personagem é concatenado em código, sem tradução.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Souvenir from"
           }
         }
       }
     },
-    "Molhe um pincel fino de cerdas curtas, encoste na sombra preta até virar uma pastinha e aplique onde deseja. Fica com acabamento mais fosco e esfumado.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wet a thin, short-bristled brush, press it into the black eyeshadow until it turns into a paste, and apply it wherever you want. The finish is more matte and smudged."
+    "Máscara dá volume e curvatura aos próprios cílios." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mascara adds volume and curl to your own lashes."
           }
         }
       }
     },
-    "Molhe um pincel fino de cerdas curtas, encoste na sombra preta até virar uma pastinha e desenhe o traço com ela. Fica com acabamento fosco, mas a linha sai igualmente marcada.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wet a thin, short-bristled brush, press it into the black eyeshadow until it turns into a paste, and draw the line with it. The finish is matte, but the line comes out just as defined."
+    "Máscara de cílios" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mascara"
           }
         }
       }
     },
-    "Máscara de cílios": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mascara"
+    "Meu álbum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My album"
           }
         }
       }
     },
-    "Máscara dá volume e curvatura aos próprios cílios.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mascara adds volume and curl to your own lashes."
+    "Minha maleta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My kit"
           }
         }
       }
     },
-    "Música": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Music"
+    "Molhe um pincel fino de cerdas curtas, encoste na sombra preta até virar uma pastinha e aplique onde deseja. Fica com acabamento mais fosco e esfumado." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wet a thin, short-bristled brush, press it into the black eyeshadow until it turns into a paste, and apply it wherever you want. The finish is more matte and smudged."
           }
         }
       }
     },
-    "Música por": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Music by"
+    "Molhe um pincel fino de cerdas curtas, encoste na sombra preta até virar uma pastinha e desenhe o traço com ela. Fica com acabamento fosco, mas a linha sai igualmente marcada." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wet a thin, short-bristled brush, press it into the black eyeshadow until it turns into a paste, and draw the line with it. The finish is matte, but the line comes out just as defined."
           }
         }
       }
     },
-    "Na ausência do batom, as vezes, apenas o gloss já é satisfatório e adiciona cor aos lábios": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Without lipstick, sometimes just the gloss is enough on its own and adds color to the lips"
+    "Música" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Music"
           }
         }
       }
     },
-    "Na ausência do lápis pode tentar aplicar seu iluminador na linha d`água, com um pincel de sombra, o brilho ficará mais suave.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Without the pencil, you can try applying your highlighter along the waterline with an eyeshadow brush — the shine will be softer."
+    "Música por" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Music by"
           }
         }
       }
     },
-    "Na ausência do lápis pode tentar esfumar sombra branca na linha d`água.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Without the pencil, you can try smudging white eyeshadow along the waterline."
+    "myPhotos" : {
+      "comment" : "Título da tela de álbum.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Photos"
           }
         }
       }
     },
-    "Na maleta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In your kit"
+    "Na ausência do batom, as vezes, apenas o gloss já é satisfatório e adiciona cor aos lábios" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Without lipstick, sometimes just the gloss is enough on its own and adds color to the lips"
           }
         }
       }
     },
-    "New Romantic": {},
-    "No caso de contornos frios e acinzentados, eles podem substituir a sombra preta dando um efeito bem mais leve e apenas de profundidade nos olhos ou bochecas e nariz.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "For cool, grayish contours, they can substitute black eyeshadow, giving a much lighter effect that just adds depth to the eyes, cheeks, or nose."
+    "Na ausência do lápis pode tentar aplicar seu iluminador na linha d`água, com um pincel de sombra, o brilho ficará mais suave." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Without the pencil, you can try applying your highlighter along the waterline with an eyeshadow brush — the shine will be softer."
           }
         }
       }
     },
-    "Não achei um substituto razoável com o que você possui, vamos seguindo com a maquiagem.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I couldn't find a reasonable substitute with what you have — let's keep going with the makeup."
+    "Na ausência do lápis pode tentar esfumar sombra branca na linha d`água." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Without the pencil, you can try smudging white eyeshadow along the waterline."
           }
         }
       }
     },
-    "O papel do pancake aqui é selar para o clown não transferir. Pó solto em batidinhas com a esponja faz o mesmo trabalho, só exige uma camada mais generosa.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pancake's job here is to seal things so the clown white doesn't transfer. Loose powder dabbed on with a sponge does the same job, it just needs a more generous layer."
+    "Na maleta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In your kit"
           }
         }
       }
     },
-    "O salão não abriu hoje": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The salon didn't open today"
+    "Não achei um substituto razoável com o que você possui, vamos seguindo com a maquiagem." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I couldn't find a reasonable substitute with what you have — let's keep going with the makeup."
           }
         }
       }
     },
-    "Olhos enormes, brilho e atitude vinda de Shibuya.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Huge eyes, shine, and attitude straight from Shibuya."
+    "New Romantic" : {
+
+    },
+    "No caso de contornos frios e acinzentados, eles podem substituir a sombra preta dando um efeito bem mais leve e apenas de profundidade nos olhos ou bochecas e nariz." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For cool, grayish contours, they can substitute black eyeshadow, giving a much lighter effect that just adds depth to the eyes, cheeks, or nose."
           }
         }
       }
     },
-    "Pancake": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pancake makeup"
+    "O papel do pancake aqui é selar para o clown não transferir. Pó solto em batidinhas com a esponja faz o mesmo trabalho, só exige uma camada mais generosa." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pancake's job here is to seal things so the clown white doesn't transfer. Loose powder dabbed on with a sponge does the same job, it just needs a more generous layer."
           }
         }
       }
     },
-    "Pancake sela a maquiagem numa camada fosca, por cima de outro produto de base.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pancake makeup seals the look in a matte layer, over another base product."
+    "O salão não abriu hoje" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The salon didn't open today"
           }
         }
       }
     },
-    "Para tons rosados, pode dar umas batidinhas com blush na boca.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "For pink tones, you can dab a bit of blush on the lips."
+    "Olhos enormes, brilho e atitude vinda de Shibuya." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Huge eyes, shine, and attitude straight from Shibuya."
           }
         }
       }
     },
-    "Para tons rosados, pode dar umas batidinhas com sombra rosa na boca": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "For pink tones, you can dab a bit of pink eyeshadow on the lips"
+    "Pancake" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pancake makeup"
           }
         }
       }
     },
-    "Passo": {
-      "comment": "Início do rótulo do balão de passo: \"Passo N\".",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Step"
+    "Pancake sela a maquiagem numa camada fosca, por cima de outro produto de base." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pancake makeup seals the look in a matte layer, over another base product."
           }
         }
       }
     },
-    "Pegue pouquíssimo produto num pincel esfumado e vá construindo devagar — a sombra preta com mão leve vira o cinza do contorno. Comece com menos do que acha necessário.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pick up very little product on a blending brush and build it up slowly — black eyeshadow with a light hand turns into contour gray. Start with less than you think you need."
+    "Para tons rosados, pode dar umas batidinhas com blush na boca." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For pink tones, you can dab a bit of blush on the lips."
           }
         }
       }
     },
-    "Polaroid": {},
-    "Preencha o canto interno e a linha inferior com o lápis branco e esfume com o dedo. É o mesmo ponto de luz que a sombra branca cria.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fill in the inner corner and lower line with the white pencil and blend with your finger. It's the same point of light that white eyeshadow creates."
+    "Para tons rosados, pode dar umas batidinhas com sombra rosa na boca" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For pink tones, you can dab a bit of pink eyeshadow on the lips"
           }
         }
       }
     },
-    "Produto de sobrancelha preenche falhas e define o formato — só na sobrancelha.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eyebrow product fills in gaps and defines the shape, only on the brows."
+    "Passo" : {
+      "comment" : "Início do rótulo do balão de passo: \"Passo N\".",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step"
           }
         }
       }
     },
-    "Pó": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Powder"
+    "Pegue pouquíssimo produto num pincel esfumado e vá construindo devagar — a sombra preta com mão leve vira o cinza do contorno. Comece com menos do que acha necessário." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pick up very little product on a blending brush and build it up slowly — black eyeshadow with a light hand turns into contour gray. Start with less than you think you need."
           }
         }
       }
     },
-    "Pó fixa a maquiagem e corta o brilho — translúcido ou no tom da pele, nunca colorido.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Powder sets the makeup and cuts shine, translucent or skin-toned, never colored."
+    "Pó" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powder"
           }
         }
       }
     },
-    "Refazer": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Retake"
+    "Pó fixa a maquiagem e corta o brilho — translúcido ou no tom da pele, nunca colorido." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powder sets the makeup and cuts shine, translucent or skin-toned, never colored."
           }
         }
       }
     },
-    "Salvar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Save"
+    "Polaroid" : {
+
+    },
+    "Preencha o canto interno e a linha inferior com o lápis branco e esfume com o dedo. É o mesmo ponto de luz que a sombra branca cria." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fill in the inner corner and lower line with the white pencil and blend with your finger. It's the same point of light that white eyeshadow creates."
           }
         }
       }
     },
-    "Se for para desenhar o arco do cupido num visual escuro, o lápis de olho preto faz o contorno. Mantenha a ponta bem apontada.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If it's for drawing the cupid's bow in a dark look, black eye pencil does the outline. Keep the tip well sharpened."
+    "Produto de sobrancelha preenche falhas e define o formato — só na sobrancelha." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eyebrow product fills in gaps and defines the shape, only on the brows."
           }
         }
       }
     },
-    "Se tiver um pincel fino,o umideçacom o rímel e use-o como delineador liquido.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If you have a thin brush, dampen it with the mascara and use it as a liquid eyeliner."
+    "Refazer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retake"
           }
         }
       }
     },
-    "Se você não tem máscara de cílios mas tem cílios postiços, pode colar os cílios no lugar.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If you don't have mascara but you do have false lashes, you can glue the lashes on instead."
+    "Salvar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
           }
         }
       }
     },
-    "Sem": {
-      "comment": "Início do template de dica de fallback: \"Sem X? Use Y: ...\".",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Missing"
+    "Se for para desenhar o arco do cupido num visual escuro, o lápis de olho preto faz o contorno. Mantenha a ponta bem apontada." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If it's for drawing the cupid's bow in a dark look, black eye pencil does the outline. Keep the tip well sharpened."
           }
         }
       }
     },
-    "Sentar e escolher a experiência": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sit down and choose the experience"
+    "Se tiver um pincel fino,o umideçacom o rímel e use-o como delineador liquido." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you have a thin brush, dampen it with the mascara and use it as a liquid eyeliner."
           }
         }
       }
     },
-    "Sobrancelha": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eyebrow"
+    "Se você não tem máscara de cílios mas tem cílios postiços, pode colar os cílios no lugar." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you don't have mascara but you do have false lashes, you can glue the lashes on instead."
           }
         }
       }
     },
-    "Sobre gyarus": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "About gyarus"
+    "Sem" : {
+      "comment" : "Início do template de dica de fallback: \"Sem X? Use Y: ...\".",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing"
           }
         }
       }
     },
-    "Sobre góticos": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "About goths"
+    "Sentar e escolher a experiência" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sit down and choose the experience"
           }
         }
       }
     },
-    "Sobre new romantics": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "About new romantics"
+    "Sobrancelha" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eyebrow"
           }
         }
       }
     },
-    "Sombra": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eyeshadow"
+    "Sobre góticos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About goths"
           }
         }
       }
     },
-    "Sombra amarela": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yellow eyeshadow"
+    "Sobre gyarus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About gyarus"
           }
         }
       }
     },
-    "Sombra azul": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blue eyeshadow"
+    "Sobre new romantics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About new romantics"
           }
         }
       }
     },
-    "Sombra branca": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White eyeshadow"
+    "Sombra" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eyeshadow"
           }
         }
       }
     },
-    "Sombra laranja": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Orange eyeshadow"
+    "Sombra amarela" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yellow eyeshadow"
           }
         }
       }
     },
-    "Sombra magenta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Magenta eyeshadow"
+    "Sombra azul" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blue eyeshadow"
           }
         }
       }
     },
-    "Sombra preta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Black eyeshadow"
+    "Sombra branca" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "White eyeshadow"
           }
         }
       }
     },
-    "Sombra rosa funciona como blush: aplique sobre as maças e esfume bem, comece com pouco produto e vá espalhando e acrescentando mais se necessário.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pink eyeshadow works as blush: apply over the cheeks and blend well , start with a little product and build up, adding more if needed."
+    "Sombra é pálpebra — cada cor já é um produto do catálogo, nunca invente uma cor que não foi citada." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eyeshadow goes on the eyelid , each color is already a catalog product; never invent a color that wasn't mentioned."
           }
         }
       }
     },
-    "Sombra roxa": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Purple eyeshadow"
+    "Sombra laranja" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange eyeshadow"
           }
         }
       }
     },
-    "Sombra verde": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Green eyeshadow"
+    "Sombra magenta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magenta eyeshadow"
           }
         }
       }
     },
-    "Sombra é pálpebra — cada cor já é um produto do catálogo, nunca invente uma cor que não foi citada.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eyeshadow goes on the eyelid , each color is already a catalog product; never invent a color that wasn't mentioned."
+    "Sombra preta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Black eyeshadow"
           }
         }
       }
     },
-    "Tem certeza de que deseja excluir a foto?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Are you sure you want to delete the photo?"
+    "Sombra rosa funciona como blush: aplique sobre as maças e esfume bem, comece com pouco produto e vá espalhando e acrescentando mais se necessário." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pink eyeshadow works as blush: apply over the cheeks and blend well , start with a little product and build up, adding more if needed."
           }
         }
       }
     },
-    "Tinta clown": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Clown white"
+    "Sombra roxa" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purple eyeshadow"
           }
         }
       }
     },
-    "Tinta clown é uma base branca opaca, pra contraste teatral no rosto todo.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Clown white is an opaque white base, for theatrical contrast all over the face."
+    "Sombra verde" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Green eyeshadow"
           }
         }
       }
     },
-    "Toque duas vezes para guardar na maleta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Double tap to store in your kit"
+    "Tem certeza de que deseja excluir a foto?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete the photo?"
           }
         }
       }
     },
-    "Toque duas vezes para tirar da maleta": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Double tap to remove from your kit"
+    "Tinta clown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clown white"
           }
         }
       }
     },
-    "Toque em qualquer lugar para fechar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap anywhere to close"
+    "Tinta clown é uma base branca opaca, pra contraste teatral no rosto todo." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clown white is an opaque white base, for theatrical contrast all over the face."
           }
         }
       }
     },
-    "Toque para focar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap to focus"
+    "Toque duas vezes para guardar na maleta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double tap to store in your kit"
           }
         }
       }
     },
-    "Toque para selecionar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap to select"
+    "Toque duas vezes para tirar da maleta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double tap to remove from your kit"
           }
         }
       }
     },
-    "Uau! Você arrasou! Deseja salvar a foto pra mostrar o quanto ficou incrível?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wow, you nailed it! Want to save the photo to show how incredible it turned out?"
+    "Toque em qualquer lugar para fechar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap anywhere to close"
           }
         }
       }
     },
-    "Um ponto de iluminador cremoso no centro do lábio dá o brilho e o volume que o gloss traria.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A dot of creamy highlighter at the center of the lip gives the shine and volume gloss would bring."
+    "Toque para focar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to focus"
           }
         }
       }
     },
-    "Um toque de iluminador no canto interno e no centro da pálpebra faz a luz que abre o olhar.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A touch of highlighter on the inner corner and center of the lid creates the light that opens up the eyes."
+    "Toque para selecionar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to select"
           }
         }
       }
     },
-    "Uma gyaru vibrante e extrovertida, de atitude feminista e progressista.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A vibrant, outgoing gyaru with a feminist, progressive attitude."
+    "Uau! Você arrasou! Deseja salvar a foto pra mostrar o quanto ficou incrível?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wow, you nailed it! Want to save the photo to show how incredible it turned out?"
           }
         }
       }
     },
-    "Uma lembrancinha da Cindy pela sua maquiagem New Romantics Eletrizante": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A little souvenir from Cindy for your electrifying New Romantic makeup"
+    "Um ponto de iluminador cremoso no centro do lábio dá o brilho e o volume que o gloss traria." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A dot of creamy highlighter at the center of the lip gives the shine and volume gloss would bring."
           }
         }
       }
     },
-    "Uma lembrancinha da Lucy pela sua incrível maquiagem gótica": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A little souvenir from Lucy for your incredible gothic makeup"
+    "Um toque de iluminador no canto interno e no centro da pálpebra faz a luz que abre o olhar." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A touch of highlighter on the inner corner and center of the lid creates the light that opens up the eyes."
           }
         }
       }
     },
-    "Uma lembrancinha da Sana pela sua fofa maquiagem gyaru": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A little souvenir from Sana for your cute gyaru makeup"
+    "Uma gyaru vibrante e extrovertida, de atitude feminista e progressista." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A vibrant, outgoing gyaru with a feminist, progressive attitude."
           }
         }
       }
     },
-    "Use": {
-      "comment": "Meio do template de dica de fallback: \"Sem X? Use Y: ...\".",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Use"
+    "Uma lembrancinha da Cindy pela sua maquiagem New Romantics Eletrizante" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A little souvenir from Cindy for your electrifying New Romantic makeup"
           }
         }
       }
     },
-    "Use o pó mais claro que tiver, com a esponja em batidinhas. A cobertura é mais leve — capriche na quantidade de camadas.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Use the lightest powder you have, pressing it on with a sponge in light dabs. The coverage is lighter — go generous with the number of layers."
+    "Uma lembrancinha da Lucy pela sua incrível maquiagem gótica" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A little souvenir from Lucy for your incredible gothic makeup"
           }
         }
       }
     },
-    "VIV3LI": {},
-    "Voltar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Back"
+    "Uma lembrancinha da Sana pela sua fofa maquiagem gyaru" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A little souvenir from Sana for your cute gyaru makeup"
           }
         }
       }
     },
-    "Voltar ao Salão": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Back to the Salon"
+    "Use" : {
+      "comment" : "Meio do template de dica de fallback: \"Sem X? Use Y: ...\".",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use"
           }
         }
       }
     },
-    "item": {
-      "comment": "Contagem singular de itens na maleta, ex: \"Minha maleta, 1 item\".",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "item"
+    "Use o pó mais claro que tiver, com a esponja em batidinhas. A cobertura é mais leve — capriche na quantidade de camadas." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use the lightest powder you have, pressing it on with a sponge in light dabs. The coverage is lighter — go generous with the number of layers."
           }
         }
       }
+    },
+    "VIV3LI" : {
+
     },
-    "itens": {
-      "comment": "Contagem plural de itens na maleta, ex: \"Minha maleta, 3 itens\".",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "items"
+    "Voltar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
           }
         }
       }
     },
-    "myPhotos": {
-      "comment": "Título da tela de álbum.",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "My Photos"
+    "Voltar ao Salão" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back to the Salon"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

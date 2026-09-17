@@ -69,8 +69,11 @@ struct GaleriaView: View {
                         }
                     }
                 }
+
                 .padding(.top, 64)
             }
+            //no iOS 27 o background da toolbar fica aparecendo de uma forma mais proeminente quando scrolla e não tava casando com a estética do app, e o scrollEdgeEffectHidden foi o que resolveu pra esconder esse efeito
+            .scrollEdgeEffectHidden(true, for: .top)
         }
         .navigationBarBackButtonHidden(true)
         
