@@ -41,7 +41,7 @@
         },
         {
           "tipo": "introducao",
-          "texto": "Girls back then just couldn't take the suffocating Yamato Nadeshiko standard anymore — that ideal of the submissive, \"pure,\" homebound, quiet, discreet woman."
+          "texto": "Girls back then just couldn't take the suffocating Yamato Nadeshiko standard anymore: that ideal of the submissive, \"pure,\" homebound, quiet, discreet woman."
         },
         {
           "tipo": "fechamentoIntro",
@@ -129,7 +129,7 @@
       "falas": [
         {
           "tipo": "instrucaoPraticaTecnica",
-          "texto": "Now let's move on to the king of Gyaru makeup: black eyeliner! Grab a well-pigmented pen, because there's no holding back here — the line is bold."
+          "texto": "Now let's move on to the king of Gyaru makeup: black eyeliner! Grab a well-pigmented pen, because there's no holding back here. The line is bold."
         },
         {
           "tipo": "instrucaoPraticaTecnica",
@@ -141,7 +141,7 @@
         },
         {
           "tipo": "instrucaoPraticaTecnica",
-          "texto": "Finally, we draw the outer eyeliner wing — it can be long and expressive. See how this technique is able to enlarge our eyes."
+          "texto": "Finally, we draw the outer eyeliner wing. It can be long and expressive. See how this technique is able to enlarge our eyes."
         }
       ]
     },
