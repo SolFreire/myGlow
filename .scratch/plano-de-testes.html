@@ -1,0 +1,786 @@
+<title>Plano de Testes — myGlow</title>
+<style>
+:root{
+  --bg:#f7f3f3;
+  --surface:#ffffff;
+  --surface-alt:#efe7e9;
+  --text:#241f23;
+  --text-muted:#6f6469;
+  --line:#e3d9db;
+  --accent:#7a2f55;
+  --accent-strong:#5c2140;
+  --accent-soft:#f2dde8;
+  --ok:#3f7d5c;
+  --ok-soft:#dceee3;
+  --warn:#93641f;
+  --warn-soft:#f3e7d1;
+  --risk:#a14435;
+  --risk-soft:#f5dfda;
+  --code-bg:#efe6e9;
+  --shadow: 0 1px 2px rgba(40,20,30,.06), 0 8px 24px -12px rgba(40,20,30,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17141a;
+    --surface:#201c24;
+    --surface-alt:#2a2530;
+    --text:#efe7ec;
+    --text-muted:#a89ea9;
+    --line:#3a3340;
+    --accent:#e28cb3;
+    --accent-strong:#f2addc;
+    --accent-soft:#3a2432;
+    --ok:#83c19e;
+    --ok-soft:#1f3327;
+    --warn:#e0b164;
+    --warn-soft:#3a2e17;
+    --risk:#e5917d;
+    --risk-soft:#3a211c;
+    --code-bg:#252029;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17141a;
+  --surface:#201c24;
+  --surface-alt:#2a2530;
+  --text:#efe7ec;
+  --text-muted:#a89ea9;
+  --line:#3a3340;
+  --accent:#e28cb3;
+  --accent-strong:#f2addc;
+  --accent-soft:#3a2432;
+  --ok:#83c19e;
+  --ok-soft:#1f3327;
+  --warn:#e0b164;
+  --warn-soft:#3a2e17;
+  --risk:#e5917d;
+  --risk-soft:#3a211c;
+  --code-bg:#252029;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:"Fraunces", Georgia, serif;
+  text-wrap:balance;
+  color:var(--text);
+  font-weight:600;
+  margin:0;
+}
+code, .mono, .num{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-variant-numeric:tabular-nums;
+}
+a{color:var(--accent);}
+p{margin:0 0 .9em 0;}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px 80px;
+}
+
+/* ---------- header ---------- */
+header.cover{
+  border-bottom:1px solid var(--line);
+  padding:44px 0 32px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:"IBM Plex Mono", monospace;
+  font-size:.72rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+  display:block;
+  margin-bottom:14px;
+}
+header.cover h1{
+  font-size:clamp(2rem, 4vw, 2.9rem);
+  line-height:1.06;
+  max-width:16ch;
+}
+header.cover .lede{
+  margin-top:16px;
+  max-width:62ch;
+  font-size:1.05rem;
+  color:var(--text-muted);
+}
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+.meta-chip{
+  font-family:"IBM Plex Mono", monospace;
+  font-size:.78rem;
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:6px 12px;
+  border-radius:100px;
+  color:var(--text-muted);
+}
+.meta-chip b{color:var(--text); font-weight:600;}
+
+.stat-strip{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:28px;
+}
+.stat{
+  background:var(--surface);
+  padding:18px 20px;
+}
+.stat .n{
+  font-family:"Fraunces", serif;
+  font-size:2rem;
+  font-weight:600;
+  color:var(--accent-strong);
+  line-height:1;
+}
+.stat .l{
+  margin-top:6px;
+  font-size:.78rem;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+/* ---------- layout ---------- */
+.layout{
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr);
+  gap:48px;
+  margin-top:36px;
+  align-items:start;
+}
+nav.toc{
+  position:sticky;
+  top:24px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding-bottom:24px;
+}
+nav.toc a{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text-muted);
+  font-size:.86rem;
+  padding:7px 10px;
+  border-radius:7px;
+  border-left:2px solid transparent;
+}
+nav.toc a:hover{background:var(--surface-alt); color:var(--text);}
+nav.toc a .c{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;
+  color:var(--text-muted);
+}
+nav.toc .toc-title{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--text-muted);
+  padding:0 10px 8px;
+}
+
+main{min-width:0;}
+section{
+  padding-top:6px;
+  margin-bottom:56px;
+  scroll-margin-top:24px;
+}
+section > .sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:14px;
+  margin-bottom:20px;
+}
+section h2{
+  font-size:1.5rem;
+}
+.sec-count{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.82rem;
+  color:var(--text-muted);
+  white-space:nowrap;
+}
+section > p.intro{
+  max-width:70ch;
+  color:var(--text-muted);
+}
+
+/* ---------- coverage bars ---------- */
+.bars{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:24px 0 8px;
+}
+.bar-row{
+  display:grid;
+  grid-template-columns:150px 1fr 42px;
+  align-items:center;
+  gap:12px;
+}
+.bar-row .label{font-size:.86rem;}
+.bar-track{
+  background:var(--surface-alt);
+  border-radius:5px;
+  height:10px;
+  overflow:hidden;
+}
+.bar-fill{
+  height:100%;
+  background:var(--accent);
+  border-radius:5px;
+}
+.bar-row .val{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.82rem;
+  color:var(--text-muted);
+  text-align:right;
+}
+
+/* ---------- suite cards ---------- */
+.suite{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:20px 22px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.suite-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.suite-title{
+  font-weight:600;
+  font-size:1.02rem;
+}
+.suite-path{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.74rem;
+  color:var(--text-muted);
+  margin-top:3px;
+}
+.badge{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.76rem;
+  background:var(--accent-soft);
+  color:var(--accent-strong);
+  padding:4px 10px;
+  border-radius:100px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.suite p.desc{
+  margin-top:10px;
+  color:var(--text);
+  font-size:.94rem;
+  max-width:68ch;
+}
+.suite details{margin-top:10px;}
+.suite summary{
+  cursor:pointer;
+  font-size:.82rem;
+  color:var(--accent);
+  font-weight:600;
+  list-style:none;
+}
+.suite summary::-webkit-details-marker{display:none;}
+.suite summary::before{content:"▸ "; }
+.suite details[open] summary::before{content:"▾ ";}
+.suite ul.cases{
+  margin:10px 0 0;
+  padding-left:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.suite ul.cases li{
+  font-size:.86rem;
+  color:var(--text-muted);
+  padding-left:18px;
+  position:relative;
+}
+.suite ul.cases li::before{
+  content:"—";
+  position:absolute;
+  left:0;
+  color:var(--line);
+}
+
+/* ---------- callouts ---------- */
+.callout{
+  border:1px solid var(--line);
+  border-left:4px solid var(--accent);
+  background:var(--surface);
+  border-radius:0 10px 10px 0;
+  padding:16px 20px;
+  margin:16px 0;
+}
+.callout.ok{border-left-color:var(--ok);}
+.callout.warn{border-left-color:var(--warn);}
+.callout.risk{border-left-color:var(--risk);}
+.callout h4{
+  font-family:"Work Sans",sans-serif;
+  font-size:.86rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.callout.ok h4{color:var(--ok);}
+.callout.warn h4{color:var(--warn);}
+.callout.risk h4{color:var(--risk);}
+.callout p{margin:0; font-size:.92rem; color:var(--text);}
+.callout p + p{margin-top:8px;}
+
+.pill-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0;
+}
+.pill{
+  font-size:.82rem;
+  background:var(--surface-alt);
+  border-radius:100px;
+  padding:5px 12px;
+}
+
+pre{
+  background:var(--code-bg);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px 16px;
+  overflow-x:auto;
+  font-size:.82rem;
+  margin:14px 0;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:.88rem;
+}
+th, td{
+  text-align:left;
+  padding:9px 12px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+th{
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--text-muted);
+  font-weight:600;
+}
+tr:last-child td{border-bottom:none;}
+
+footer{
+  border-top:1px solid var(--line);
+  margin-top:40px;
+  padding-top:24px;
+  color:var(--text-muted);
+  font-size:.82rem;
+}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  nav.toc{
+    position:static;
+    flex-direction:row;
+    overflow-x:auto;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+  }
+  nav.toc .toc-title{display:none;}
+  nav.toc a{flex-shrink:0;}
+  .stat-strip{grid-template-columns:repeat(2,1fr);}
+  .bar-row{grid-template-columns:100px 1fr 36px;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<div class="wrap">
+
+  <header class="cover">
+    <span class="eyebrow">Documento de QA · myGlow</span>
+    <h1>Plano de Testes Unitários</h1>
+    <p class="lede">Mapeamento descritivo de toda a suíte automatizada do app — o que cada grupo de testes garante, com que técnica, e o que fica fora deste plano.</p>
+    <div class="meta-row">
+      <span class="meta-chip">Alvo: <b>myGlowTests</b></span>
+      <span class="meta-chip">Framework: <b>Swift Testing</b></span>
+      <span class="meta-chip">Plataforma: <b>iOS Simulator</b></span>
+      <span class="meta-chip">Atualizado em <b>14/09/2026</b></span>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><div class="n">104</div><div class="l">Testes automatizados</div></div>
+      <div class="stat"><div class="n">27</div><div class="l">Suítes (@Suite)</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">Camadas cobertas</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Dependência de rede</div></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <span class="toc-title">Neste plano</span>
+      <a href="#visao-geral"><span>Visão geral</span></a>
+      <a href="#abordagem"><span>Abordagem</span></a>
+      <a href="#ia"><span>IA e sugestões</span><span class="c">24</span></a>
+      <a href="#catalogo"><span>Catálogo</span><span class="c">4</span></a>
+      <a href="#design-system"><span>Sistema de design</span><span class="c">16</span></a>
+      <a href="#persistencia"><span>Persistência</span><span class="c">11</span></a>
+      <a href="#roteiro"><span>Roteiros</span><span class="c">9</span></a>
+      <a href="#features"><span>ViewModels</span><span class="c">40</span></a>
+      <a href="#fora-do-escopo"><span>Fora do escopo</span></a>
+      <a href="#manutencao"><span>Manutenção</span></a>
+    </nav>
+
+    <main>
+
+      <section id="visao-geral">
+        <div class="sec-head">
+          <h2>Visão geral</h2>
+        </div>
+        <p class="intro">O myGlow é um app de maquiagem virtual guiado por três trilhas de subcultura (Gótica/Lucy, Gyaru/Sana, New Romantic/Cindy), com um assistente on-device (Apple FoundationModels) que sugere trocas de produto quando falta algo na maleta do usuário. A suíte de testes unitários cobre a lógica determinística de todas essas partes — regras de substituição, persistência em SwiftData, decodificação dos roteiros, ViewModels de cada tela e as garantias visuais do Design System — sempre isolando o código de dependências externas reais (disco, rede, o modelo de IA em si).</p>
+
+        <p style="margin-top:20px; font-size:.86rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em;">Distribuição dos 104 testes por camada</p>
+        <div class="bars">
+          <div class="bar-row"><span class="label">ViewModels</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="val num">40</span></div>
+          <div class="bar-row"><span class="label">IA e sugestões</span><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="val num">24</span></div>
+          <div class="bar-row"><span class="label">Sistema de design</span><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><span class="val num">16</span></div>
+          <div class="bar-row"><span class="label">Persistência</span><div class="bar-track"><div class="bar-fill" style="width:27%"></div></div><span class="val num">11</span></div>
+          <div class="bar-row"><span class="label">Roteiros</span><div class="bar-track"><div class="bar-fill" style="width:22%"></div></div><span class="val num">9</span></div>
+          <div class="bar-row"><span class="label">Catálogo</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><span class="val num">4</span></div>
+        </div>
+      </section>
+
+      <section id="abordagem">
+        <div class="sec-head"><h2>Abordagem e infraestrutura</h2></div>
+        <p class="intro">Toda a suíte usa o framework <b>Swift Testing</b> (<code>import Testing</code>, macros <code>@Suite</code>/<code>@Test</code>), não XCTest — a exceção é a suíte separada <code>myGlowUITests</code> (XCUITest), que fica fora deste documento. Os nomes de suíte e de caso são frases descritivas em português, pensadas para servir como a própria documentação do comportamento esperado.</p>
+
+        <table>
+          <tr><th>Peça</th><th>Papel no plano</th></tr>
+          <tr><td class="mono">Fixture</td><td>Fábrica central de dados de teste (<code>Fixture.roteiro()</code>, <code>.etapa()</code>, <code>.sugestao()</code>, <code>.resumos()</code>) — evita duplicar a montagem de objetos de domínio em cada arquivo.</td></tr>
+          <tr><td class="mono">InventarioEmMemoria</td><td>Dublê de <code>MakeupInventoryRepository</code> sem SwiftData — permite testar ViewModels de Cadastro/Tutorial sem tocar em disco.</td></tr>
+          <tr><td class="mono">ProgressoEmMemoria</td><td>Dublê de <code>ProgressRepository</code> — guarda etapas concluídas e contagem de tutoriais em memória.</td></tr>
+          <tr><td class="mono">SuggesterFalso</td><td>Dublê de <code>TechniqueSuggesting</code> (um <code>actor</code>, por ser <code>Sendable</code>) que conta chamadas e guarda o último inventário/etapa recebidos — usado para verificar <em>quando</em> e <em>com o quê</em> a IA seria chamada, sem chamar o modelo de verdade.</td></tr>
+          <tr><td class="mono">SuggesterControlavel</td><td>Variante do dublê acima com resposta represada por <code>CheckedContinuation</code> — resolve etapas fora de ordem sob controle do teste, para reproduzir corridas assíncronas.</td></tr>
+        </table>
+
+        <p style="margin-top:18px;">Comando usado para rodar a suíte completa localmente:</p>
+        <pre>xcodebuild test -project myGlow.xcodeproj -scheme myGlow \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+  -only-testing:myGlowTests</pre>
+      </section>
+
+      <section id="ia">
+        <div class="sec-head"><h2>IA e sugestões</h2><span class="sec-count">7 suítes · 24 testes</span></div>
+        <p class="intro">Cobre a cadeia inteira de sugestão de técnica: da escolha de qual implementação usar, passando pelas regras curadas de substituição, até o corte de tamanho do texto final. O modelo on-device em si (FoundationModels) não roda no Simulador — por isso os testes tratam a IA como uma caixa-preta substituível, e validam apenas a lógica determinística ao redor dela.</p>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Escolha da implementação de sugestão</div><div class="suite-path">Core/AI/TechniqueSuggesterFactoryTests.swift</div></div>
+            <span class="badge">3 casos</span>
+          </div>
+          <p class="desc">Garante que a fábrica escolhe o suggester on-device quando a Apple Intelligence está disponível, cai para as regras estáticas quando não está, e que o diagnóstico de indisponibilidade distingue cada motivo (dispositivo incompatível, recursos indisponíveis, etc.).</p>
+          <details><summary>Ver os 3 casos</summary><ul class="cases">
+            <li>Com Apple Intelligence disponível, usa o on-device com rede embaixo</li>
+            <li>Sem Apple Intelligence disponível, usa direto as regras estáticas</li>
+            <li>O diagnóstico diferencia cada motivo</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Fallback em tempo de execução</div><div class="suite-path">Core/AI/TechniqueSuggesterFactoryTests.swift · SuggesterComFallbackTests</div></div>
+            <span class="badge">4 casos</span>
+          </div>
+          <p class="desc">O decorator que tenta o modelo on-device e recorre às regras estáticas se ele falhar — inclusive por guardrail — sem nunca deixar o erro técnico vazar para a tela.</p>
+          <details><summary>Ver os 4 casos</summary><ul class="cases">
+            <li>Quando o modelo on-device falha, a dica vem das regras estáticas</li>
+            <li>Guardrail também cai para a reserva</li>
+            <li>Com o modelo funcionando, a reserva não é usada</li>
+            <li>A mensagem de erro não expõe texto técnico</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Fallback por regras estáticas</div><div class="suite-path">Core/AI/StaticRulesSuggesterTests.swift</div></div>
+            <span class="badge">4 casos</span>
+          </div>
+          <p class="desc">O gerador de dica 100% determinístico usado quando a IA não está disponível — inclusive a formatação de frase quando mais de um item falta ao mesmo tempo.</p>
+          <details><summary>Ver os 4 casos</summary><ul class="cases">
+            <li>Sugere o lápis preto quando falta a caneta delineadora</li>
+            <li>Sem nenhum substituto na maleta, não inventa substituição</li>
+            <li>Com dois itens faltando, a dica cobre os dois</li>
+            <li>A dica não cita produto fora da maleta</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Mapeamento da resposta do modelo</div><div class="suite-path">Core/AI/FoundationModelsSuggesterTests.swift</div></div>
+            <span class="badge">4 casos</span>
+          </div>
+          <p class="desc">Isola a única parte de <code>FoundationModelsSuggester</code> testável sem dispositivo real: o que fazer com a resposta depois que ela chega — incluindo o guardrail que rejeita uma dica citando produto fora da maleta.</p>
+          <details><summary>Ver os 4 casos</summary><ul class="cases">
+            <li>Uma dica que cita produto fora da maleta é rejeitada</li>
+            <li>Uma dica que só cita o item ausente e produtos da maleta passa</li>
+            <li>Citar o par esperado nunca conta como produto de fora</li>
+            <li>Sem par curado, devolve o genérico sem chamar o modelo</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Checagem de itens fora da maleta</div><div class="suite-path">Core/AI/ChecagemDeInventarioTests.swift</div></div>
+            <span class="badge">4 casos</span>
+          </div>
+          <p class="desc">A rede de segurança textual usada pelo mapeamento acima — varre a dica gerada em busca de nomes de produto que não estão na maleta do usuário.</p>
+          <details><summary>Ver os 4 casos</summary><ul class="cases">
+            <li>Acusa produto citado que não está na maleta</li>
+            <li>Não acusa nada quando o texto só cita o que está na maleta</li>
+            <li>Não confunde nome curto com pedaço de outra palavra</li>
+            <li>Ignora acento e caixa</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Grounding por categoria</div><div class="suite-path">Core/AI/SubstituicoesCuradasTests.swift</div></div>
+            <span class="badge">2 casos · parametrizado nas 18 categorias</span>
+          </div>
+          <p class="desc">Garante que toda categoria de item de maquiagem tem uma região do rosto e um fato técnico associados — os dois pedaços de contexto que impedem a IA de inventar características de produto.</p>
+          <details><summary>Ver os 2 casos</summary><ul class="cases">
+            <li>Toda categoria tem região e fato técnico não vazios <span class="mono">(×18 categorias)</span></li>
+            <li>A região só é boca, olhos ou rosto <span class="mono">(×18 categorias)</span></li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Limite de tamanho da dica</div><div class="suite-path">Core/AI/LimiteDaDicaTests.swift</div></div>
+            <span class="badge">3 casos</span>
+          </div>
+          <p class="desc">O corte de 260 caracteres aplicado a qualquer dica antes de chegar ao balão de fala — sempre preferindo cortar no fim de uma frase.</p>
+          <details><summary>Ver os 3 casos</summary><ul class="cases">
+            <li>Corta no fim de frase quando passa do limite</li>
+            <li>Não mexe em texto já curto</li>
+            <li>Sem ponto final no trecho cortado, corta na última palavra inteira</li>
+          </ul></details>
+        </div>
+      </section>
+
+      <section id="catalogo">
+        <div class="sec-head"><h2>Catálogo de maquiagem</h2><span class="sec-count">1 suíte · 4 testes</span></div>
+        <p class="intro">O catálogo estático dos 24 itens de maquiagem (rosto, olhos, boca) — a fonte única de nome, id e asset usada por toda a IA, pelo Cadastro e pela tela de Tutorial.</p>
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Catálogo de maquiagem</div><div class="suite-path">Core/Catalogo/CatalogoMaquiagemTests.swift</div></div>
+            <span class="badge">4 casos</span>
+          </div>
+          <details><summary>Ver os 4 casos</summary><ul class="cases">
+            <li>Ids não se repetem</li>
+            <li>Todo item tem categoria compatível com a lista em que está</li>
+            <li>Nenhum item fica sem nome ou sem asset</li>
+            <li>Nome desconhecido não derruba a tela</li>
+          </ul></details>
+        </div>
+      </section>
+
+      <section id="design-system">
+        <div class="sec-head"><h2>Sistema de design</h2><span class="sec-count">5 suítes · 16 testes</span></div>
+        <p class="intro">Testes de <em>propriedade</em> sobre paleta, tipografia, assets e o balão de fala — verificam contraste, existência de asset e legibilidade em vez de renderizar pixels, o que os mantém rápidos e estáveis mesmo sem rodar em um dispositivo.</p>
+
+        <table>
+          <tr><th>Suíte</th><th>Arquivo</th><th>Casos</th><th>O que garante</th></tr>
+          <tr>
+            <td>Paleta</td><td class="mono">PaletaTests.swift</td><td class="num">4</td>
+            <td>Todo Color Set de botão existe no catálogo de assets; o degradê e a sombra de cada botão têm contraste visível; a cor de contexto não colide com o roxo padrão.</td>
+          </tr>
+          <tr>
+            <td>Balão de fala</td><td class="mono">BalaoDeFalaTests.swift</td><td class="num">5</td>
+            <td>O balão de contexto usa cor própria; o texto contrasta com o fundo; botões acompanham a cor do balão; a aba não cobre a primeira linha; o texto não passa por baixo do botão de avançar.</td>
+          </tr>
+          <tr>
+            <td>Descrição das artes</td><td class="mono">DescricaoDeArteTests.swift</td><td class="num">3</td>
+            <td>Toda arte "descritível" (VoiceOver) tem uma descrição não vazia no <code>Acessibilidade.xcstrings</code>; arte sem entrada permanece só decorativa.</td>
+          </tr>
+          <tr>
+            <td>Assets do catálogo</td><td class="mono">AssetsTests.swift</td><td class="num">2</td>
+            <td>Carregar qualquer asset do catálogo nunca derruba o app; nomes de cor não são confundidos com nomes de imagem.</td>
+          </tr>
+          <tr>
+            <td>Tipografia</td><td class="mono">FontesTests.swift</td><td class="num">2</td>
+            <td>As três variantes da fonte Life Savers estão no bundle e se registram no sistema; registrar duas vezes não quebra.</td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="persistencia">
+        <div class="sec-head"><h2>Persistência</h2><span class="sec-count">3 suítes · 11 testes</span></div>
+        <p class="intro">Os três repositórios SwiftData da aplicação, todos exercitados contra um <code>ModelContainer</code> real em memória (não mockado) — validando tanto a operação isolada quanto a sobrevivência dos dados a um novo contexto, o cenário mais próximo de um relançamento do app.</p>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Maleta em SwiftData</div><div class="suite-path">Core/Persistence/RepositoriosTests.swift · SwiftDataInventoryRepositoryTests</div></div>
+            <span class="badge">4 casos</span>
+          </div>
+          <details><summary>Ver os 4 casos</summary><ul class="cases">
+            <li>Adiciona e recupera</li>
+            <li>Adicionar o mesmo item duas vezes não duplica</li>
+            <li>Remove pelo id do catálogo</li>
+            <li>Os ids cadastrados são o que a tela de Cadastro desenha</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Álbum de fotos em SwiftData</div><div class="suite-path">Core/Persistence/RepositoriosTests.swift · SwiftDataFotoRepositoryTests</div></div>
+            <span class="badge">2 casos</span>
+          </div>
+          <details><summary>Ver os 2 casos</summary><ul class="cases">
+            <li>Salva e lista da mais recente para a mais antiga</li>
+            <li>Apaga uma foto</li>
+          </ul></details>
+        </div>
+
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Progresso em SwiftData</div><div class="suite-path">Core/Persistence/RepositoriosTests.swift · SwiftDataProgressRepositoryTests</div></div>
+            <span class="badge">5 casos</span>
+          </div>
+          <details><summary>Ver os 5 casos</summary><ul class="cases">
+            <li>Cria o progresso na primeira consulta e reaproveita depois</li>
+            <li>Não marca a mesma etapa duas vezes</li>
+            <li>Conta tutoriais concluídos por subcultura</li>
+            <li>A conclusão sobrevive a um contexto novo</li>
+            <li>A etapa concluída sobrevive a um contexto novo</li>
+          </ul></details>
+        </div>
+      </section>
+
+      <section id="roteiro">
+        <div class="sec-head"><h2>Roteiros</h2><span class="sec-count">1 suíte · 9 testes</span></div>
+        <p class="intro">Os quatro roteiros em JSON (gótica, gyaru, new-romantic, onboarding) decodificados a partir do bundle real — inclusive a resolução automática de <code>pt-BR.lproj</code>/<code>en.lproj</code> usada pela localização em inglês. Como os testes são parametrizados em <code>Subcultura.allCases</code>, uma quarta trilha adicionada no futuro herda esta cobertura automaticamente.</p>
+        <div class="suite">
+          <div class="suite-head">
+            <div><div class="suite-title">Roteiros do bundle</div><div class="suite-path">Core/Roteiro/RoteiroLoaderTests.swift</div></div>
+            <span class="badge">9 casos</span>
+          </div>
+          <details><summary>Ver os 9 casos</summary><ul class="cases">
+            <li>As três trilhas decodificam <span class="mono">(×3 subculturas)</span></li>
+            <li>O fluxo de primeiro uso decodifica e alterna fala e tela</li>
+            <li>Toda etapa tem ao menos uma fala <span class="mono">(×3)</span></li>
+            <li>Ids de etapa não se repetem dentro de uma trilha <span class="mono">(×3)</span></li>
+            <li>Todo item citado existe no catálogo <span class="mono">(×3)</span></li>
+            <li>Toda fala tem a sua ilustração <span class="mono">(×3)</span></li>
+            <li>A trilha da Lucy tem toda a arte no catálogo</li>
+            <li>Cada trilha abre e fecha <span class="mono">(×3)</span></li>
+            <li>Os produtos declarados pela personagem existem no catálogo <span class="mono">(×3)</span></li>
+          </ul></details>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="sec-head"><h2>ViewModels de feature</h2><span class="sec-count">10 suítes · 40 testes</span></div>
+        <p class="intro">O maior bloco do plano — a camada de apresentação de cada fluxo, sempre isolada de SwiftData e da IA real via os dublês descritos em Abordagem. É aqui que vivem os testes de concorrência mais delicados: chamadas assíncronas à IA que não podem sobrescrever a etapa errada quando o usuário já avançou.</p>
+
+        <table>
+          <tr><th>Suíte</th><th>Arquivo</th><th>Casos</th><th>O que garante</th></tr>
+          <tr>
+            <td>Tutorial</td><td class="mono" rowspan="6">TutorialViewModel<br>Tests.swift</td><td class="num">7</td>
+            <td>Quando a IA é chamada (só se falta item), o inventário passado é um snapshot Sendable, erro da IA vira estado de tela em vez de crash, e o avanço fala-a-fala respeita o fim do tutorial.</td>
+          </tr>
+          <tr><td>Tutorial com o roteiro real</td><td class="num">2</td><td>Os mesmos comportamentos acima, mas contra um roteiro decodificado de verdade (não um <code>Fixture</code>), na etapa Base da Lucy.</td></tr>
+          <tr><td>Estilo do balão a partir do roteiro</td><td class="num">6</td><td>Cada tipo de fala mapeia pro estilo de balão certo (padrão / passo / contexto), a aba mostra o rótulo certo, e saltar de etapa leva à primeira fala dela.</td></tr>
+          <tr><td>Cena do tutorial</td><td class="num">5</td><td>A posição da personagem e o foco acompanham o balão atual; não dá pra voltar antes da primeira fala; voltar atravessa fronteira de etapa sem desfazer progresso já salvo.</td></tr>
+          <tr><td>A dica de sugestão como parada extra</td><td class="num">4</td><td>A dica da IA aparece como uma parada a mais no fluxo, sem substituir nenhuma fala do roteiro, e some quando a etapa não tem item faltando.</td></tr>
+          <tr><td>Respostas fora de ordem não se sobrescrevem</td><td class="num">1</td><td>Usa o dublê <code>SuggesterControlavel</code> para provar que a resposta atrasada de uma etapa anterior não pisa na etapa atual.</td></tr>
+          <tr>
+            <td>Cadastro da maleta</td><td class="mono" rowspan="2">CadastroViewModel<br>Tests.swift</td><td class="num">4</td>
+            <td>Toque adiciona/remove item da maleta; arraste só adiciona; a maleta já cadastrada é recarregada; erro do repositório vira mensagem amigável.</td>
+          </tr>
+          <tr><td>Acerto do arraste na maleta</td><td class="num">4</td><td>A geometria de "soltar item dentro da moldura da maleta" — inclusive a tolerância nas bordas e o caso sem moldura ainda medida.</td></tr>
+          <tr>
+            <td>Lembranças</td><td class="mono">LembrancaViewModelTests.swift</td><td class="num">4</td>
+            <td>Nenhuma lembrança liberada no começo; concluir uma trilha libera só a lembrança dela; repetir a trilha não desfaz o que já foi liberado; erro de leitura não derruba a tela.</td>
+          </tr>
+          <tr>
+            <td>Primeiro uso com a Edna</td><td class="mono">OnboardingViewModelTests.swift</td><td class="num">3</td>
+            <td>O onboarding percorre falas e telas na ordem do roteiro, guarda a subcultura escolhida e termina depois da última fala.</td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="fora-do-escopo">
+        <div class="sec-head"><h2>Fora do escopo e riscos conhecidos</h2></div>
+        <p class="intro">Este plano cobre exclusivamente o alvo <code>myGlowTests</code>. Três áreas ficam deliberadamente fora ou parcialmente cobertas — registradas aqui para não serem confundidas com lacuna silenciosa.</p>
+
+        <div class="callout risk">
+          <h4>Comportamento real da IA on-device</h4>
+          <p>O Simulador não tem uma sessão real de Apple Intelligence — <code>FoundationModelsSuggester</code> só é testado até onde dá para isolar deterministicamente (mapeamento da resposta, guardrails, escolha de idioma da instrução). A qualidade e o idioma do texto realmente gerado pelo modelo só podem ser confirmados num dispositivo físico com Apple Intelligence ativa.</p>
+        </div>
+
+        <div class="callout warn">
+          <h4>Fluxos de interface (myGlowUITests)</h4>
+          <p>Navegação ponta a ponta, gestos e captura de tela vivem numa suíte XCUITest separada, não descrita aqui. Há um bug de ambiente conhecido e já mapeado: no runtime do Simulador iOS 26.5 desta máquina, o XCUITest não consegue calcular o ponto de toque de nenhum <code>Button</code> SwiftUI com <code>.rotationEffect</code> aplicado — o que hoje impede tocar diretamente nos cards de personagem do Salão via teste automatizado.</p>
+        </div>
+
+        <div class="callout warn">
+          <h4>Completude da tradução (pt-BR / en)</h4>
+          <p>Nenhuma suíte hoje itera automaticamente as chaves de <code>Localizable.xcstrings</code> para garantir que toda string usada em código tem tradução para inglês — essa verificação foi feita manualmente/por script ad-hoc durante a localização. Ver recomendação em Manutenção.</p>
+        </div>
+      </section>
+
+      <section id="manutencao">
+        <div class="sec-head"><h2>Diretrizes de manutenção</h2></div>
+        <p class="intro">Como este plano deve crescer junto com o código, sem virar documentação desatualizada.</p>
+
+        <table>
+          <tr><th>Ao fazer isto…</th><th>…verifique/estenda isto</th></tr>
+          <tr><td>Adicionar uma nova regra em <code>SubstituicoesCuradas.regras</code></td><td>Acrescentar um caso a <b>Fallback por regras estáticas</b>; se a categoria for nova, <b>Grounding por categoria</b> já cobre automaticamente por ser parametrizada.</td></tr>
+          <tr><td>Adicionar uma quarta trilha/subcultura</td><td><b>Roteiros do bundle</b> herda a cobertura automaticamente (parametrizado em <code>Subcultura.allCases</code>); ainda assim, adicionar um teste de conteúdo específico se a trilha tiver uma regra de negócio própria.</td></tr>
+          <tr><td>Adicionar um novo ViewModel de feature</td><td>Seguir o padrão desta seção: repositórios em memória (<code>InventarioEmMemoria</code>/<code>ProgressoEmMemoria</code>) e <code>SuggesterFalso</code> como dublês, nunca SwiftData real nem o modelo on-device.</td></tr>
+          <tr><td>Adicionar uma nova string traduzível</td><td><i>Lacuna aberta</i> — recomenda-se um teste que itere as chaves de <code>Localizable.xcstrings</code> e falhe se alguma não tiver valor em <code>en</code>, fechando o risco descrito acima.</td></tr>
+        </table>
+      </section>
+
+      <footer>
+        Plano gerado a partir da leitura direta de <code>myGlowTests/</code> — 27 suítes, 104 testes, framework Swift Testing. Reflete o estado do repositório em 14/09/2026.
+      </footer>
+
+    </main>
+  </div>
+</div>

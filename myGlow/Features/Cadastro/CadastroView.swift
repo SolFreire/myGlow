@@ -15,6 +15,11 @@ struct CadastroView: View {
     @State private var molduraDaMaleta: CGRect = .zero
     @State private var maletaEmDestaque = false
     @State private var arrastandoAlgo = false
+    @State private var destinoNaMaleta: ItemCatalogo.ID?
+    @State private var posicaoDaMaleta = ScrollPosition()
+    @State private var estadoDaMaleta = EstadoDeRolagem()
+    @State private var posicaoDoCatalogo = ScrollPosition()
+    @State private var estadoDoCatalogo = EstadoDeRolagem()
 
     private let espaco = "cadastro"
 
@@ -101,21 +106,45 @@ struct CadastroView: View {
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
-                    ScrollView {
-                        LazyVGrid(
-                            columns: [GridItem(.adaptive(minimum: l * 0.18), spacing: 10)],
-                            spacing: 10
-                        ) {
-                            ForEach(vm.itensNaMaleta) { item in
-                                CartaoDeItem(item: item, dentroDaMaleta: true) {
-                                    Task { await vm.alternar(item) }
-                                    SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                    HStack(spacing: 6) {
+                        ScrollView {
+                            LazyVGrid(
+                                columns: [GridItem(.adaptive(minimum: l * 0.18), spacing: 10)],
+                                spacing: 10
+                            ) {
+                                ForEach(vm.itensNaMaleta) { item in
+                                    CartaoDeItem(item: item, dentroDaMaleta: true) {
+                                        Task { await vm.alternar(item) }
+                                        SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                                    }
                                 }
                             }
+                            .scrollTargetLayout()
+                            .animation(.snappy(duration: 0.28), value: vm.itensNaMaleta)
+                            .padding(.vertical, 6)
+                            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { altura in
+                                estadoDaMaleta.alturaDoConteudo = altura
+                            }
                         }
-                        .padding(.vertical, 6)
+                        .scrollIndicators(.hidden)
+                        .frame(maxWidth: .infinity)
+                        .scrollPosition($posicaoDaMaleta)
+                        .onScrollGeometryChange(for: CGFloat.self) { $0.contentOffset.y } action: { _, novo in
+                            estadoDaMaleta.deslocamento = novo
+                        }
+                        .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, novo in
+                            estadoDaMaleta.alturaVisivel = novo
+                        }
+                        .onChange(of: destinoNaMaleta) { _, novo in
+                            guard let novo else { return }
+                            withAnimation(.snappy(duration: 0.3)) {
+                                posicaoDaMaleta.scrollTo(id: novo, anchor: .center)
+                            }
+                            destinoNaMaleta = nil
+                        }
+
+                        GuiaDeRolagem(estado: estadoDaMaleta, posicao: $posicaoDaMaleta)
                     }
-                    .scrollIndicators(.hidden)
                 }
             }
             .frame(width: l * (Interior.direita - Interior.esquerda),
@@ -152,43 +181,66 @@ struct CadastroView: View {
             }
             .disabled(vm.quantidadeNaMaleta == 0 && modo == .onboarding)
 
-            ScrollView {
-                LazyVGrid(
-                    columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
-                    spacing: 12
-                ) {
-                    ForEach(vm.itensForaDaMaleta) { item in
-                        CartaoDeItem(
-                            item: item,
-                            dentroDaMaleta: false,
-                            espaco: espaco,
-                            aoTocar: {
-                                Task { await vm.alternar(item) }
-                                SoundManager.shared.playSoundEffect(named: "botao-efeito")
-                            },
-                            aoArrastar: { ponto in
-                                arrastandoAlgo = true
-                                maletaEmDestaque = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
-                            },
-                            aoSoltar: { ponto in
-                                arrastandoAlgo = false
-                                maletaEmDestaque = false
-                                let acertou = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
-                                if acertou {
-                                    Task { await vm.adicionar(item) }
+            HStack(spacing: 4) {
+                ScrollView {
+                    LazyVGrid(
+                        columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
+                        spacing: 12
+                    ) {
+                        ForEach(vm.itensForaDaMaleta) { item in
+                            CartaoDeItem(
+                                item: item,
+                                dentroDaMaleta: false,
+                                espaco: espaco,
+                                aoTocar: {
+                                    Task {
+                                        await vm.alternar(item)
+                                        destinoNaMaleta = item.id
+                                    }
                                     SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                                },
+                                aoArrastar: { ponto in
+                                    arrastandoAlgo = true
+                                    maletaEmDestaque = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
+                                },
+                                aoSoltar: { ponto in
+                                    arrastandoAlgo = false
+                                    maletaEmDestaque = false
+                                    let acertou = ArrasteMaleta.acertou(ponto: ponto, maleta: molduraDaMaleta)
+                                    if acertou {
+                                        Task {
+                                            await vm.adicionar(item)
+                                            destinoNaMaleta = item.id
+                                        }
+                                        SoundManager.shared.playSoundEffect(named: "botao-efeito")
+                                    }
+                                    return acertou
                                 }
-                                return acertou
-                            }
-                        )
+                            )
+                        }
+                    }
+                    .animation(.snappy(duration: 0.28), value: vm.itensForaDaMaleta)
+                    .padding(.vertical, Medida.recuoDoCatalogo)
+                    .padding(.trailing, Medida.recuoDoCatalogo)
+                    .padding(.leading, Medida.respiroAteAMaleta)
+                    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { altura in
+                        estadoDoCatalogo.alturaDoConteudo = altura
                     }
                 }
-                .padding(.vertical, Medida.recuoDoCatalogo)
-                .padding(.trailing, Medida.recuoDoCatalogo)
-                .padding(.leading, Medida.respiroAteAMaleta)
+                .scrollIndicators(.hidden)
+                .scrollClipDisabled(arrastandoAlgo)
+                .frame(maxWidth: .infinity)
+                .scrollPosition($posicaoDoCatalogo)
+                .onScrollGeometryChange(for: CGFloat.self) { $0.contentOffset.y } action: { _, novo in
+                    estadoDoCatalogo.deslocamento = novo
+                }
+                .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, novo in
+                    estadoDoCatalogo.alturaVisivel = novo
+                }
+
+                GuiaDeRolagem(estado: estadoDoCatalogo, posicao: $posicaoDoCatalogo)
+                    .padding(.trailing, Medida.recuoDoCatalogo)
             }
-            .scrollIndicators(.hidden)
-            .scrollClipDisabled(arrastandoAlgo)
             .background(
                 Cores.painelDoCatalogo,
                 in: UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
@@ -216,35 +268,53 @@ private struct CartaoDeItem: View {
     @State private var arrastando = false
 
     var body: some View {
+        arte
+        .overlay(alignment: .bottom) {
+            legenda.padding(.bottom, dentroDaMaleta ? 3 : 10)
+        }
+        .background {
+            if !dentroDaMaleta {
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(Cores.cartaoDoCatalogo)
+            }
+        }
+        .scaleEffect(arrastando ? 1.12 : 1)
+        .offset(deslocamento)
+        .zIndex(arrastando ? 1 : 0)
+        .onTapGesture(perform: aoTocar)
+        .gesture(arraste)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(item.nome)
+        .accessibilityValue(dentroDaMaleta ? String(localized: "Na maleta") : String(localized: "Fora da maleta"))
+        .accessibilityHint(
+            dentroDaMaleta
+                ? String(localized: "Toque duas vezes para tirar da maleta")
+                : String(localized: "Toque duas vezes para guardar na maleta")
+        )
+        .accessibilityAddTraits(.isButton)
+        .sensoryFeedback(.selection, trigger: dentroDaMaleta)
+    }
+
+    private var arte: some View {
         Color.clear
             .aspectRatio(1, contentMode: .fit)
             .overlay {
                 ArteView(nome: item.asset)
                     .padding(dentroDaMaleta ? 2 : 10)
             }
-            .background {
-                if !dentroDaMaleta {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Cores.cartaoDoCatalogo)
-                }
-            }
-            .scaleEffect(arrastando ? 1.12 : 1)
-            .offset(deslocamento)
-            .zIndex(arrastando ? 1 : 0)
-            .onTapGesture(perform: aoTocar)
-            .gesture(arraste)
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel(item.nome)
-            .accessibilityValue(dentroDaMaleta ? String(localized: "Na maleta") : String(localized: "Fora da maleta"))
-            .accessibilityHint(
-                dentroDaMaleta
-                    ? String(localized: "Toque duas vezes para tirar da maleta")
-                    : String(localized: "Toque duas vezes para guardar na maleta")
-            )
-            .accessibilityAddTraits(.isButton)
-            .sensoryFeedback(.selection, trigger: dentroDaMaleta)
     }
 
+    private var legenda: some View {
+        RotuloIlustrado(
+            texto: item.nome,
+            tamanho: dentroDaMaleta ? 16 : 20,
+            larguraDoTraco: dentroDaMaleta ? 1.8 : 2.0,
+            linhas: 2
+        )
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, dentroDaMaleta ? 2 : 6)
+        .dynamicTypeSize(...(dentroDaMaleta ? .xxLarge : .accessibility3))
+    }
 
     private var arraste: some Gesture {
         DragGesture(minimumDistance: 12, coordinateSpace: .named(espaco))

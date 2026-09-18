@@ -19,7 +19,7 @@
       "tipo": "fala",
       "tela": null,
       "falas": [
-        "Yay! Now we know how to adapt some of the makeup. Here in the course you'll have several different specialists — do you already know which style to try?"
+        "Yay! Now we know how to adapt some of the makeup. Here in the course you'll have several different specialists. Do you already know which style to try?"
       ]
     },
     { "tipo": "tela", "tela": "salao", "falas": null },
